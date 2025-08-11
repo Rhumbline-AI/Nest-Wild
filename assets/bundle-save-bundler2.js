@@ -157,17 +157,28 @@
 
     // Initialize component state
     initializeState: function() {
-      // Hide all detail sections initially
-      $(this.selectors.pillowDetails).hide();
-      $(this.selectors.bedbaseDetails).hide();
-      $(this.selectors.bundleActions).hide();
+      // Show all detail sections by default
+      $(this.selectors.pillowDetails).show();
+      $(this.selectors.bedbaseDetails).show();
+      $(this.selectors.bundleActions).show();
       
-      // Reset checkboxes
-      $(this.selectors.pillowCheckbox).prop('checked', false);
-      $(this.selectors.bedbaseCheckbox).prop('checked', false);
+      // Set checkboxes to checked by default
+      $(this.selectors.pillowCheckbox).prop('checked', true);
+      $(this.selectors.bedbaseCheckbox).prop('checked', true);
       
       // Set default pillow size
       $(`${this.selectors.pillowSizeRadios}[value="standard"]`).prop('checked', true);
+      
+      // Set default bed base to adjustable
+      $(`${this.selectors.bedbaseTypeRadios}[value="adjustable"]`).prop('checked', true);
+      
+      // Update bundle state
+      this.state.pillowEnabled = true;
+      this.state.bedbaseEnabled = true;
+      this.state.selectedBedbaseType = 'adjustable';
+      
+      // Update bundle total
+      this.updateBundleTotal();
     },
 
     // Toggle pillow section visibility

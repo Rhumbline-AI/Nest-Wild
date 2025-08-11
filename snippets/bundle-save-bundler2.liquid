@@ -24,15 +24,15 @@
     {%- if section.settings.enable_pillow_bundle -%}
     <div class="bundle-option pillow-bundle" role="group" aria-labelledby="pillow-bundle-title">
     <div class="bundle-option-header">
-      <label class="checkbox-container">
-        <input type="checkbox" class="checkbox bundle-checkbox" id="add-pillow" data-bundle-type="pillow" aria-describedby="pillow-bundle-description">
-        <span class="checkmark" aria-hidden="true"></span>
+      <label class="toggle-container">
+        <input type="checkbox" class="toggle-input bundle-checkbox" id="add-pillow" data-bundle-type="pillow" aria-describedby="pillow-bundle-description">
+        <span class="toggle-slider" aria-hidden="true"></span>
         <span class="bundle-option-title" id="pillow-bundle-title">Add Pillow</span>
       </label>
       <span class="sr-only" id="pillow-bundle-description">Select to add a pillow to your bundle with size and quantity options</span>
     </div>
     
-    <div class="bundle-option-details" id="pillow-options" style="display: none;">
+    <div class="bundle-option-details" id="pillow-options">
       <div class="bundle-product-info">
         {%- assign pillow_product = section.settings.pillow_product -%}
         {%- if pillow_product -%}
@@ -93,14 +93,14 @@
     {%- if section.settings.enable_bedbase_bundle -%}
     <div class="bundle-option bedbase-bundle">
     <div class="bundle-option-header">
-      <label class="checkbox-container">
-        <input type="checkbox" class="checkbox bundle-checkbox" id="add-bedbase" data-bundle-type="bedbase">
-        <span class="checkmark"></span>
+      <label class="toggle-container">
+        <input type="checkbox" class="toggle-input bundle-checkbox" id="add-bedbase" data-bundle-type="bedbase">
+        <span class="toggle-slider"></span>
         <span class="bundle-option-title">Add Bed Base</span>
       </label>
     </div>
     
-    <div class="bundle-option-details" id="bedbase-options" style="display: none;">
+    <div class="bundle-option-details" id="bedbase-options">
       <div class="bundle-product-info">
         <div class="bundle-product-image">
           <img src="" alt="Bed Base" id="bedbase-image" loading="lazy" style="display: none;">
@@ -121,7 +121,7 @@
             
             {%- if adjustable_product -%}
             <label class="radio-container">
-              <input type="radio" name="bedbase-type" value="adjustable" class="bundle-radio bedbase-radio" 
+              <input type="radio" name="bedbase-type" value="adjustable" class="bundle-radio bedbase-radio" checked
                      data-product-id="{{ adjustable_product.id }}" 
                      data-product-handle="{{ adjustable_product.handle }}"
                      data-product-title="{{ adjustable_product.title }}"
@@ -172,14 +172,10 @@
   </div> <!-- End bundle-options-grid -->
 
   <!-- Bundle Actions -->
-  <div class="bundle-actions" style="display: none;">
+  <div class="bundle-actions">
     <div class="bundle-actions-content">
-      <div class="bundle-total-price">
-        <span class="bundle-total-label">Bundle Total: </span>
-        <span class="bundle-total-amount" id="bundle-total">$0.00</span>
-      </div>
-      <button type="button" class="button button--primary bundle-add-to-cart" id="bundle-add-to-cart">
-        Add Bundle to Cart
+      <button type="button" class="bundle-add-to-cart" id="bundle-add-to-cart">
+        ADD BUNDLE TO CART
       </button>
     </div>
   </div>
@@ -324,13 +320,13 @@
 
 .bundle-option-details {
   padding: 12px;
-  display: none; /* Hidden by default, shown by JavaScript */
+  display: block; /* Show by default */
   border-top: 1px solid #e5e5e5;
   background: #fff;
 }
 
-/* Checkbox Styling */
-.checkbox-container {
+/* Toggle Switch Styling */
+.toggle-container {
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -338,16 +334,46 @@
   position: relative;
 }
 
-.checkbox-container input[type="checkbox"] {
+.toggle-input {
   opacity: 0;
   position: absolute;
   cursor: pointer;
 }
 
-.checkmark {
-  height: 20px;
-  width: 20px;
-  background-color: #fff;
+.toggle-slider {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  background-color: #ccc;
+  border-radius: 12px;
+  margin-right: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-slider:before {
+  content: "";
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.toggle-input:checked + .toggle-slider {
+  background-color: var(--primary-button-background, #f04f23);
+}
+
+.toggle-input:checked + .toggle-slider:before {
+  transform: translateX(20px);
+}
+
+.toggle-input:focus + .toggle-slider {
+  box-shadow: 0 0 0 2px rgba(240, 79, 35, 0.3);
+}
   border: 2px solid #ddd;
   border-radius: 3px;
   margin-right: 12px;
@@ -500,11 +526,140 @@
   font-weight: 400;
 }
 
+/* Product Info Display */
+.bundle-product-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  gap: 10px;
+}
+
+.bundle-product-image {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.bundle-product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bundle-product-meta {
+  flex: 1;
+}
+
+.bundle-product-title {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 0 4px 0;
+  color: var(--heading-color, #333);
+  font-family: inherit;
+  line-height: 1.2;
+}
+
+.bundle-product-price {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--primary-button-background, #f04f23);
+  font-family: inherit;
+  margin: 0;
+}
+
 /* Size Options */
 .bundle-size-options,
 .bundle-bedbase-options {
   display: flex;
   flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Bundle Controls Layout */
+.bundle-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bundle-size-selector,
+.bundle-quantity-selector,
+.bundle-bedbase-selector {
+  margin: 0;
+}
+
+.bundle-option-title {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
+  color: var(--heading-color, #333);
+  font-family: inherit;
+}
+
+.bundle-field-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: var(--text-color, #333);
+  font-family: inherit;
+}
+
+/* Radio Button Styling */
+.radio-container {
+  display: flex;
+  align-items: center;
+  margin-right: 12px;
+  margin-bottom: 6px;
+  cursor: pointer;
+  position: relative;
+}
+
+.radio-container input[type="radio"] {
+  opacity: 0;
+  position: absolute;
+  cursor: pointer;
+}
+
+.radio-checkmark {
+  height: 16px;
+  width: 16px;
+  background-color: #fff;
+  border: 2px solid #ddd;
+  border-radius: 50%;
+  margin-right: 8px;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.radio-container:hover .radio-checkmark {
+  border-color: var(--primary-button-background, #f04f23);
+}
+
+.radio-container input:checked ~ .radio-checkmark {
+  background-color: var(--primary-button-background, #f04f23);
+  border-color: var(--primary-button-background, #f04f23);
+}
+
+.radio-container input:checked ~ .radio-checkmark:after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: white;
+}
+
+.radio-label {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-color, #333);
+  font-family: inherit;
 }
 
 /* Quantity Selector */
@@ -514,15 +669,16 @@
   border: 1px solid #ddd;
   border-radius: 4px;
   overflow: hidden;
+  width: fit-content;
 }
 
 .quantity-btn {
   background: #f8f8f8;
   border: none;
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   color: var(--text-color, #333);
   transition: background-color 0.2s ease;
@@ -534,10 +690,10 @@
 
 .quantity-input {
   border: none;
-  width: 60px;
-  height: 36px;
+  width: 50px;
+  height: 32px;
   text-align: center;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   color: var(--text-color, #333);
 }
@@ -555,12 +711,12 @@
 
 /* Bundle Actions */
 .bundle-actions {
-  margin-top: 20px;
-  padding: 16px;
+  margin-top: 16px;
+  padding: 12px;
   border-top: 1px solid #e5e5e5;
   background: #f9f9f9;
   border-radius: 4px;
-  display: none;
+  display: block;
 }
 
 .bundle-actions.visible {
@@ -569,9 +725,8 @@
 
 .bundle-actions-content {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  gap: 16px;
 }
 
 .bundle-total-price {
@@ -593,14 +748,16 @@
   background: var(--primary-button-background, #f04f23);
   color: var(--primary-button-text-color, #fff);
   border: none;
-  padding: 12px 24px;
-  font-size: 14px;
-  font-weight: 500;
+  padding: 10px 20px;
+  font-size: 12px;
+  font-weight: 600;
   font-family: inherit;
-  border-radius: 4px;
+  border-radius: 0;
   cursor: pointer;
   transition: background-color 0.2s ease;
   white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .bundle-add-to-cart:hover {
@@ -619,33 +776,62 @@
 
 /* Responsive Design */
 @media screen and (max-width: 740px) {
+  .shopify-section--bundle-save {
+    margin: -20px 0 30px 0;
+  }
+  
   .bundle-save-container {
-    padding: 16px;
-    margin: 16px 0;
+    padding: 14px;
+    margin: 0;
+  }
+  
+  .bundle-options-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  .bundle-option-header {
+    padding: 8px 10px;
+  }
+  
+  .bundle-option-details {
+    padding: 10px;
   }
   
   .bundle-controls {
-    flex-direction: column;
-    gap: 16px;
-  }
-  
-  .bundle-product-info {
-    flex-direction: column;
-    text-align: center;
+    gap: 8px;
   }
   
   .bundle-product-image {
-    margin: 0 auto 12px auto;
+    width: 45px;
+    height: 45px;
   }
   
   .bundle-size-options,
   .bundle-bedbase-options {
-    flex-direction: column;
+    gap: 6px;
   }
   
   .radio-container {
     margin-right: 0;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
+  }
+  
+  .bundle-actions {
+    padding: 10px;
+    margin-top: 12px;
+  }
+  
+  .bundle-actions-content {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  
+  .bundle-add-to-cart {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
   }
 }
 </style>
