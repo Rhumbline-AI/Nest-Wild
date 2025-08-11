@@ -1,0 +1,28 @@
+{
+  "sections": {
+    "gp_section_535013673903588347": {
+      "type": "gp-section-535013673903588347",
+      "settings": {
+        "section_preload": "true",
+        "checksum": "3988e4b9bf06b0118cc86d39a917c1159c3849cbca3f141097b98808f4cd6cf5_1_1"
+      }
+    },
+    "gp_section_535016978427937807": {
+      "type": "gp-section-535016978427937807",
+      "settings": {
+        "checksum": "584e6ceb926bbfd49b5e58a71aec0267d59e83c696d23910ad603ee1bab1b68a_1_1"
+      }
+    },
+    "gp_section_535014966504195087": {
+      "type": "gp-section-535014966504195087",
+      "settings": {
+        "checksum": "dc37de39aae07a730519f6fe478a6ec850411b75267aad9fdf5acfdb1348f0cd_1_1"
+      }
+    }
+  },
+  "order": [
+    "gp_section_535013673903588347",
+    "gp_section_535016978427937807",
+    "gp_section_535014966504195087"
+  ]
+}

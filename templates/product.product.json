@@ -1,0 +1,325 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "image_aE9TpA": {
+          "type": "image",
+          "disabled": true,
+          "settings": {
+            "image": "shopify:\/\/shop_images\/sale-product-page-cta-2.jpg",
+            "image_alignment": "left",
+            "image_width": 500
+          }
+        },
+        "description_mWM4j7": {
+          "type": "description",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "hide_sold_out_variants": true,
+            "selector_mode": "block",
+            "color_mode": "block",
+            "size_chart_page": ""
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_payment_button": true,
+            "atc_button_background": "#f04f23",
+            "atc_button_text_color": "#ffffff",
+            "buy_now_button_background": "#e7e7e7",
+            "buy_now_button_text_color": "#0e2333"
+          }
+        },
+        "d39968b7-540d-435f-9183-265c2ca08448": {
+          "type": "inventory",
+          "disabled": true,
+          "settings": {
+            "low_inventory_threshold": 0
+          }
+        },
+        "liquid_6djfML": {
+          "type": "liquid",
+          "settings": {
+            "liquid": ""
+          }
+        },
+        "liquid_cdE7cp": {
+          "type": "liquid",
+          "disabled": true,
+          "settings": {
+            "liquid": "<div id=\"bundler-target-element\"><\/div>"
+          }
+        }
+      },
+      "block_order": [
+        "image_aE9TpA",
+        "description_mWM4j7",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "d39968b7-540d-435f-9183-265c2ca08448",
+        "liquid_6djfML",
+        "liquid_cdE7cp"
+      ],
+      "custom_css": [
+        ".product-form__image {max-width: none !important; width: 100% !important;}"
+      ],
+      "settings": {
+        "show_vendor": false,
+        "show_sku": false,
+        "show_taxes_included": false,
+        "show_product_rating": true,
+        "show_sticky_add_to_cart": false,
+        "show_share_buttons": false,
+        "help_page": "",
+        "enable_video_autoplay": false,
+        "enable_video_looping": false,
+        "enable_image_zoom": true,
+        "show_thumbnails_on_mobile": true,
+        "desktop_thumbnails_position": "bottom",
+        "transition_effect": "slide"
+      }
+    },
+    "product-content": {
+      "type": "product-content",
+      "blocks": {
+        "ec0f8393-9e59-41b1-8702-f243650db7fa": {
+          "type": "trust",
+          "settings": {
+            "icon_1": "picto-customer-support",
+            "title_1": "Shipping & Returns",
+            "content_1": "<p>Add text about your shipping policy<\/p>",
+            "icon_2": "picto-warranty",
+            "title_2": "Warranty",
+            "content_2": "<p>Add text about your product warranty<\/p>",
+            "icon_3": "picto-secure-payment",
+            "title_3": "Secure Payment",
+            "content_3": "<p>Add text about your payment<\/p>"
+          }
+        },
+        "5c339632-3da1-424f-b7e0-da5a5e2a3ad2": {
+          "type": "content",
+          "settings": {
+            "title": "Description",
+            "content": "<p><strong>Built for sleep. <\/strong><\/p><p>The Nest & Wild mattress is made with ventilated, high density foam and PCM cooling technology to deliver comfort, support and a good night’s sleep.<\/p><p><\/p><p><strong>Durability<br\/><\/strong>We use pre-treated, high-density foam to increase comfort and eliminate the middle-of-the-bed dips and ditches that appear in other mattresses. We have added a Hybrid\/Coil option.  We use the best coil system we could find, and it is proudly produced in Texas! <a href=\"https:\/\/youtu.be\/O0IkzrSkl94?si=QG7zEFVNazaeADnK\" target=\"_blank\" title=\"https:\/\/youtu.be\/O0IkzrSkl94?si=QG7zEFVNazaeADnK\"><em><strong>Check Out our Coils.<\/strong><\/em><\/a>  Texas Pocket Spring!<\/p><p><strong>Breathability<br\/><\/strong>Every layer of fabric and foam is designed to allow for high airflow for cooler nights, all year long. <\/p><p><strong>Support<br\/><\/strong>We’ve added extra firm layers to support hips and shoulders and prevent aches and pains.  <em><strong>Take a look at our Performance Coil option if you are strong customer that needs strong support! <\/strong><\/em><\/p><p><\/p><p>For more warranty and shipping information<strong>, <\/strong><em><strong>visit our <\/strong><\/em><a href=\"\/pages\/faq\" title=\"FAQ\"><em><strong>FAQ page<\/strong><\/em><\/a><em><strong>.<\/strong><\/em><strong> <\/strong><\/p>",
+            "page": ""
+          }
+        },
+        "e448cf14-f003-4e8f-a66e-05540ecbab0a": {
+          "type": "content",
+          "settings": {
+            "title": "MEASUREMENTS & DIMENSIONS",
+            "content": "<p><strong>Mattress Dimensions:<br\/><\/strong>Twin 39\" x 75\" x 12\"<br\/>Twin XL 39\" x 80\" x 12\"<br\/>Full 54\" x 75\" x 12\"<br\/>Queen 60\" x 80\" x 12\"<br\/>King 76\" x 80\" x 12\"<br\/>Cal King 72\" x 84\" x 12\"<\/p><p><br\/><\/p><p><strong>12\" Original - Mattress Weight:<br\/><\/strong>Twin 53lbs<br\/>Twin XL 60lbs<br\/>Full 85lbs<br\/>Queen 95lbs<br\/>King 112lbs<br\/>California King 112lbs<\/p><p><strong>12\" Hybrid - Mattress Weight:<br\/><\/strong>Twin 75lbs<br\/>Twin XL 78lbs<br\/>Full 100lbs<br\/>Queen 120lbs<br\/>King 140lbs<br\/>California King 140lbs<br\/><\/p><p><strong>For more specs, <\/strong><em><strong>visit our <\/strong><\/em><a href=\"\/pages\/faq\" title=\"FAQ\"><em><strong>FAQ page<\/strong><\/em><\/a><em><strong>.<\/strong><\/em><strong> <\/strong><\/p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "ec0f8393-9e59-41b1-8702-f243650db7fa",
+        "5c339632-3da1-424f-b7e0-da5a5e2a3ad2",
+        "e448cf14-f003-4e8f-a66e-05540ecbab0a"
+      ],
+      "settings": {}
+    },
+    "165480090792111191": {
+      "type": "text-with-icons",
+      "blocks": {
+        "1654800907b07c7429-0": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-box",
+            "custom_icon": "shopify:\/\/shop_images\/NW_icon-americanMade.png",
+            "custom_icon_width": 80,
+            "title": "American made",
+            "content": "<p>And proud of it.<\/p>"
+          }
+        },
+        "1654800907b07c7429-1": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-phone",
+            "custom_icon": "shopify:\/\/shop_images\/NW_icon-0-financing.png",
+            "custom_icon_width": 80,
+            "title": "0% Financing Available",
+            "content": "<p>Pay at your pace.<\/p>"
+          }
+        },
+        "1654800907b07c7429-2": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-lock",
+            "custom_icon": "shopify:\/\/shop_images\/NW_icon-free-shipping.png",
+            "custom_icon_width": 80,
+            "title": "Free Shipping & Returns",
+            "content": "<p>Delivered right to your door.<\/p>"
+          }
+        },
+        "1654800907b07c7429-3": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-email",
+            "custom_icon": "shopify:\/\/shop_images\/NW_icon-99nights.png",
+            "custom_icon_width": 80,
+            "title": "99 Nights on Us",
+            "content": "<p>Or your money back.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "1654800907b07c7429-0",
+        "1654800907b07c7429-1",
+        "1654800907b07c7429-2",
+        "1654800907b07c7429-3"
+      ],
+      "settings": {
+        "background": "#e7e7e7",
+        "text_color": "#292929"
+      }
+    },
+    "1654802427da9341a8": {
+      "type": "image-with-text-block",
+      "settings": {
+        "reveal_on_scroll": true,
+        "image": "shopify:\/\/shop_images\/nw_piggy-back-ride.png",
+        "subheading": "Made well",
+        "title": "in america.",
+        "content": "<p>We believe the best days start with a good night’s sleep. We source the best mattress materials in America and assemble them in our hometown of Tupelo, Mississippi for better quality control and hassle-free shipping direct to your door.<\/p>",
+        "button_text": "SEE OUR STORY",
+        "button_link": "shopify:\/\/pages\/our-story",
+        "background_type": "full_width",
+        "text_position": "overlap_right",
+        "text_alignment": "center",
+        "text_background": "#0e2333",
+        "text_color": "#ffffff",
+        "button_background": "#f04f23",
+        "button_text_color": "#ffffff"
+      }
+    },
+    "1654802872b05ec474": {
+      "type": "multi-column",
+      "blocks": {
+        "1654802872fa952eb9-0": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/nw_matress-closeup.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "<p>Designed for high airflow.<\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
+        "1654802872fa952eb9-1": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/nw_kid-on-mattress_checkeredpants.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "<p>Provides comfort for\u0003sleepers of all sizes.<\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
+        "1654802872fa952eb9-2": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/nw_couple-sleeping.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "<p>Ensures long-lasting,\u0003high-quality sleep.<\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        }
+      },
+      "block_order": [
+        "1654802872fa952eb9-0",
+        "1654802872fa952eb9-1",
+        "1654802872fa952eb9-2"
+      ],
+      "settings": {
+        "reveal_on_scroll": true,
+        "stack_items": false,
+        "subheading": "",
+        "title": "PREMIUM FEATURES BUILT IN.",
+        "content": "",
+        "column_alignment": "center",
+        "mobile_item_size": "medium",
+        "desktop_item_size": "medium",
+        "spacing": "tight",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "custom_liquid_RgwWtY": {
+      "type": "custom-liquid",
+      "custom_css": [
+        ".stamped-widget-buttons {display: none !important;}"
+      ],
+      "name": "Custom Liquid",
+      "settings": {
+        "subheading": "Nest & Wild",
+        "title": "Reviews",
+        "liquid": "<script async src=\"https:\/\/cdn1.stamped.io\/files\/widget.min.js\"><\/script>\n\n<div id=\"stamped-reviews-widget\" data-widget-type=\"full-page\" data-take=\"10\"><\/div>",
+        "add_vertical_spacing": true,
+        "background_type": "full_width",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "1654802817fd94f76c": {
+      "type": "newsletter",
+      "settings": {
+        "reveal_on_scroll": true,
+        "image": "shopify:\/\/shop_images\/NW_newsletter_bg-image.jpg",
+        "subheading": "Ready for better days?",
+        "content": "<p>Sign up for our newsletter for product updates and company news. <\/p>",
+        "text_position": "left",
+        "text_alignment": "left",
+        "text_background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "1716331117e0a13155": {
+      "type": "apps",
+      "disabled": true,
+      "settings": {
+        "include_horizontal_margins": true,
+        "include_vertical_margins": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product-content",
+    "165480090792111191",
+    "1654802427da9341a8",
+    "1654802872b05ec474",
+    "custom_liquid_RgwWtY",
+    "1654802817fd94f76c",
+    "1716331117e0a13155"
+  ]
+}

@@ -1,0 +1,878 @@
+
+{% render 'gp-head', 'isThemeSection: true' %}
+<style {% if section.settings.section_preload == "false" %} class="gps-link gps-style" type="text/disabled-css" {% endif %}>.gps-576769791239390025.gps.gpsil [style*="--ai:"]{align-items:var(--ai)}.gps-576769791239390025.gps.gpsil [style*="--bg:"]{background:var(--bg)}.gps-576769791239390025.gps.gpsil [style*="--hvr-bg:"]:hover{background:var(--hvr-bg)}.gps-576769791239390025.gps.gpsil [style*="--bga:"]{background-attachment:var(--bga)}.gps-576769791239390025.gps.gpsil [style*="--bgc:"]{background-color:var(--bgc)}.gps-576769791239390025.gps.gpsil [style*="--hvr-bgc:"]:hover{background-color:var(--hvr-bgc)}.gps-576769791239390025.gps.gpsil [style*="--bgi:"]{background-image:var(--bgi)}.gps-576769791239390025.gps.gpsil [style*="--bgp:"]{background-position:var(--bgp)}.gps-576769791239390025.gps.gpsil [style*="--bgr:"]{background-repeat:var(--bgr)}.gps-576769791239390025.gps.gpsil [style*="--bgs:"]{background-size:var(--bgs)}.gps-576769791239390025.gps.gpsil [style*="--b:"]{border:var(--b)}.gps-576769791239390025.gps.gpsil [style*="--hvr-b:"]:hover{border:var(--hvr-b)}.gps-576769791239390025.gps.gpsil [style*="--bc:"]{border-color:var(--bc)}.gps-576769791239390025.gps.gpsil [style*="--hvr-bc:"]:hover{border-color:var(--hvr-bc)}.gps-576769791239390025.gps.gpsil [style*="--bl:"]{border-left:var(--bl)}.gps-576769791239390025.gps.gpsil [style*="--bs:"]{border-style:var(--bs)}.gps-576769791239390025.gps.gpsil [style*="--hvr-bs:"]:hover{border-style:var(--hvr-bs)}.gps-576769791239390025.gps.gpsil [style*="--bw:"]{border-width:var(--bw)}.gps-576769791239390025.gps.gpsil [style*="--hvr-bw:"]:hover{border-width:var(--hvr-bw)}.gps-576769791239390025.gps.gpsil [style*="--shadow:"]{box-shadow:var(--shadow)}.gps-576769791239390025.gps.gpsil [style*="--c:"]{color:var(--c)}.gps-576769791239390025.gps.gpsil [style*="--hvr-c:"]:hover{color:var(--hvr-c)}.gps-576769791239390025.gps.gpsil [style*="--cg:"]{-moz-column-gap:var(--cg);column-gap:var(--cg)}.gps-576769791239390025.gps.gpsil [style*="--fd:"]{flex-direction:var(--fd)}.gps-576769791239390025.gps.gpsil [style*="--ff:"]{font-family:var(--ff)}.gps-576769791239390025.gps.gpsil [style*="--size:"]{font-size:var(--size)}.gps-576769791239390025.gps.gpsil [style*="--weight:"]{font-weight:var(--weight)}.gps-576769791239390025.gps.gpsil [style*="--gg:"]{grid-gap:var(--gg)}.gps-576769791239390025.gps.gpsil [style*="--gtc:"]{grid-template-columns:var(--gtc)}.gps-576769791239390025.gps.gpsil [style*="--h:"]{height:var(--h)}.gps-576769791239390025.gps.gpsil [style*="--jc:"]{justify-content:var(--jc)}.gps-576769791239390025.gps.gpsil [style*="--lh:"]{line-height:var(--lh)}.gps-576769791239390025.gps.gpsil [style*="--m:"]{margin:var(--m)}.gps-576769791239390025.gps.gpsil [style*="--mb:"]{margin-bottom:var(--mb)}.gps-576769791239390025.gps.gpsil [style*="--mt:"]{margin-top:var(--mt)}.gps-576769791239390025.gps.gpsil [style*="--op:"]{opacity:var(--op)}.gps-576769791239390025.gps.gpsil [style*="--o:"]{order:var(--o)}.gps-576769791239390025.gps.gpsil [style*="--pc:"]{place-content:var(--pc)}.gps-576769791239390025.gps.gpsil [style*="--p:"]{padding:var(--p)}.gps-576769791239390025.gps.gpsil [style*="--pb:"]{padding-bottom:var(--pb)}.gps-576769791239390025.gps.gpsil [style*="--pl:"]{padding-left:var(--pl)}.gps-576769791239390025.gps.gpsil [style*="--pr:"]{padding-right:var(--pr)}.gps-576769791239390025.gps.gpsil [style*="--pt:"]{padding-top:var(--pt)}.gps-576769791239390025.gps.gpsil [style*="--ta:"]{text-align:var(--ta)}.gps-576769791239390025.gps.gpsil [style*="--ts:"]{text-shadow:var(--ts)}.gps-576769791239390025.gps.gpsil [style*="--t:"]{transform:var(--t)}.gps-576769791239390025.gps.gpsil [style*="--w:"]{width:var(--w)}.gps-576769791239390025.gps.gpsil [style*="--line-clamp:"]{-webkit-box-orient:vertical;-webkit-line-clamp:var(--line-clamp);display:-webkit-box;overflow:hidden}@media only screen and (max-width:1024px){.gps-576769791239390025.gps.gpsil [style*="--bga-tablet:"]{background-attachment:var(--bga-tablet)}.gps-576769791239390025.gps.gpsil [style*="--bgc-tablet:"]{background-color:var(--bgc-tablet)}.gps-576769791239390025.gps.gpsil [style*="--bgi-tablet:"]{background-image:var(--bgi-tablet)}.gps-576769791239390025.gps.gpsil [style*="--bgp-tablet:"]{background-position:var(--bgp-tablet)}.gps-576769791239390025.gps.gpsil [style*="--bgr-tablet:"]{background-repeat:var(--bgr-tablet)}.gps-576769791239390025.gps.gpsil [style*="--bgs-tablet:"]{background-size:var(--bgs-tablet)}.gps-576769791239390025.gps.gpsil [style*="--size-tablet:"]{font-size:var(--size-tablet)}.gps-576769791239390025.gps.gpsil [style*="--h-tablet:"]{height:var(--h-tablet)}.gps-576769791239390025.gps.gpsil [style*="--lh-tablet:"]{line-height:var(--lh-tablet)}.gps-576769791239390025.gps.gpsil [style*="--pl-tablet:"]{padding-left:var(--pl-tablet)}.gps-576769791239390025.gps.gpsil [style*="--pr-tablet:"]{padding-right:var(--pr-tablet)}.gps-576769791239390025.gps.gpsil [style*="--w-tablet:"]{width:var(--w-tablet)}.gps-576769791239390025.gps.gpsil [style*="--line-clamp-tablet:"]{-webkit-box-orient:vertical;-webkit-line-clamp:var(--line-clamp-tablet);display:-webkit-box;overflow:hidden}}@media only screen and (max-width:767px){.gps-576769791239390025.gps.gpsil [style*="--size-mobile:"]{font-size:var(--size-mobile)}.gps-576769791239390025.gps.gpsil [style*="--gtc-mobile:"]{grid-template-columns:var(--gtc-mobile)}.gps-576769791239390025.gps.gpsil [style*="--h-mobile:"]{height:var(--h-mobile)}.gps-576769791239390025.gps.gpsil [style*="--lh-mobile:"]{line-height:var(--lh-mobile)}.gps-576769791239390025.gps.gpsil [style*="--pl-mobile:"]{padding-left:var(--pl-mobile)}.gps-576769791239390025.gps.gpsil [style*="--pr-mobile:"]{padding-right:var(--pr-mobile)}.gps-576769791239390025.gps.gpsil [style*="--w-mobile:"]{width:var(--w-mobile)}.gps-576769791239390025.gps.gpsil [style*="--line-clamp-mobile:"]{-webkit-box-orient:vertical;-webkit-line-clamp:var(--line-clamp-mobile);display:-webkit-box;overflow:hidden}}.gps-576769791239390025 .-gp-rotate-90,.gps-576769791239390025 .gp-rotate-180,.gps-576769791239390025 .gp-rotate-90{--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1}.gps-576769791239390025 .gp-relative{position:relative}.gps-576769791239390025 .gp-mx-auto{margin-left:auto;margin-right:auto}.gps-576769791239390025 .gp-mb-0{margin-bottom:0}.gps-576769791239390025 .gp-flex{display:flex}.gps-576769791239390025 .gp-inline-flex{display:inline-flex}.gps-576769791239390025 .gp-grid{display:grid}.gps-576769791239390025 .\!gp-hidden{display:none!important}.gps-576769791239390025 .gp-hidden{display:none}.gps-576769791239390025 .gp-min-h-0{min-height:0}.gps-576769791239390025 .gp-w-full{width:100%}.gps-576769791239390025 .gp-max-w-full{max-width:100%}.gps-576769791239390025 .-gp-rotate-90{--tw-rotate:-90deg}.gps-576769791239390025 .-gp-rotate-90,.gps-576769791239390025 .gp-rotate-180{transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.gps-576769791239390025 .gp-rotate-180{--tw-rotate:180deg}.gps-576769791239390025 .gp-rotate-90{--tw-rotate:90deg;transform:translate(var(--tw-translate-x),var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.gps-576769791239390025 .gp-cursor-pointer{cursor:pointer}.gps-576769791239390025 .gp-grid-rows-\[1fr\]{grid-template-rows:1fr}.gps-576769791239390025 .gp-flex-col{flex-direction:column}.gps-576769791239390025 .gp-items-center{align-items:center}.gps-576769791239390025 .gp-justify-center{justify-content:center}.gps-576769791239390025 .gp-gap-y-0{row-gap:0}.gps-576769791239390025 .gp-overflow-hidden{overflow:hidden}.gps-576769791239390025 .gp-overflow-clip{overflow:clip}.gps-576769791239390025 .gp-transition-all{transition-duration:.15s;transition-property:all;transition-timing-function:cubic-bezier(.4,0,.2,1)}.gps-576769791239390025 .gp-transition-colors{transition-duration:.15s;transition-property:color,background-color,border-color,text-decoration-color,fill,stroke;transition-timing-function:cubic-bezier(.4,0,.2,1)}.gps-576769791239390025 .gp-duration-200{transition-duration:.2s}.gps-576769791239390025 .gp-duration-500{transition-duration:.5s}.gps-576769791239390025 .gp-ease-in-out{transition-timing-function:cubic-bezier(.4,0,.2,1)}@media (max-width:1024px){.gps-576769791239390025 .tablet\:\!gp-hidden{display:none!important}.gps-576769791239390025 .tablet\:gp-hidden{display:none}}@media (max-width:767px){.gps-576769791239390025 .mobile\:\!gp-hidden{display:none!important}.gps-576769791239390025 .mobile\:gp-hidden{display:none}}.gps-576769791239390025 .\[\&\>svg\]\:\!gp-h-\[var\(--height-configIconSize\)\]>svg{height:var(--height-configIconSize)!important}.gps-576769791239390025 .\[\&\>svg\]\:\!gp-h-\[var\(--height-iconCollapseSize\)\]>svg{height:var(--height-iconCollapseSize)!important}.gps-576769791239390025 .\[\&\>svg\]\:\!gp-w-auto>svg{width:auto!important}.gps-576769791239390025 .\[\&_\*\]\:gp-max-w-full *{max-width:100%}.gps-576769791239390025 .\[\&_p\]\:gp-inline p{display:inline}.gps-576769791239390025 .\[\&_p\]\:after\:gp-whitespace-pre-wrap p:after{content:var(--tw-content);white-space:pre-wrap}.gps-576769791239390025 .\[\&_p\]\:after\:gp-content-\[\'\\A\'\] p:after{--tw-content:"\A";content:var(--tw-content)}</style>
+
+       
+      
+            <section
+              class="gp-mx-auto gp-max-w-full {% if section.settings.section_preload == "false" %}gps-lazy {% endif %}"
+              style="--w:100%;--w-tablet:100%;--w-mobile:100%;--pl:0px;--pl-tablet:0px;--pl-mobile:0px;--pr:0px;--pr-tablet:0px;--pr-mobile:0px"
+            >
+              
+    <div
+      id="gIBBilJzN0" data-id="gIBBilJzN0"
+        style="--blockPadding:base;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--pt:var(--g-s-4xl);--pb:var(--g-s-4xl);--cg:32px;--pc:start;--gtc:minmax(0, 12fr);--w:100%;--w-tablet:100%;--w-mobile:100%;--bgc:#eaeaea;--bgc-tablet:#eaeaea;--bgi:url();--bgi-tablet:url();--bgp:50% 50%;--bgp-tablet:50% 50%;--bgs:cover;--bgs-tablet:cover;--bgr:no-repeat;--bgr-tablet:no-repeat;--bga:scroll;--bga-tablet:scroll"
+        class="gIBBilJzN0 gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-gap-y-0 gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]"
+    >
+    <div
+      label="Block" tag="Col" type="component"
+      style="--jc:start"
+      class="gnWJGd5jp_ gp-relative gp-flex gp-flex-col"
+    >
+      
+       
+      
+    <div
+      parentTag="Col" id="gpwAPIuoqe" data-id="gpwAPIuoqe"
+        style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:grid;--d-mobile:grid;--d-tablet:grid;--op:100%;--mb:var(--g-s-l);--cg:8px;--pc:start;--gtc:minmax(0, 12fr);--gtc-mobile:minmax(0, 12fr);--w:var(--g-ct-w, 1200px);--w-tablet:90%;--w-mobile:var(--g-ct-w, 100%);--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll"
+        class="gpwAPIuoqe gp-mx-auto gp-mb-0 gp-grid gp-max-w-full gp-gap-y-0 gp-transition-colors gp-duration-200 gp-ease-in-out [&_*]:gp-max-w-full gp-grid-rows-[1fr]"
+    >
+    <div
+      label="Block" tag="Col" type="component"
+      style="--jc:start"
+      class="g-hQ9BvQla gp-relative gp-flex gp-flex-col"
+    >
+      
+  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+  <gp-text data-id="gsTxxfsYeJ">
+    <div
+      parentTag="Col"
+        class="gsTxxfsYeJ "
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--mt:0px;--mb:-2px;--pt:0px;--pb:0px"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          
+          data-gp-text
+          class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ts:none;--ta:center;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--ff:var(--g-font-Open-Sans, 'Open Sans'), var(--g-font-body, body);--weight:400;--size:19px;--size-tablet:16px;--size-mobile:16px;--lh:180%;--lh-tablet:180%;--lh-mobile:180%;--c:#f04f23;word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
+        >{{ section.settings.ggsTxxfsYeJ_text | replace: '$locationOrigin', locationOrigin }}</div>
+      </div>
+    </div>
+    </gp-text>
+    
+  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+  <gp-text data-id="gfMKRQxOjs">
+    <div
+      parentTag="Col"
+        class="gfMKRQxOjs "
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%;--mb:var(--g-s-l)"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <h2
+          
+          data-gp-text
+          class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ts:none;--ta:center;--ff:var(--g-font-ZURICH_BOLD_EXTENDED_BT, 'ZURICH_BOLD_EXTENDED_BT'), var(--g-font-heading, heading);--weight:400;--size:46px;--size-tablet:36px;--size-mobile:31px;--lh:130%;--lh-tablet:130%;--lh-mobile:110%;--c:var(--g-c-text-2, text-2);word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;overflow:hidden"
+        >{{ section.settings.ggfMKRQxOjs_text | replace: '$locationOrigin', locationOrigin }}</h2>
+      </div>
+    </div>
+    </gp-text>
+    <div gp-el-wrapper style="--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%" class="gt-VYoXffD ">
+      
+    <gp-accordion
+      data-id="gt-VYoXffD"
+     uid="gt-VYoXffD"
+      class="gp-flex gp-w-full gp-flex-col "
+      style="--gg:16px;--bgr:function (n) {
+                return new Array(1 + n).join(this);
+            };border-radius:inherit"
+      gp-data='{"setting":{"iconSvg":"<svg width=\"17\" height=\"16\" viewBox=\"0 0 17 16\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n                  <path d=\"M5.64645 2.64645C5.84171 2.45118 6.15829 2.45118 6.35355 2.64645L11.3536 7.64645C11.5488 7.84171 11.5488 8.15829 11.3536 8.35355L6.35355 13.3536C6.15829 13.5488 5.84171 13.5488 5.64645 13.3536C5.45118 13.1583 5.45118 12.8417 5.64645 12.6464L10.2929 8L5.64645 3.35355C5.45118 3.15829 5.45118 2.84171 5.64645 2.64645Z\" fill=\"currentColor\"/>\n                  </svg>","isIconPlus":false,"activeKey":"1","expanded":true,"expandItem":true,"iconPosition":"right","iconGlobalSize":{"desktop":{"gap":"16px"}},"iconCollapse":"<svg height=\"20\" width=\"20\" xmlns=\"http://www.w3.org/2000/svg\"  viewBox=\"0 0 256 256\" fill=\"currentColor\" data-id=\"508817562042171752\">\n              <path fill=\"currentColor\" strokeLinecap=\"round\" strokeLinejoin=\"round\" fill=\"currentColor\" d=\"M216.49,168.49a12,12,0,0,1-17,0L128,97,56.49,168.49a12,12,0,0,1-17-17l80-80a12,12,0,0,1,17,0l80,80A12,12,0,0,1,216.49,168.49Z\" /></svg>","iconExpand":"<svg height=\"20\" width=\"20\" xmlns=\"http://www.w3.org/2000/svg\"  viewBox=\"0 0 256 256\" fill=\"currentColor\" data-id=\"508817616300015976\">\n              <path fill=\"currentColor\" strokeLinecap=\"round\" strokeLinejoin=\"round\" fill=\"currentColor\" d=\"M212.24,100.24l-80,80a6,6,0,0,1-8.48,0l-80-80a6,6,0,0,1,8.48-8.48L128,167.51l75.76-75.75a6,6,0,0,1,8.48,8.48Z\" /></svg>","iconCollapseSize":16,"layoutHeader":"before-text","expandedMode":"multiple","configIconSize":29,"parentUid":"gt-VYoXffD","childListNumber":["0"],"chidlrenUid":["gFeGfNsFj2","gKmimLFVhf","go8b7xByLR","gBbrhzazo5","gApfSXVdMH","glK4I-N4_N"]},"styles":{"bgColor":{"active":"transparent","hover":"transparent","normal":"transparent"},"color":{"active":"#121212","hover":"#121212","normal":"#242424"},"headerBorder":{"active":{"border":"solid","borderWidth":"Mixed","color":"#121212","isCustom":true,"position":"bottom","width":"0px 0px 1px 0px"},"hover":{"border":"solid","borderWidth":"Mixed","color":"#121212","isCustom":true,"position":"bottom","width":"0px 0px 1px 0px"},"normal":{"border":"solid","borderWidth":"Mixed","color":"#121212","isCustom":true,"position":"bottom","width":"0px 0px 1px 0px"}},"textColor":{"active":"#121212","hover":"#121212","normal":"#242424"},"iconColor":{"active":"#121212","hover":"#121212","normal":"#f04f23"},"contentSizePadding":{"desktop":{"gap":"16px","padding":{"bottom":"8px","left":"24px","right":"24px","top":"8px","type":"medium"}}},"headerContentPadding":{"desktop":{"padding":{"bottom":"8px","left":"24px","right":"24px","top":"8px","type":"medium"}}},"widthHeightSize":{"desktop":{"height":"auto","width":"100%"}}},"uid":"gt-VYoXffD"}'
+    >
+    <div class="gp-hidden gp-rotate-90 -gp-rotate-90 gp-rotate-180"></div>
+    <div
+                class="gp-flex"
+                style="--jc:center"
+              >
+                
+  <div class="gp-overflow-clip" style="--w:100%;--w-tablet:100%;--w-mobile:100%;--height-iconCollapseSize:16px;--height-configIconSize:29px;--bs:none;--bw:1px 1px 1px 1px;--bc:#000000;--bg:transparent;--shadow:none">
+    <div
+      data-index="0"
+      class="gt-VYoXffD gp-accordion-item gp-overflow-hidden gp-child-item-gt-VYoXffD"
+      style="scrollBehavior:smooth"
+    >
+      <div
+        aria-hidden
+        uid="gFeGfNsFj2"
+        id="gFeGfNsFj2"
+        data-index="0"
+        class="gt-VYoXffD gp-accordion-item-gt-VYoXffD-0 gp-flex gp-items-center gp-accordion-item_header gp-cursor-pointer"
+        style="--pl:24px;--pr:24px;--pt:8px;--pb:8px;--h:auto;--h-tablet:auto;--h-mobile:auto;--fd:row-reverse;--jc:space-between;gap:16px;--bgc:transparent;--bs:solid;--bw:0px 0px 1px 0px;--bc:#121212;--c:#121212"
+      >
+       <style class="accordion-style">.gp-accordion-item-gt-VYoXffD-0:hover 
+      {
+        .gp-collapsible-icon { 
+          color: #121212 !important;
+        }
+
+        .gp-icon { 
+            color: #121212 !important;
+        }
+      }
+    </style>
+        <div class="gp-inline-flex">
+        <span
+            style="--c:#121212;width:16px;height:16px"
+            data-index="0"
+            class="gt-VYoXffD gp-accordion-item_icon gp-collapsible-icon gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden gp-transition-all gp-duration-200 [&>svg]:!gp-h-[var(--height-iconCollapseSize)] [&>svg]:!gp-w-auto"
+          ><svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817616300015976">
+              <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M212.24,100.24l-80,80a6,6,0,0,1-8.48,0l-80-80a6,6,0,0,1,8.48-8.48L128,167.51l75.76-75.75a6,6,0,0,1,8.48,8.48Z" /></svg></span>
+
+        </div>
+      <div class="gp-flex gp-items-center gp-w-full" style="--gg:16px;--jc:left">
+        
+            <div class="gp-inline-flex" >
+            <span
+              class="gp-icon gp-inline-flex header-icon gp-items-center gp-justify-center gp-overflow-hidden  [&>svg]:!gp-h-[var(--height-configIconSize)] [&>svg]:!gp-w-auto"
+              style="--c:#121212;width:29px;height:29px">
+              <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817746262425960">
+              <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm12,152a8,8,0,0,1-16,0V95l-11.56,7.71a8,8,0,1,1-8.88-13.32l24-16A8,8,0,0,1,140,80Z" /></svg></span>
+          </div>
+        
+        
+  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+  <gp-text data-id="">
+    <div
+      
+        class=" "
+        
+      >
+      <div  >
+        <div
+          
+          data-gp-text
+          class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-overflow-hidden"
+          style="--w:100%;--ts:none;--ff:var(--g-font-NorthwestRoundTextured, 'NorthwestRoundTextured'), var(--g-font-body, body);--weight:400;--size:19px;--size-tablet:16px;--size-mobile:20px;--lh:180%;--lh-tablet:180%;--lh-mobile:120%;word-break:break-word;overflow:hidden"
+        >{{ section.settings.ggt-VYoXffD_childItem_0 }}</div>
+      </div>
+    </div>
+    </gp-text>
+    
+        
+      </div>
+      </div>
+      <div
+        uid="gFeGfNsFj2"
+        data-index="0"
+        data-show="true"
+        class="gt-VYoXffD gp-accordion-item_body gp-transition-all gp-grid gp-duration-500 gp-overflow-hidden"
+        style="grid-template-rows:1fr;grid-template-columns:minmax(auto, 100%)"
+      >
+        <div
+        uid="gFeGfNsFj2"
+        data-index="0"
+        class="gt-VYoXffD gp-accordion-item_body-inner gp-min-h-0 gp-transition-all gp-duration-500"  style="--pl:24px;--pr:24px;--pt:8px;--pb:8px" >
+            <div
+      label="Block" tag="Col" type="component"
+      
+      class="gmYXMa6pUE gp-relative gp-flex gp-flex-col"
+    >
+      
+  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+  <gp-text data-id="gpJ3SyqO7B">
+    <div
+      parentTag="Col"
+        class="gpJ3SyqO7B "
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          
+          data-gp-text
+          class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ts:none;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--ff:var(--g-font-Open-Sans, 'Open Sans'), var(--g-font-body, body);--weight:400;--size:16px;--size-tablet:16px;--size-mobile:14px;--lh:180%;--lh-tablet:180%;--lh-mobile:180%;--c:var(--g-c-text-1, text-1);word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--pl:50px;--pr:5px;overflow:hidden"
+        >{{ section.settings.ggpJ3SyqO7B_text | replace: '$locationOrigin', locationOrigin }}</div>
+      </div>
+    </div>
+    </gp-text>
+    
+    </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+              </div>
+            <div
+                class="gp-flex"
+                style="--jc:center"
+              >
+                
+  <div class="gp-overflow-clip" style="--w:100%;--w-tablet:100%;--w-mobile:100%;--height-iconCollapseSize:16px;--height-configIconSize:29px;--bs:none;--bw:1px 1px 1px 1px;--bc:#000000;--bg:transparent;--shadow:none">
+    <div
+      data-index="1"
+      class="gt-VYoXffD gp-accordion-item gp-overflow-hidden gp-child-item-gt-VYoXffD"
+      style="scrollBehavior:smooth"
+    >
+      <div
+        aria-hidden
+        uid="gKmimLFVhf"
+        id="gKmimLFVhf"
+        data-index="1"
+        class="gt-VYoXffD gp-accordion-item-gt-VYoXffD-1 gp-flex gp-items-center gp-accordion-item_header gp-cursor-pointer"
+        style="--pl:24px;--pr:24px;--pt:8px;--pb:8px;--h:auto;--h-tablet:auto;--h-mobile:auto;--fd:row-reverse;--jc:space-between;gap:16px;--hvr-bgc:transparent;--bgc:transparent;--hvr-c:#121212;--c:#242424;--bs:solid;--hvr-bs:solid;--bw:0px 0px 1px 0px;--hvr-bw:0px 0px 1px 0px;--bc:#121212;--hvr-bc:#121212"
+      >
+       <style class="accordion-style">.gp-accordion-item-gt-VYoXffD-1:hover 
+      {
+        .gp-collapsible-icon { 
+          color: #121212 !important;
+        }
+
+        .gp-icon { 
+            color: #121212 !important;
+        }
+      }
+    </style>
+        <div class="gp-inline-flex">
+        <span
+            style="--hvr-c:#121212;--c:#242424;width:16px;height:16px"
+            data-index="1"
+            class="gt-VYoXffD gp-accordion-item_icon gp-collapsible-icon gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden gp-transition-all gp-duration-200 [&>svg]:!gp-h-[var(--height-iconCollapseSize)] [&>svg]:!gp-w-auto"
+          ><svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817562042171752">
+              <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M216.49,168.49a12,12,0,0,1-17,0L128,97,56.49,168.49a12,12,0,0,1-17-17l80-80a12,12,0,0,1,17,0l80,80A12,12,0,0,1,216.49,168.49Z" /></svg></span>
+
+        </div>
+      <div class="gp-flex gp-items-center gp-w-full" style="--gg:16px;--jc:left">
+        
+            <div class="gp-inline-flex" >
+            <span
+              class="gp-icon gp-inline-flex header-icon gp-items-center gp-justify-center gp-overflow-hidden  [&>svg]:!gp-h-[var(--height-configIconSize)] [&>svg]:!gp-w-auto"
+              style="--hvr-c:#121212;--c:#f04f23;width:29px;height:29px">
+              <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817749208924520">
+              <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm24,144a8,8,0,0,1,0,16H104a8,8,0,0,1-6.4-12.8l43.17-57.56a16,16,0,1,0-27.86-15,8,8,0,0,1-15.09-5.34,32,32,0,1,1,55.74,29.93L120,168Z" /></svg></span>
+          </div>
+        
+        
+  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+  <gp-text data-id="">
+    <div
+      
+        class=" "
+        
+      >
+      <div  >
+        <div
+          
+          data-gp-text
+          class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-overflow-hidden"
+          style="--w:100%;--ts:none;--ff:var(--g-font-NorthwestRoundTextured, 'NorthwestRoundTextured'), var(--g-font-body, body);--weight:400;--size:19px;--size-tablet:16px;--size-mobile:20px;--lh:180%;--lh-tablet:180%;--lh-mobile:120%;word-break:break-word;overflow:hidden"
+        >{{ section.settings.ggt-VYoXffD_childItem_1 }}</div>
+      </div>
+    </div>
+    </gp-text>
+    
+        
+      </div>
+      </div>
+      <div
+        uid="gKmimLFVhf"
+        data-index="1"
+        data-show="false"
+        class="gt-VYoXffD gp-accordion-item_body gp-transition-all gp-grid gp-duration-500 gp-overflow-hidden"
+        style="grid-template-rows:0fr;grid-template-columns:minmax(auto, 100%)"
+      >
+        <div
+        uid="gKmimLFVhf"
+        data-index="1"
+        class="gt-VYoXffD gp-accordion-item_body-inner gp-min-h-0 gp-transition-all gp-duration-500"  style="--pl:24px;--pr:24px" >
+            <div
+      label="Block" tag="Col" type="component"
+      
+      class="gZCyL1eSgC gp-relative gp-flex gp-flex-col"
+    >
+      
+  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+  <gp-text data-id="gFsNP3FzEG">
+    <div
+      parentTag="Col"
+        class="gFsNP3FzEG "
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          
+          data-gp-text
+          class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ts:none;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--ff:var(--g-font-Open-Sans, 'Open Sans'), var(--g-font-body, body);--weight:400;--size:16px;--size-tablet:16px;--size-mobile:14px;--lh:180%;--lh-tablet:180%;--lh-mobile:180%;--c:var(--g-c-text-1, text-1);word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--pl:50px;--pr:5px;overflow:hidden"
+        >{{ section.settings.ggFsNP3FzEG_text | replace: '$locationOrigin', locationOrigin }}</div>
+      </div>
+    </div>
+    </gp-text>
+    
+    </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+              </div>
+            <div
+                class="gp-flex"
+                style="--jc:center"
+              >
+                
+  <div class="gp-overflow-clip" style="--w:100%;--w-tablet:100%;--w-mobile:100%;--height-iconCollapseSize:16px;--height-configIconSize:29px;--bs:none;--bw:1px 1px 1px 1px;--bc:#000000;--bg:transparent;--shadow:none">
+    <div
+      data-index="2"
+      class="gt-VYoXffD gp-accordion-item gp-overflow-hidden gp-child-item-gt-VYoXffD"
+      style="scrollBehavior:smooth"
+    >
+      <div
+        aria-hidden
+        uid="go8b7xByLR"
+        id="go8b7xByLR"
+        data-index="2"
+        class="gt-VYoXffD gp-accordion-item-gt-VYoXffD-2 gp-flex gp-items-center gp-accordion-item_header gp-cursor-pointer"
+        style="--pl:24px;--pr:24px;--pt:8px;--pb:8px;--h:auto;--h-tablet:auto;--h-mobile:auto;--fd:row-reverse;--jc:space-between;gap:16px;--hvr-bgc:transparent;--bgc:transparent;--hvr-c:#121212;--c:#242424;--bs:solid;--hvr-bs:solid;--bw:0px 0px 1px 0px;--hvr-bw:0px 0px 1px 0px;--bc:#121212;--hvr-bc:#121212"
+      >
+       <style class="accordion-style">.gp-accordion-item-gt-VYoXffD-2:hover 
+      {
+        .gp-collapsible-icon { 
+          color: #121212 !important;
+        }
+
+        .gp-icon { 
+            color: #121212 !important;
+        }
+      }
+    </style>
+        <div class="gp-inline-flex">
+        <span
+            style="--hvr-c:#121212;--c:#242424;width:16px;height:16px"
+            data-index="2"
+            class="gt-VYoXffD gp-accordion-item_icon gp-collapsible-icon gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden gp-transition-all gp-duration-200 [&>svg]:!gp-h-[var(--height-iconCollapseSize)] [&>svg]:!gp-w-auto"
+          ><svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817562042171752">
+              <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M216.49,168.49a12,12,0,0,1-17,0L128,97,56.49,168.49a12,12,0,0,1-17-17l80-80a12,12,0,0,1,17,0l80,80A12,12,0,0,1,216.49,168.49Z" /></svg></span>
+
+        </div>
+      <div class="gp-flex gp-items-center gp-w-full" style="--gg:16px;--jc:left">
+        
+            <div class="gp-inline-flex" >
+            <span
+              class="gp-icon gp-inline-flex header-icon gp-items-center gp-justify-center gp-overflow-hidden  [&>svg]:!gp-h-[var(--height-configIconSize)] [&>svg]:!gp-w-auto"
+              style="--hvr-c:#121212;--c:#f04f23;width:29px;height:29px">
+              <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817749208858984">
+              <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm-4,164a35.71,35.71,0,0,1-25.71-10.81A8,8,0,1,1,109.71,166,20,20,0,1,0,124,132a8,8,0,0,1-6.55-12.59L136.63,92H104a8,8,0,0,1,0-16h48a8,8,0,0,1,6.55,12.59l-21,30A36,36,0,0,1,124,188Z" /></svg></span>
+          </div>
+        
+        
+  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+  <gp-text data-id="">
+    <div
+      
+        class=" "
+        
+      >
+      <div  >
+        <div
+          
+          data-gp-text
+          class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-overflow-hidden"
+          style="--w:100%;--ts:none;--ff:var(--g-font-NorthwestRoundTextured, 'NorthwestRoundTextured'), var(--g-font-body, body);--weight:400;--size:19px;--size-tablet:16px;--size-mobile:20px;--lh:180%;--lh-tablet:180%;--lh-mobile:120%;word-break:break-word;overflow:hidden"
+        >{{ section.settings.ggt-VYoXffD_childItem_2 }}</div>
+      </div>
+    </div>
+    </gp-text>
+    
+        
+      </div>
+      </div>
+      <div
+        uid="go8b7xByLR"
+        data-index="2"
+        data-show="false"
+        class="gt-VYoXffD gp-accordion-item_body gp-transition-all gp-grid gp-duration-500 gp-overflow-hidden"
+        style="grid-template-rows:0fr;grid-template-columns:minmax(auto, 100%)"
+      >
+        <div
+        uid="go8b7xByLR"
+        data-index="2"
+        class="gt-VYoXffD gp-accordion-item_body-inner gp-min-h-0 gp-transition-all gp-duration-500"  style="--pl:24px;--pr:24px" >
+            <div
+      label="Block" tag="Col" type="component"
+      
+      class="gbb-DUHBNb gp-relative gp-flex gp-flex-col"
+    >
+      
+  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+  <gp-text data-id="gFAPL0evUR">
+    <div
+      parentTag="Col"
+        class="gFAPL0evUR "
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          
+          data-gp-text
+          class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ts:none;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--ff:var(--g-font-Open-Sans, 'Open Sans'), var(--g-font-body, body);--weight:400;--size:16px;--size-tablet:16px;--size-mobile:14px;--lh:180%;--lh-tablet:180%;--lh-mobile:180%;--c:var(--g-c-text-1, text-1);word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--pl:50px;--pr:5px;overflow:hidden"
+        >{{ section.settings.ggFAPL0evUR_text | replace: '$locationOrigin', locationOrigin }}</div>
+      </div>
+    </div>
+    </gp-text>
+    
+    </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+              </div>
+            <div
+                class="gp-flex"
+                style="--jc:center"
+              >
+                
+  <div class="gp-overflow-clip" style="--w:100%;--w-tablet:100%;--w-mobile:100%;--height-iconCollapseSize:16px;--height-configIconSize:29px;--bs:none;--bw:1px 1px 1px 1px;--bc:#000000;--bg:transparent;--shadow:none">
+    <div
+      data-index="3"
+      class="gt-VYoXffD gp-accordion-item gp-overflow-hidden gp-child-item-gt-VYoXffD"
+      style="scrollBehavior:smooth"
+    >
+      <div
+        aria-hidden
+        uid="gBbrhzazo5"
+        id="gBbrhzazo5"
+        data-index="3"
+        class="gt-VYoXffD gp-accordion-item-gt-VYoXffD-3 gp-flex gp-items-center gp-accordion-item_header gp-cursor-pointer"
+        style="--pl:24px;--pr:24px;--pt:8px;--pb:8px;--h:auto;--h-tablet:auto;--h-mobile:auto;--fd:row-reverse;--jc:space-between;gap:16px;--hvr-bgc:transparent;--bgc:transparent;--hvr-c:#121212;--c:#242424;--bs:solid;--hvr-bs:solid;--bw:0px 0px 1px 0px;--hvr-bw:0px 0px 1px 0px;--bc:#121212;--hvr-bc:#121212"
+      >
+       <style class="accordion-style">.gp-accordion-item-gt-VYoXffD-3:hover 
+      {
+        .gp-collapsible-icon { 
+          color: #121212 !important;
+        }
+
+        .gp-icon { 
+            color: #121212 !important;
+        }
+      }
+    </style>
+        <div class="gp-inline-flex">
+        <span
+            style="--hvr-c:#121212;--c:#242424;width:16px;height:16px"
+            data-index="3"
+            class="gt-VYoXffD gp-accordion-item_icon gp-collapsible-icon gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden gp-transition-all gp-duration-200 [&>svg]:!gp-h-[var(--height-iconCollapseSize)] [&>svg]:!gp-w-auto"
+          ><svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817562042171752">
+              <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M216.49,168.49a12,12,0,0,1-17,0L128,97,56.49,168.49a12,12,0,0,1-17-17l80-80a12,12,0,0,1,17,0l80,80A12,12,0,0,1,216.49,168.49Z" /></svg></span>
+
+        </div>
+      <div class="gp-flex gp-items-center gp-w-full" style="--gg:16px;--jc:left">
+        
+            <div class="gp-inline-flex" >
+            <span
+              class="gp-icon gp-inline-flex header-icon gp-items-center gp-justify-center gp-overflow-hidden  [&>svg]:!gp-h-[var(--height-configIconSize)] [&>svg]:!gp-w-auto"
+              style="--hvr-c:#121212;--c:#f04f23;width:29px;height:29px">
+              <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817746262294888">
+              <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M104.36,144,136,103.32V144ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-64,24a8,8,0,0,0-8-8h-8V80a8,8,0,0,0-14.31-4.91l-56,72A8,8,0,0,0,88,160h48v16a8,8,0,0,0,16,0V160h8A8,8,0,0,0,168,152Z" /></svg></span>
+          </div>
+        
+        
+  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+  <gp-text data-id="">
+    <div
+      
+        class=" "
+        
+      >
+      <div  >
+        <div
+          
+          data-gp-text
+          class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-overflow-hidden"
+          style="--w:100%;--ts:none;--ff:var(--g-font-NorthwestRoundTextured, 'NorthwestRoundTextured'), var(--g-font-body, body);--weight:400;--size:19px;--size-tablet:16px;--size-mobile:20px;--lh:180%;--lh-tablet:180%;--lh-mobile:120%;word-break:break-word;overflow:hidden"
+        >{{ section.settings.ggt-VYoXffD_childItem_3 }}</div>
+      </div>
+    </div>
+    </gp-text>
+    
+        
+      </div>
+      </div>
+      <div
+        uid="gBbrhzazo5"
+        data-index="3"
+        data-show="false"
+        class="gt-VYoXffD gp-accordion-item_body gp-transition-all gp-grid gp-duration-500 gp-overflow-hidden"
+        style="grid-template-rows:0fr;grid-template-columns:minmax(auto, 100%)"
+      >
+        <div
+        uid="gBbrhzazo5"
+        data-index="3"
+        class="gt-VYoXffD gp-accordion-item_body-inner gp-min-h-0 gp-transition-all gp-duration-500"  style="--pl:24px;--pr:24px" >
+            <div
+      tag="Col" type="component"
+      style="--ai:normal;--jc:normal;--o:0"
+      class="g0EqnUenJY gp-relative gp-flex gp-flex-col"
+    >
+      
+  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+  <gp-text data-id="gwg6hjxH8q">
+    <div
+      parentTag="Col"
+        class="gwg6hjxH8q "
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          
+          data-gp-text
+          class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ts:none;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--ff:var(--g-font-Open-Sans, 'Open Sans'), var(--g-font-body, body);--weight:400;--size:16px;--size-tablet:16px;--size-mobile:14px;--lh:180%;--lh-tablet:180%;--lh-mobile:180%;--c:var(--g-c-text-1, text-1);word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--pl:50px;--pr:5px;overflow:hidden"
+        >{{ section.settings.ggwg6hjxH8q_text | replace: '$locationOrigin', locationOrigin }}</div>
+      </div>
+    </div>
+    </gp-text>
+    
+    </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+              </div>
+            <div
+                class="gp-flex"
+                style="--jc:center"
+              >
+                
+  <div class="gp-overflow-clip" style="--w:100%;--w-tablet:100%;--w-mobile:100%;--height-iconCollapseSize:16px;--height-configIconSize:29px;--bs:none;--bw:1px 1px 1px 1px;--bc:#000000;--bg:transparent;--shadow:none">
+    <div
+      data-index="4"
+      class="gt-VYoXffD gp-accordion-item gp-overflow-hidden gp-child-item-gt-VYoXffD"
+      style="scrollBehavior:smooth"
+    >
+      <div
+        aria-hidden
+        uid="gApfSXVdMH"
+        id="gApfSXVdMH"
+        data-index="4"
+        class="gt-VYoXffD gp-accordion-item-gt-VYoXffD-4 gp-flex gp-items-center gp-accordion-item_header gp-cursor-pointer"
+        style="--pl:24px;--pr:24px;--pt:8px;--pb:8px;--h:auto;--h-tablet:auto;--h-mobile:auto;--fd:row-reverse;--jc:space-between;gap:16px;--hvr-bgc:transparent;--bgc:transparent;--hvr-c:#121212;--c:#242424;--bs:solid;--hvr-bs:solid;--bw:0px 0px 1px 0px;--hvr-bw:0px 0px 1px 0px;--bc:#121212;--hvr-bc:#121212"
+      >
+       <style class="accordion-style">.gp-accordion-item-gt-VYoXffD-4:hover 
+      {
+        .gp-collapsible-icon { 
+          color: #121212 !important;
+        }
+
+        .gp-icon { 
+            color: #121212 !important;
+        }
+      }
+    </style>
+        <div class="gp-inline-flex">
+        <span
+            style="--hvr-c:#121212;--c:#242424;width:16px;height:16px"
+            data-index="4"
+            class="gt-VYoXffD gp-accordion-item_icon gp-collapsible-icon gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden gp-transition-all gp-duration-200 [&>svg]:!gp-h-[var(--height-iconCollapseSize)] [&>svg]:!gp-w-auto"
+          ><svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817562042171752">
+              <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M216.49,168.49a12,12,0,0,1-17,0L128,97,56.49,168.49a12,12,0,0,1-17-17l80-80a12,12,0,0,1,17,0l80,80A12,12,0,0,1,216.49,168.49Z" /></svg></span>
+
+        </div>
+      <div class="gp-flex gp-items-center gp-w-full" style="--gg:16px;--jc:left">
+        
+            <div class="gp-inline-flex" >
+            <span
+              class="gp-icon gp-inline-flex header-icon gp-items-center gp-justify-center gp-overflow-hidden  [&>svg]:!gp-h-[var(--height-configIconSize)] [&>svg]:!gp-w-auto"
+              style="--hvr-c:#121212;--c:#f04f23;width:29px;height:29px">
+              <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817746262229352">
+              <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm-4,88a36,36,0,0,1,0,72,35.54,35.54,0,0,1-25.71-10.4,8,8,0,1,1,11.42-11.2A19.73,19.73,0,0,0,124,168a20,20,0,0,0,0-40,19.73,19.73,0,0,0-14.29,5.6,8,8,0,0,1-13.6-6.92l8-48A8,8,0,0,1,112,72h40a8,8,0,0,1,0,16H118.78l-4.19,25.14A38.8,38.8,0,0,1,124,112Z" /></svg></span>
+          </div>
+        
+        
+  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+  <gp-text data-id="">
+    <div
+      
+        class=" "
+        
+      >
+      <div  >
+        <div
+          
+          data-gp-text
+          class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-overflow-hidden"
+          style="--w:100%;--ts:none;--ff:var(--g-font-NorthwestRoundTextured, 'NorthwestRoundTextured'), var(--g-font-body, body);--weight:400;--size:19px;--size-tablet:16px;--size-mobile:20px;--lh:180%;--lh-tablet:180%;--lh-mobile:120%;word-break:break-word;overflow:hidden"
+        >{{ section.settings.ggt-VYoXffD_childItem_4 }}</div>
+      </div>
+    </div>
+    </gp-text>
+    
+        
+      </div>
+      </div>
+      <div
+        uid="gApfSXVdMH"
+        data-index="4"
+        data-show="false"
+        class="gt-VYoXffD gp-accordion-item_body gp-transition-all gp-grid gp-duration-500 gp-overflow-hidden"
+        style="grid-template-rows:0fr;grid-template-columns:minmax(auto, 100%)"
+      >
+        <div
+        uid="gApfSXVdMH"
+        data-index="4"
+        class="gt-VYoXffD gp-accordion-item_body-inner gp-min-h-0 gp-transition-all gp-duration-500"  style="--pl:24px;--pr:24px" >
+            <div
+      tag="Col" type="component"
+      style="--ai:normal;--jc:normal;--o:0"
+      class="gLmQ-Z1a_2 gp-relative gp-flex gp-flex-col"
+    >
+      
+  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+  <gp-text data-id="gkphTqEKU_">
+    <div
+      parentTag="Col"
+        class="gkphTqEKU_ "
+        style="--ta:left;--bs:none;--bw:1px 1px 1px 1px;--bc:#121212;--shadow:none;--d:block;--d-mobile:block;--d-tablet:block;--op:100%"
+      >
+      <div class="gp-flex" style="--jc:left">
+        <div
+          
+          data-gp-text
+          class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-text"
+          style="--w:100%;--w-tablet:100%;--w-mobile:100%;--ts:none;--ta:left;--line-clamp:unset;--line-clamp-tablet:unset;--line-clamp-mobile:unset;--ff:var(--g-font-Open-Sans, 'Open Sans'), var(--g-font-body, body);--weight:400;--size:16px;--size-tablet:16px;--size-mobile:14px;--lh:180%;--lh-tablet:180%;--lh-mobile:180%;--c:var(--g-c-text-1, text-1);word-break:break-word;--bgc:transparent;--bgi:url();--bgp:50% 50%;--bgs:cover;--bgr:no-repeat;--bga:scroll;--pl:50px;--pr:5px;overflow:hidden"
+        >{{ section.settings.ggkphTqEKU__text | replace: '$locationOrigin', locationOrigin }}</div>
+      </div>
+    </div>
+    </gp-text>
+    
+    </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+              </div>
+            <div
+                class="gp-flex"
+                style="--jc:center"
+              >
+                
+  <div class="gp-overflow-clip" style="--w:100%;--w-tablet:100%;--w-mobile:100%;--height-iconCollapseSize:16px;--height-configIconSize:29px;--bs:none;--bw:1px 1px 1px 1px;--bc:#000000;--bg:transparent;--shadow:none">
+    <div
+      data-index="5"
+      class="gt-VYoXffD gp-accordion-item gp-overflow-hidden gp-child-item-gt-VYoXffD"
+      style="scrollBehavior:smooth"
+    >
+      <div
+        aria-hidden
+        uid="glK4I-N4_N"
+        id="glK4I-N4_N"
+        data-index="5"
+        class="gt-VYoXffD gp-accordion-item-gt-VYoXffD-5 gp-flex gp-items-center gp-accordion-item_header gp-cursor-pointer"
+        style="--pl:24px;--pr:24px;--pt:8px;--pb:8px;--h:auto;--h-tablet:auto;--h-mobile:auto;--fd:row-reverse;--jc:space-between;gap:16px;--hvr-bgc:transparent;--bgc:transparent;--hvr-c:#121212;--c:#242424;--bs:solid;--hvr-bs:solid;--bw:0px 0px 1px 0px;--hvr-bw:0px 0px 1px 0px;--bc:#121212;--hvr-bc:#121212"
+      >
+       <style class="accordion-style">.gp-accordion-item-gt-VYoXffD-5:hover 
+      {
+        .gp-collapsible-icon { 
+          color: #121212 !important;
+        }
+
+        .gp-icon { 
+            color: #121212 !important;
+        }
+      }
+    </style>
+        <div class="gp-inline-flex">
+        <span
+            style="--hvr-c:#121212;--c:#242424;width:16px;height:16px"
+            data-index="5"
+            class="gt-VYoXffD gp-accordion-item_icon gp-collapsible-icon gp-inline-flex gp-items-center gp-justify-center gp-overflow-hidden gp-transition-all gp-duration-200 [&>svg]:!gp-h-[var(--height-iconCollapseSize)] [&>svg]:!gp-w-auto"
+          ><svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817562042171752">
+              <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M216.49,168.49a12,12,0,0,1-17,0L128,97,56.49,168.49a12,12,0,0,1-17-17l80-80a12,12,0,0,1,17,0l80,80A12,12,0,0,1,216.49,168.49Z" /></svg></span>
+
+        </div>
+      <div class="gp-flex gp-items-center gp-w-full" style="--gg:16px;--jc:left">
+        
+            <div class="gp-inline-flex" >
+            <span
+              class="gp-icon gp-inline-flex header-icon gp-items-center gp-justify-center gp-overflow-hidden  [&>svg]:!gp-h-[var(--height-configIconSize)] [&>svg]:!gp-w-auto"
+              style="--hvr-c:#121212;--c:#f04f23;width:29px;height:29px">
+              <svg height="20" width="20" xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 256 256" fill="currentColor" data-id="508817749208793448">
+              <path fill="currentColor" strokeLinecap="round" strokeLinejoin="round" fill="currentColor" d="M148,148a20,20,0,1,1-20-20A20,20,0,0,1,148,148Zm84-20A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-68,20a36,36,0,0,0-36-36c-.61,0-1.22,0-1.82,0L142.87,84.1a8,8,0,0,0-13.74-8.2s-32.4,54.28-32.47,54.42A36,36,0,1,0,164,148Z" /></svg></span>
+          </div>
+        
+        
+  {% assign locationOrigin = request.origin | append: routes.root_url | split: '/' | join: '/' %}
+  <gp-text data-id="">
+    <div
+      
+        class=" "
+        
+      >
+      <div  >
+        <div
+          
+          data-gp-text
+          class="[&_p]:gp-inline [&_p]:after:gp-whitespace-pre-wrap [&_p]:after:gp-content-['\A'] gp-overflow-hidden"
+          style="--w:100%;--ts:none;--ff:var(--g-font-NorthwestRoundTextured, 'NorthwestRoundTextured'), var(--g-font-body, body);--weight:400;--size:19px;--size-tablet:16px;--size-mobile:20px;--lh:180%;--lh-tablet:180%;--lh-mobile:120%;word-break:break-word;overflow:hidden"
+        >{{ section.settings.ggt-VYoXffD_childItem_5 }}</div>
+      </div>
+    </div>
+    </gp-text>
+    
+        
+      </div>
+      </div>
+      <div
+        uid="glK4I-N4_N"
+        data-index="5"
+        data-show="false"
+        class="gt-VYoXffD gp-accordion-item_body gp-transition-all gp-grid gp-duration-500 gp-overflow-hidden"
+        style="grid-template-rows:0fr;grid-template-columns:minmax(auto, 100%)"
+      >
+        <div
+        uid="glK4I-N4_N"
+        data-index="5"
+        class="gt-VYoXffD gp-accordion-item_body-inner gp-min-h-0 gp-transition-all gp-duration-500"  style="--pl:24px;--pr:24px" >
+            <div
+      tag="Col" type="component"
+      style="--ai:normal;--jc:normal;--o:0"
+      class="gAvMHDvePb gp-relative gp-flex gp-flex-col"
+    >
+      
+    </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+              </div>
+            
+    </gp-accordion>
+    <script {% if section.settings.section_preload == "false" %}class="gps-link" delay {% else %}src{% endif %}="https://assets.gemcommerce.com/assets-v2/gp-accordion.js?v={{ shop.metafields.GEMPAGES.ASSETS_VERSION }}" defer="defer"></script>
+  
+      </div>
+    </div>
+    </div>
+   
+    
+    </div>
+    </div>
+  
+            </section>
+           
+    
+<style {% if section.settings.section_preload == "false" %} class="gps-link" type="text/disabled-css" {% endif %}>@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: normal;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/opensans/v43/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4gaVQ.woff) format('woff');
+}
+/* cyrillic-ext */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/opensans/v43/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4taVQUwaEQbjB_mQ.woff) format('woff');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+/* cyrillic */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/opensans/v43/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4kaVQUwaEQbjB_mQ.woff) format('woff');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+/* greek-ext */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/opensans/v43/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4saVQUwaEQbjB_mQ.woff) format('woff');
+  unicode-range: U+1F00-1FFF;
+}
+/* greek */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/opensans/v43/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4jaVQUwaEQbjB_mQ.woff) format('woff');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+/* hebrew */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/opensans/v43/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4iaVQUwaEQbjB_mQ.woff) format('woff');
+  unicode-range: U+0307-0308, U+0590-05FF, U+200C-2010, U+20AA, U+25CC, U+FB1D-FB4F;
+}
+/* math */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/opensans/v43/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B5caVQUwaEQbjB_mQ.woff) format('woff');
+  unicode-range: U+0302-0303, U+0305, U+0307-0308, U+0310, U+0312, U+0315, U+031A, U+0326-0327, U+032C, U+032F-0330, U+0332-0333, U+0338, U+033A, U+0346, U+034D, U+0391-03A1, U+03A3-03A9, U+03B1-03C9, U+03D1, U+03D5-03D6, U+03F0-03F1, U+03F4-03F5, U+2016-2017, U+2034-2038, U+203C, U+2040, U+2043, U+2047, U+2050, U+2057, U+205F, U+2070-2071, U+2074-208E, U+2090-209C, U+20D0-20DC, U+20E1, U+20E5-20EF, U+2100-2112, U+2114-2115, U+2117-2121, U+2123-214F, U+2190, U+2192, U+2194-21AE, U+21B0-21E5, U+21F1-21F2, U+21F4-2211, U+2213-2214, U+2216-22FF, U+2308-230B, U+2310, U+2319, U+231C-2321, U+2336-237A, U+237C, U+2395, U+239B-23B7, U+23D0, U+23DC-23E1, U+2474-2475, U+25AF, U+25B3, U+25B7, U+25BD, U+25C1, U+25CA, U+25CC, U+25FB, U+266D-266F, U+27C0-27FF, U+2900-2AFF, U+2B0E-2B11, U+2B30-2B4C, U+2BFE, U+3030, U+FF5B, U+FF5D, U+1D400-1D7FF, U+1EE00-1EEFF;
+}
+/* symbols */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/opensans/v43/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B5OaVQUwaEQbjB_mQ.woff) format('woff');
+  unicode-range: U+0001-000C, U+000E-001F, U+007F-009F, U+20DD-20E0, U+20E2-20E4, U+2150-218F, U+2190, U+2192, U+2194-2199, U+21AF, U+21E6-21F0, U+21F3, U+2218-2219, U+2299, U+22C4-22C6, U+2300-243F, U+2440-244A, U+2460-24FF, U+25A0-27BF, U+2800-28FF, U+2921-2922, U+2981, U+29BF, U+29EB, U+2B00-2BFF, U+4DC0-4DFF, U+FFF9-FFFB, U+10140-1018E, U+10190-1019C, U+101A0, U+101D0-101FD, U+102E0-102FB, U+10E60-10E7E, U+1D2C0-1D2D3, U+1D2E0-1D37F, U+1F000-1F0FF, U+1F100-1F1AD, U+1F1E6-1F1FF, U+1F30D-1F30F, U+1F315, U+1F31C, U+1F31E, U+1F320-1F32C, U+1F336, U+1F378, U+1F37D, U+1F382, U+1F393-1F39F, U+1F3A7-1F3A8, U+1F3AC-1F3AF, U+1F3C2, U+1F3C4-1F3C6, U+1F3CA-1F3CE, U+1F3D4-1F3E0, U+1F3ED, U+1F3F1-1F3F3, U+1F3F5-1F3F7, U+1F408, U+1F415, U+1F41F, U+1F426, U+1F43F, U+1F441-1F442, U+1F444, U+1F446-1F449, U+1F44C-1F44E, U+1F453, U+1F46A, U+1F47D, U+1F4A3, U+1F4B0, U+1F4B3, U+1F4B9, U+1F4BB, U+1F4BF, U+1F4C8-1F4CB, U+1F4D6, U+1F4DA, U+1F4DF, U+1F4E3-1F4E6, U+1F4EA-1F4ED, U+1F4F7, U+1F4F9-1F4FB, U+1F4FD-1F4FE, U+1F503, U+1F507-1F50B, U+1F50D, U+1F512-1F513, U+1F53E-1F54A, U+1F54F-1F5FA, U+1F610, U+1F650-1F67F, U+1F687, U+1F68D, U+1F691, U+1F694, U+1F698, U+1F6AD, U+1F6B2, U+1F6B9-1F6BA, U+1F6BC, U+1F6C6-1F6CF, U+1F6D3-1F6D7, U+1F6E0-1F6EA, U+1F6F0-1F6F3, U+1F6F7-1F6FC, U+1F700-1F7FF, U+1F800-1F80B, U+1F810-1F847, U+1F850-1F859, U+1F860-1F887, U+1F890-1F8AD, U+1F8B0-1F8BB, U+1F8C0-1F8C1, U+1F900-1F90B, U+1F93B, U+1F946, U+1F984, U+1F996, U+1F9E9, U+1FA00-1FA6F, U+1FA70-1FA7C, U+1FA80-1FA89, U+1FA8F-1FAC6, U+1FACE-1FADC, U+1FADF-1FAE9, U+1FAF0-1FAF8, U+1FB00-1FBFF;
+}
+/* vietnamese */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/opensans/v43/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4vaVQUwaEQbjB_mQ.woff) format('woff');
+  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/opensans/v43/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4uaVQUwaEQbjB_mQ.woff) format('woff');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/opensans/v43/memSYaGs126MiZpBA-UvWbX2vVnXBbObj2OVZyOOSr4dVJWUgsjZ0B4gaVQUwaEQbjA.woff) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+</style>
+
+{% schema %}
+  {
+    "presets": [{ "name": "Gray FAQ" }],
+    "name": "Gray FAQ",
+    "tag": "section",
+    "class": "gps-576769791239390025 gps gpsil",
+    "settings": [{"type":"paragraph","content":"Section design by GemPages. [Click here to start design](https://admin.shopify.com/store/nest-wild/apps/gempages-cro/app/shopify/edit?pageType=THEME_SECTION&editorId=576769791239390025)"},{"type":"select","label":"Section Preload","id":"section_preload","options":[{"label":"On","value":"true"},{"label":"Off","value":"false"},{"label":"Off Lazy Script","value":"off_lazy_script"}],"default":"off_lazy_script"},{"type":"text","label":"Checksum","id":"checksum"},{"type":"html","id":"ggsTxxfsYeJ_text","label":"ggsTxxfsYeJ_text","default":"<p>FAQs</p>"},{"type":"html","id":"ggfMKRQxOjs_text","label":"ggfMKRQxOjs_text","default":"QUESTIONS? WE HAVE ANSWERS."},{"type":"html","id":"ggt-VYoXffD_childItem_0","label":"ggt-VYoXffD_childItem_0","default":"<p>what is the difference between the original and the hybrid performance coil?</p>"},{"type":"html","id":"ggt-VYoXffD_childItem_1","label":"ggt-VYoXffD_childItem_1","default":"<p>Will it keep me cool? i'm a hot sleeper.</p>"},{"type":"html","id":"ggt-VYoXffD_childItem_2","label":"ggt-VYoXffD_childItem_2","default":"<p>On a scale of 1-10, what's the firmness level?</p>"},{"type":"html","id":"ggt-VYoXffD_childItem_3","label":"ggt-VYoXffD_childItem_3","default":"<p>does this mattress give-off harmful chemicals?</p>"},{"type":"html","id":"ggt-VYoXffD_childItem_4","label":"ggt-VYoXffD_childItem_4","default":"<p>how does the 99-night trial work?</p>"},{"type":"html","id":"ggt-VYoXffD_childItem_5","label":"ggt-VYoXffD_childItem_5","default":"Accordion 1"},{"type":"html","id":"ggpJ3SyqO7B_text","label":"ggpJ3SyqO7B_text","default":"<p>The Original model is constructed with layers of premium foam. These materials are breathable (keep you cool), comfortable (help you fall asleep), and supportive. Recently we have added a Hybrid (Pocketed Coil) version to our offering. The Performance Coil adds features like firmer support on the edge of the bed. Also this design helps heavier customer with additional support without making the bed feel too firm. The Nest &amp; Wild mattress has all the comfort of a high-end luxury brand at a price point that won't break the bank. We believe in our product so much, we want you to enjoy 99-nights on us. Please read our reviews to understand why our mattress has quickly become a fan-favorite.</p>"},{"type":"html","id":"ggFsNP3FzEG_text","label":"ggFsNP3FzEG_text","default":"<p>The Nest &amp; Wild mattress has a very heavy cooling cover treated with a Phase Change material that pulls heat AWAY from you. This coupled with the high airflow foams really helps with hot sleepers!</p><p>The materials are all foam, CertiPur Certified materials, no fiberglass, and very safe.</p>"},{"type":"html","id":"ggFAPL0evUR_text","label":"ggFAPL0evUR_text","default":"<p>Overall, our mattress is considered \"plush\" but with great support.</p><p>Hybrid - 4.5 of 10. Softer feel for side sleepers but still supportive.</p><p>All Foam - 6 of 10. Medium feel for side and combo sleepers</p><p>We are committed to 'ditching the ditches' of too-soft mattresses. You will not get a sinking/stuck feeling with this bed. It feels \"plush\" on top but it is still very supportive.</p>"},{"type":"html","id":"ggwg6hjxH8q_text","label":"ggwg6hjxH8q_text","default":"<p><span style=\"background-color:rgb(255,255,255);color:rgb(41,41,41);font-size:16px;\">No. Our mattresses are made without formaldehyde, heavy metals or flame retardants that may cause cancer and genetic defects. All foams meet the standard of less than 0.5 parts per million VOC (volatile organic compounds).</span></p>"},{"type":"html","id":"ggkphTqEKU__text","label":"ggkphTqEKU__text","default":"<p><span style=\"background-color:rgb(255,255,255);color:rgb(41,41,41);font-size:16px;\">After you order your mattress, it gets delivered right to your doorstep. After at least 30 days of use, if you are not satisfied with your mattress, simply return it for a 100% refund.</span><br><br><span style=\"background-color:rgb(255,255,255);color:rgb(41,41,41);font-size:16px;\">You may initiate a return by reaching out to us at: travis@sandmanbedding.com</span><br><br><span style=\"background-color:rgb(255,255,255);color:rgb(41,41,41);font-size:16px;\">Where available, we work with our service partner to get your Nest &amp; Wild mattress picked up, as is, at a time convenient for you. In the cases where they are unable to provide pick-up, we ask that you donate the product to a local charity and provide proof of donation.&nbsp;</span></p>"}],
+    "blocks": [{"type": "@app"}],
+    "locales": {}
+  }
+{% endschema %}

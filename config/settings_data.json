@@ -1,0 +1,666 @@
+{
+  "current": {
+    "button_border_radius": 0,
+    "block_border_radius": "none",
+    "heading_color": "#282828",
+    "text_color": "#292929",
+    "background": "#ffffff",
+    "secondary_background": "#e7e7e7",
+    "success_color": "#2ad973",
+    "error_color": "#de2a2a",
+    "header_background": "#0e2333",
+    "footer_background": "#0e2333",
+    "footer_text_color": "#ffffff",
+    "primary_button_background": "#f04f23",
+    "secondary_button_background": "#ffffff",
+    "secondary_button_text_color": "#0e2333",
+    "product_rating_color": "#f04f23",
+    "product_on_sale_accent": "#ff8900",
+    "product_sold_out_accent": "#de2a2a",
+    "product_custom_label_background": "#f04f23",
+    "product_custom_label_2_background": "#f04f23",
+    "product_in_stock_text_color": "#2e9e7b",
+    "product_low_stock_text_color": "#de2a2a",
+    "heading_font": "zurich_extended_n8",
+    "heading_font_size": "small",
+    "heading_text_transform": "uppercase",
+    "text_font": "open_sans_n4",
+    "text_font_size": 16,
+    "currency_code_enabled": true,
+    "stagger_products_apparition": true,
+    "round_color_swatches": false,
+    "show_vendor": false,
+    "show_secondary_image": true,
+    "show_product_rating": false,
+    "product_color_display": "count",
+    "product_image_size": "natural",
+    "search_enable_products": true,
+    "search_enable_blog_posts": false,
+    "search_enable_pages": false,
+    "search_enable_collections": true,
+    "cart_type": "drawer",
+    "cart_icon": "shopping_cart",
+    "cart_empty_button_link": "shopify:\/\/collections\/mattresses",
+    "cart_show_free_shipping_threshold": false,
+    "cart_free_shipping_threshold": "",
+    "social_facebook": "https:\/\/www.facebook.com\/nestandwild\/",
+    "social_twitter": "https:\/\/mobile.twitter.com\/nestandwild",
+    "social_instagram": "https:\/\/www.instagram.com\/nestandwild\/",
+    "social_youtube": "https:\/\/www.youtube.com\/@nestwildmattresses",
+    "favicon": "shopify:\/\/shop_images\/nw_favicon.jpg",
+    "checkout_logo_image": "shopify:\/\/shop_images\/checkout-logo-call-ceo3.png",
+    "checkout_sidebar_background_color": "#f5f5f5",
+    "checkout_accent_color": "#282828",
+    "checkout_button_color": "#405de6",
+    "checkout_error_color": "#de2a2a",
+    "accent_color": "#405de6",
+    "sections": {
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "blocks": {
+          "message_HHkMd7": {
+            "type": "message",
+            "disabled": true,
+            "settings": {
+              "text": "CODE FAIRWAYS10: FOR 10% OFF + Free Shipping",
+              "learn_more_text": "Learn more",
+              "title": "",
+              "content": "",
+              "button_text": "",
+              "button_link": ""
+            }
+          },
+          "message-1": {
+            "type": "message",
+            "disabled": true,
+            "settings": {
+              "text": "Introducing our Newest Model: The Luxury Hybrid",
+              "learn_more_text": "Learn more",
+              "title": "Hybrid",
+              "content": "",
+              "button_text": "Order Now",
+              "button_link": "shopify:\/\/products\/luxuryhybrid"
+            }
+          },
+          "d5e63220-148c-4358-91ef-6d97ded40f24": {
+            "type": "message",
+            "settings": {
+              "text": "CertiPUR-US Foams and Fiberglass Free Mattresses",
+              "learn_more_text": "Learn more",
+              "title": "",
+              "content": "",
+              "button_text": "",
+              "button_link": ""
+            }
+          },
+          "message_tLBNtf": {
+            "type": "message",
+            "disabled": true,
+            "settings": {
+              "text": "Check Out our Wooden & Adjustable Bases",
+              "learn_more_text": "Learn more",
+              "title": "Bases",
+              "content": "",
+              "button_text": "Bases",
+              "button_link": "shopify:\/\/collections\/bases"
+            }
+          }
+        },
+        "block_order": [
+          "message_HHkMd7",
+          "message-1",
+          "d5e63220-148c-4358-91ef-6d97ded40f24",
+          "message_tLBNtf"
+        ],
+        "settings": {
+          "announcement_bar_position": "sticky",
+          "announcement_text_size": "normal",
+          "autoplay": true,
+          "cycle_speed": 5,
+          "background": "#f04f23",
+          "text_color": "#ffffff",
+          "button_background": "#292929",
+          "button_text_color": "#ffffff"
+        }
+      },
+      "header": {
+        "type": "header",
+        "settings": {
+          "enable_sticky_header": true,
+          "logo": "shopify:\/\/shop_images\/nest-wild_logo_2x_1d2b74dd-ee32-4fc2-b9dc-6adf76191de2.png",
+          "logo_max_width": 200,
+          "mobile_logo_max_width": 145,
+          "navigation_menu": "main-menu-1",
+          "sidebar_navigation_menu": "",
+          "header_layout": "logo_left_navigation_center",
+          "show_icons": false,
+          "reduce_desktop_padding": false,
+          "show_locale_selector": true,
+          "show_country_selector": false,
+          "enable_transparent_header": false,
+          "transparent_header_text_color": "#ffffff",
+          "search_menu": ""
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "f5012117-bd89-4b81-ad17-a27b77862938": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/nw_buffalo-badge-white.png",
+              "image_width": 230
+            }
+          },
+          "text": {
+            "type": "text",
+            "settings": {
+              "title": "Nest & Wild",
+              "content": "<p>118 RD 183<br\/>TUPELO, MS 38804<\/p><p><a href=\"\/pages\/contact\" title=\"Contact\">Talk with the CEO<\/a><br\/><a href=\"tel:+16626101882\" title=\"(662) 610-1882\"><br\/>(662) 610-1882<\/a><br\/><\/p>"
+            }
+          },
+          "96541fac-c02b-4ac4-bf58-bbb89334e11c": {
+            "type": "text",
+            "settings": {
+              "title": "",
+              "content": "<p><a href=\"\/\" title=\"\/\">HOME<\/a><br\/><a href=\"\/collections\/mattresses\" title=\"Premium Mattresses\">OUR MATTRESSES<br\/><\/a><a href=\"\/collections\/bases\" title=\"Bases\">OUR BASES<\/a><br\/><a href=\"\/pages\/our-story\" title=\"Our Story\">OUR STORY<\/a><br\/><a href=\"\/pages\/contact\" title=\"Contact\">CONTACT US<\/a><br\/><a href=\"\/pages\/faq\" title=\"FAQ\">FAQS<br\/><\/a><a href=\"\/blogs\/news\" title=\"News\">BLOGS<\/a><\/p>"
+            }
+          },
+          "b00fb76b-1029-488b-abd1-fef7790af56d": {
+            "type": "text",
+            "settings": {
+              "title": "",
+              "content": "<p><a href=\"\/pages\/terms-and-conditions\" title=\"Terms and Conditions\">TERMS & CONDITIONS<\/a><br\/><a href=\"\/pages\/privacy-policy\" title=\"Privacy Policy\">PRIVACY POLICY<\/a><br\/><a href=\"\/pages\/warranty\" title=\"Warranty\">WARRANTY<\/a><\/p><p><a href=\"\/pages\/return-and-refund\" title=\"Return and Refund\">RETURN & REFUND<\/a><\/p><p><a href=\"\/pages\/affiliate-sign-up\" title=\"Affiliate Sign Up\">AFFILIATE SIGN UP<\/a><\/p><p><\/p>"
+            }
+          },
+          "social_media": {
+            "type": "social_media",
+            "settings": {
+              "title": "Follow Us",
+              "content": ""
+            }
+          }
+        },
+        "block_order": [
+          "f5012117-bd89-4b81-ad17-a27b77862938",
+          "text",
+          "96541fac-c02b-4ac4-bf58-bbb89334e11c",
+          "b00fb76b-1029-488b-abd1-fef7790af56d",
+          "social_media"
+        ],
+        "settings": {
+          "show_payment_icons": true,
+          "show_country_selector": false,
+          "show_locale_selector": false,
+          "show_cookie_bar": false,
+          "cookie_bar_title": "Cookie policy",
+          "cookie_bar_content": "<p>I agree to the processing of my data in accordance with the conditions set out in the policy of Privacy.<\/p>"
+        }
+      },
+      "popup": {
+        "type": "popup",
+        "settings": {
+          "enable": false,
+          "apparition_delay": 5,
+          "show_only_on_index": true,
+          "show_only_for_visitors": true,
+          "show_only_once": false,
+          "image": "shopify:\/\/shop_images\/stretching-small.png",
+          "image_position": "left",
+          "title": "RECEIVE 15% OFF TODAY",
+          "content": "<p>Join our email list and get your 15% off code today. Don’t worry, we don’t email often.<\/p>"
+        }
+      },
+      "mini-cart": {
+        "type": "mini-cart",
+        "settings": {
+          "show_order_note": true,
+          "show_checkout_button": true,
+          "empty_button_link": "shopify:\/\/collections\/all",
+          "show_recommendations": false,
+          "recommendations_title": "You may also like"
+        }
+      },
+      "static-text-with-icons": {
+        "type": "static-text-with-icons",
+        "blocks": {
+          "static-text-with-icons-0": {
+            "type": "item",
+            "settings": {
+              "icon": "picto-box",
+              "custom_icon_width": 50,
+              "title": "Free shipping",
+              "content": "<p>Free worldwide shipping and returns - customs and duties taxes included<\/p>"
+            }
+          },
+          "static-text-with-icons-1": {
+            "type": "item",
+            "settings": {
+              "icon": "picto-phone",
+              "custom_icon_width": 50,
+              "title": "Customer service",
+              "content": "<p>We are available from monday to friday to answer your questions.<\/p>"
+            }
+          },
+          "static-text-with-icons-2": {
+            "type": "item",
+            "settings": {
+              "icon": "picto-lock",
+              "custom_icon_width": 50,
+              "title": "Secure payment",
+              "content": "<p>Your payment information is processed securely.<\/p>"
+            }
+          },
+          "490e2c72-95c2-455c-8b35-e79ad19fccac": {
+            "type": "item",
+            "settings": {
+              "icon": "picto-customer-support",
+              "custom_icon": "shopify:\/\/shop_images\/NW_icon-99nights.png",
+              "custom_icon_width": 80,
+              "title": "99 Nights on Us.",
+              "content": "<p>Or your money back.<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "static-text-with-icons-0",
+          "static-text-with-icons-1",
+          "static-text-with-icons-2",
+          "490e2c72-95c2-455c-8b35-e79ad19fccac"
+        ],
+        "settings": {
+          "show_section": false,
+          "background": "rgba(0,0,0,0)",
+          "text_color": "rgba(0,0,0,0)"
+        }
+      },
+      "static-newsletter": {
+        "type": "static-newsletter",
+        "settings": {
+          "show_section": false,
+          "reveal_on_scroll": true,
+          "subheading": "Subscribe to our newsletter",
+          "content": "<p>Promotions, new products and sales. Directly to your inbox.<\/p>",
+          "text_position": "right",
+          "text_alignment": "left",
+          "text_background": "rgba(0,0,0,0)",
+          "text_color": "rgba(0,0,0,0)",
+          "button_background": "rgba(0,0,0,0)",
+          "button_text_color": "rgba(0,0,0,0)"
+        }
+      }
+    },
+    "content_for_index": [],
+    "blocks": {
+      "13768625480086291342": {
+        "type": "shopify:\/\/apps\/forms\/blocks\/forms\/8744a304-fcb1-4347-b211-bb6b4759a76a",
+        "disabled": false,
+        "settings": {}
+      },
+      "855628211100114053": {
+        "type": "shopify:\/\/apps\/klaviyo-email-marketing-sms\/blocks\/klaviyo-onsite-embed\/2632fe16-c075-4321-a88b-50b567f42507",
+        "disabled": false,
+        "settings": {}
+      },
+      "15683396631634586217": {
+        "type": "shopify:\/\/apps\/inbox\/blocks\/chat\/841fc607-4181-4ad1-842d-e24d7f8bad6b",
+        "disabled": false,
+        "settings": {
+          "button_color": "#1d416b",
+          "secondary_color": "#FFFFFF",
+          "ternary_color": "#6A6A6A",
+          "button_icon": "chat_bubble",
+          "button_text": "no_text",
+          "button_horizontal_position": "bottom_right",
+          "button_vertical_position": "lowest",
+          "greeting_message": "👋 Hello! Click here get instant answers, chat or email us live."
+        }
+      },
+      "10605408327587305396": {
+        "type": "shopify:\/\/apps\/eg-auto-add-to-cart\/blocks\/app-embed\/0f7d4f74-1e89-4820-aec4-6564d7e535d2",
+        "disabled": false,
+        "settings": {
+          "version": "v3"
+        }
+      },
+      "6478312753674380289": {
+        "type": "shopify:\/\/apps\/gempages-builder\/blocks\/embed-gp-script-head\/20b379d4-1b20-474c-a6ca-665c331919f3",
+        "disabled": false,
+        "settings": {}
+      },
+      "7867184527792707249": {
+        "type": "shopify:\/\/apps\/sc-product-options\/blocks\/app-embed\/873c9b74-306d-4f83-b58b-a2f5043d2187",
+        "disabled": false,
+        "settings": {}
+      },
+      "16256948136948485038": {
+        "type": "shopify:\/\/apps\/upcharge-surcharges\/blocks\/app-embed-block\/3660e544-1847-4d53-9b3b-f0cb50c2d9f7",
+        "disabled": false,
+        "settings": {}
+      }
+    }
+  },
+  "presets": {
+    "Carbon": {
+      "button_border_radius": 0,
+      "block_border_radius": "none",
+      "heading_color": "#282828",
+      "text_color": "#282828",
+      "secondary_background": "#f5f5f5",
+      "success_color": "#2e9e7b",
+      "error_color": "#de2a2a",
+      "header_background": "#282828",
+      "footer_background": "#282828",
+      "footer_text_color": "#ffffff",
+      "primary_button_background": "#405de6",
+      "secondary_button_background": "#f3ff34",
+      "secondary_button_text_color": "#282828",
+      "product_on_sale_accent": "#de2a2a",
+      "product_custom_label_background": "#405de6",
+      "product_custom_label_2_background": "#f3ff34",
+      "product_in_stock_text_color": "#2e9e7b",
+      "product_low_stock_text_color": "#de2a2a",
+      "heading_font": "zurich_extended_n8",
+      "heading_font_size": "medium",
+      "heading_text_transform": "uppercase",
+      "text_font": "zurich_n4",
+      "text_font_size": 15,
+      "currency_code_enabled": false,
+      "stagger_products_apparition": true,
+      "round_color_swatches": false,
+      "show_vendor": false,
+      "show_secondary_image": true,
+      "product_color_display": "count",
+      "product_image_size": "natural",
+      "show_product_rating": false,
+      "cart_type": "message",
+      "cart_show_free_shipping_threshold": true,
+      "accent_color": "#405de6",
+      "checkout_sidebar_background_color": "#f5f5f5",
+      "checkout_accent_color": "#282828",
+      "checkout_button_color": "#405de6",
+      "checkout_error_color": "#de2a2a",
+      "sections": {
+        "announcement-bar": {
+          "type": "announcement-bar",
+          "blocks": {
+            "message-1": {
+              "type": "message",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "message-1"
+          ],
+          "settings": {
+            "announcement_bar_position": "non_sticky",
+            "announcement_text_size": "normal",
+            "autoplay": true,
+            "cycle_speed": 5,
+            "background": "#f3ff34",
+            "text_color": "#282828",
+            "button_background": "#282828",
+            "button_text_color": "#ffffff"
+          }
+        },
+        "header": {
+          "type": "header",
+          "settings": {
+            "enable_sticky_header": true,
+            "navigation_menu": "main-menu",
+            "header_layout": "logo_left_navigation_center",
+            "show_icons": false,
+            "reduce_desktop_padding": false,
+            "enable_transparent_header": false,
+            "transparent_header_text_color": "#ffffff"
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "text": {
+              "type": "text",
+              "settings": {}
+            },
+            "links": {
+              "type": "links",
+              "settings": {
+                "menu": "footer"
+              }
+            },
+            "newsletter": {
+              "type": "newsletter",
+              "settings": {}
+            },
+            "social_media": {
+              "type": "social_media",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "text",
+            "links",
+            "newsletter",
+            "social_media"
+          ],
+          "settings": {}
+        }
+      }
+    },
+    "Ivory": {
+      "button_border_radius": 4,
+      "block_border_radius": "small",
+      "heading_color": "#1a1a1a",
+      "text_color": "#1a1a1a",
+      "secondary_background": "#f5f1ec",
+      "success_color": "#2e9e7b",
+      "error_color": "#de2a2a",
+      "header_background": "#56112a",
+      "header_text_color": "#ffffff",
+      "footer_background": "#56112a",
+      "footer_text_color": "#ffffff",
+      "primary_button_background": "#56112a",
+      "primary_button_text_color": "#ffffff",
+      "secondary_button_background": "#f7aea6",
+      "secondary_button_text_color": "#56112a",
+      "product_on_sale_accent": "#913b59",
+      "product_custom_label_background": "#405de6",
+      "product_custom_label_2_background": "#f3e5b6",
+      "product_in_stock_text_color": "#2e9e7b",
+      "product_low_stock_text_color": "#de2a2a",
+      "heading_font": "itc_caslon_no_224_n5",
+      "heading_font_size": "medium",
+      "heading_text_transform": "normal",
+      "text_font": "avenir_next_n4",
+      "text_font_size": 15,
+      "stagger_products_apparition": true,
+      "round_color_swatches": true,
+      "show_vendor": false,
+      "show_secondary_image": true,
+      "product_color_display": "count",
+      "product_image_size": "natural",
+      "cart_type": "drawer",
+      "accent_color": "#405de6",
+      "checkout_sidebar_background_color": "#f6f3ed",
+      "checkout_accent_color": "#353535",
+      "checkout_button_color": "#353535",
+      "checkout_error_color": "#de2a2a",
+      "sections": {
+        "announcement-bar": {
+          "type": "announcement-bar",
+          "blocks": {
+            "message-1": {
+              "type": "message",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "message-1"
+          ],
+          "settings": {
+            "announcement_bar_position": "non_sticky",
+            "announcement_text_size": "small",
+            "autoplay": true,
+            "cycle_speed": 5,
+            "background": "#f7aea6",
+            "text_color": "#56112a",
+            "button_background": "#56112a",
+            "button_text_color": "#ffffff"
+          }
+        },
+        "header": {
+          "type": "header",
+          "settings": {
+            "enable_sticky_header": true,
+            "navigation_menu": "main-menu",
+            "header_layout": "logo_center_navigation_inline",
+            "show_icons": false,
+            "reduce_desktop_padding": false,
+            "enable_transparent_header": false,
+            "transparent_header_text_color": "#ffffff"
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "text": {
+              "type": "text",
+              "settings": {}
+            },
+            "links": {
+              "type": "links",
+              "settings": {
+                "menu": "footer"
+              }
+            },
+            "newsletter": {
+              "type": "newsletter",
+              "settings": {}
+            },
+            "social_media": {
+              "type": "social_media",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "text",
+            "links",
+            "newsletter",
+            "social_media"
+          ],
+          "settings": {}
+        }
+      }
+    },
+    "Quartz": {
+      "icon_stroke_width": 1.3,
+      "button_border_radius": 0,
+      "block_border_radius": "none",
+      "vertical_spacing": "medium",
+      "heading_color": "#0d0d0d",
+      "text_color": "#2e2e2e",
+      "background": "#ffffff",
+      "secondary_background": "#f5f5f5",
+      "success_color": "#3c6e71",
+      "error_color": "#de2a2a",
+      "header_background": "#ffffff",
+      "header_text_color": "#2e2e2e",
+      "footer_background": "#ffffff",
+      "footer_text_color": "#2e2e2e",
+      "primary_button_background": "#051e38",
+      "primary_button_text_color": "#ffffff",
+      "secondary_button_background": "#dfdfdf",
+      "secondary_button_text_color": "#2e2e2e",
+      "product_on_sale_accent": "#de2b2b",
+      "product_sold_out_accent": "#5b5b5b",
+      "product_custom_label_background": "#051e38",
+      "product_custom_label_2_background": "#2e9e7b",
+      "product_in_stock_text_color": "#2e9e7b",
+      "product_low_stock_text_color": "#de2b2b",
+      "heading_font": "futura_n3",
+      "heading_font_size": "medium",
+      "heading_text_transform": "uppercase",
+      "text_font": "din_next_n4",
+      "text_font_size": 15,
+      "stagger_products_apparition": true,
+      "round_color_swatches": false,
+      "show_vendor": false,
+      "show_secondary_image": true,
+      "product_color_display": "hide",
+      "product_image_size": "natural",
+      "cart_type": "drawer",
+      "cart_icon": "tote_bag",
+      "checkout_sidebar_background_color": "#f5f5f5",
+      "checkout_accent_color": "#051e38",
+      "checkout_button_color": "#051e38",
+      "checkout_error_color": "#de2a2a",
+      "accent_color": "#405de6",
+      "sections": {
+        "announcement-bar": {
+          "type": "announcement-bar",
+          "blocks": {
+            "message-1": {
+              "type": "message",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "message-1"
+          ],
+          "settings": {
+            "announcement_bar_position": "non_sticky",
+            "announcement_text_size": "small",
+            "autoplay": true,
+            "cycle_speed": 5,
+            "background": "#051e38",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#051e38"
+          }
+        },
+        "header": {
+          "type": "header",
+          "settings": {
+            "enable_sticky_header": true,
+            "navigation_menu": "main-menu",
+            "header_layout": "logo_center_navigation_inline",
+            "show_icons": true,
+            "reduce_desktop_padding": false,
+            "enable_transparent_header": true,
+            "transparent_header_text_color": "#ffffff"
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "blocks": {
+            "text": {
+              "type": "text",
+              "settings": {}
+            },
+            "links": {
+              "type": "links",
+              "settings": {
+                "menu": "footer"
+              }
+            },
+            "newsletter": {
+              "type": "newsletter",
+              "settings": {}
+            },
+            "social_media": {
+              "type": "social_media",
+              "settings": {}
+            }
+          },
+          "block_order": [
+            "text",
+            "links",
+            "newsletter",
+            "social_media"
+          ],
+          "settings": {}
+        }
+      }
+    }
+  }
+}

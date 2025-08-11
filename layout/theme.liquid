@@ -1,0 +1,576 @@
+{%- comment -%}
+------------------------------------------------------------------------------------------------------------------------
+NOTE TO DEVELOPERS: welcome to Focal theme! We hope that you will enjoy editing this theme as much as we did for
+  developing it. We have put a lot of work to make this theme as developer friendly as possible by offering you
+  hooks to integrate into critical parts of the theme. You will find the complete technical documentation (including
+  all events, dependencies...) in the "custom.js" file, located in the Assets folder.
+------------------------------------------------------------------------------------------------------------------------
+{%- endcomment -%}
+
+<!doctype html>
+
+{%- assign direction = 'ltr' -%}
+{%- case request.locale.iso_code -%}
+  {%- when 'ar' or 'arc' or 'dv' or 'fa' or 'ha' or 'he' or 'kwh' or 'ks' or 'ku' or 'ps' or 'ur' or 'yi' -%}
+    {%- assign direction = 'rtl' -%}
+{%- endcase -%}
+
+<html class="no-js" lang="{{ request.locale.iso_code }}" dir="{{ direction }}">
+  <head>
+<!-- Microsoft Ads Dynamic Remarketing -->
+<script>
+  window.uetq = window.uetq || [];
+window.uetq.push('event', '', 
+{'ecomm_prodid': {% if template contains 'product' -%}
+ 'shopify_US_{{ product.id }}_{{ product.selected_or_first_available_variant.id }}'
+    {%- elsif template contains 'collection' -%}
+   [{% for item in collection.products limit:3 %}'shopify_US_{{ item.id }}_{{ item.selected_or_first_available_variant.id }}'{% unless forloop.last %}, {% endunless %}{% endfor %}]
+ {%- elsif template contains 'index' -%}
+    [{% for item in collection.products limit:3 %}'shopify_US_{{ item.id }}_{{ item.selected_or_first_available_variant.id }}'{% unless forloop.last %}, {% endunless %}{% endfor %}]  
+ {%- elsif template contains 'search' -%}
+    [{% for item in search.results limit:3 %}'shopify_US_{{ item.id }}_{{ item.selected_or_first_available_variant.id }}'{% unless forloop.last %}, {% endunless %}{% endfor %}]
+    {%- elsif template contains 'cart' -%}
+    [{%- for item in cart.items limit:3 -%}'shopify_US_{{ item.product_id }}_{{ item.variant_id }}'
+      {%- unless forloop.last -%}, {%- endunless -%}
+    {%- endfor -%}]{%- endif -%},
+ 'ecomm_pagetype': '{% if template contains 'index' %}home{% elsif template contains 'collection' %}category{% elsif template contains 'search' %}searchresults{% elsif template contains 'product' %}product{% elsif template contains 'cart' %}cart{% elsif template contains 'purchase' %}purchase{%endif %}', });
+</script>
+<!-- Global Site Tag (gtag.js) - Google AdWords: 11002283676 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-11002283676"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-11002283676', {'send_page_view': false});
+</script>
+
+<!-- <style>
+  @font-face {
+    font-family: "Zurich";
+    src: url("https://cdn.shopify.com/s/files/1/0152/7916/1444/files/zurich_bold_extended_bt.ttf");
+  }
+  .zurich{ font-family: "Zurich" !important }
+</style> -->
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5QWRJ7M');</script>
+<!-- End Google Tag Manager -->
+<script src="https://code.jquery.com/jquery-3.6.2.min.js" integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css" integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="theme-color" content="{{ settings.header_background }}">
+
+    <title>{% if page_title == blank %}{{ shop.name }}{% else %}{{ page_title }}{% if current_page != 1 %} &ndash; {{ 'general.meta.page' | t: page: current_page }}{% endif %}{% endif %}</title>
+
+    {%- if page_description -%}
+      <meta name="description" content="{{ page_description | escape }}">
+    {%- endif -%}
+
+    <link rel="canonical" href="{{ canonical_url }}">
+
+    {%- if settings.favicon -%}
+      <link rel="shortcut icon" href="{{ settings.favicon | img_url: '96x96' }}" type="image/png">
+    {%- endif -%}
+
+    {%- comment -%}Few prefech to increase performance on commonly used third-parties{%- endcomment -%}
+    <link rel="preconnect" href="https://cdn.shopify.com">
+    <link rel="dns-prefetch" href="https://productreviews.shopifycdn.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+
+    {%- unless settings.heading_font.system? and settings.text_font.system? -%}
+      <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
+    {%- endunless -%}
+
+    {%- comment -%}Preload important resources{%- endcomment -%}
+    <link rel="preload" as="style" href="{{ 'theme.css' | asset_url }}">
+    <link rel="preload" as="script" href="{{ 'vendor.js' | asset_url }}">
+    <link rel="preload" as="script" href="{{ 'theme.js' | asset_url }}">
+
+    {%- comment -%}
+      IMPLEMENTATION NOTE: for improving performance, Focal tries to preload images on known pages (such as blog page,
+      product or collection pages). In order to keep a main JS file size minimal, the theme also lazyloads non-essential
+      libraries (such as PhotoSwipe or Flickity) and only loads them on demand.
+    {%- endcomment -%}
+    {%- if request.page_type == 'product' -%}
+      {%- assign selected_media = product.selected_variant.featured_media | default: product.featured_media -%}
+
+      <link rel="preload" as="fetch" href="{{ product.url }}.js" crossorigin>
+      <link rel="preload" as="image" imagesizes="(max-width: 999px) calc(100vw - 48px), 640px" imagesrcset="{% render 'image-attributes', image: selected_media, sizes: '400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800', sizes_only: true %}">
+
+      {%- if product.media.size > 1 -%}
+        <link rel="preload" as="script" href="{{ 'flickity.js' | asset_url }}">
+      {%- endif -%}
+    {%- elsif request.page_type == 'collection' and collection.image -%}
+      <link rel="preload" as="image" media="(max-width: 740px)" imagesizes="100vw" imagesrcset="{% render 'image-attributes', image: collection.image, sizes: '400,500,600,700,800,900,1000', height_constraint: 600, crop: 'center', sizes_only: true %}">
+      <link rel="preload" as="image" media="(min-width: 741px)" imagesizes="100vw" imagesrcset="{% render 'image-attributes', image: collection.image, sizes: '600,700,800,1000,1200,1400,1600,1800,2000,2200,2400,2600', sizes_only: true %}">
+    {%- endif -%}
+
+    {% render 'social-meta-tags' %}
+    {% render 'microdata-schema' %}
+    {% render 'css-variables', direction: direction %}
+    {% render 'js-variables', direction: direction %}
+
+    <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
+
+    <script src="{{ 'vendor.js' | asset_url }}" defer></script>
+    <script src="{{ 'theme.js' | asset_url }}" defer></script>
+    <script src="{{ 'custom.js' | asset_url }}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js" defer></script>
+
+    {{ content_for_header }}
+
+    <!-- CUSTOM STYLES -->
+    <link rel="stylesheet" type="text/css" href="{{ 'custom.css' | asset_url }}"/>
+
+  
+</head>
+
+  {%- assign feature_classes = '' -%}
+
+  {%- if settings.show_image_zoom -%}
+    {% assign feature_classes = feature_classes | append: ' features--image-zoom' %}
+  {%- endif -%}
+
+  <body class="no-focus-outline {{ feature_classes }}" data-instant-allow-query-string>
+    {%- comment -%}Common SVG definitions that we are re-using in several places{%- endcomment -%}
+    <svg class="visually-hidden">
+      <linearGradient id="rating-star-gradient-half">
+        <stop offset="50%" stop-color="rgb(var(--product-star-rating))" />
+        <stop offset="50%" stop-color="rgb(var(--product-star-rating))" stop-opacity="0.4" />
+      </linearGradient>
+    </svg>
+
+    <a href="#main" class="visually-hidden skip-to-content">{{ 'general.accessibility.skip_to_content' | t }}</a>
+    <loading-bar class="loading-bar"></loading-bar>
+
+    {%- if request.page_type != 'gift_card' and request.page_type != 'password' -%}
+      {%- section 'announcement-bar' -%}
+      {%- section 'popup' -%}
+      {%- section 'header' -%}
+
+      {%- unless settings.cart_type == 'page' or request.page_type == 'cart' -%}
+        {%- section 'mini-cart' -%}
+      {%- endunless -%}
+    {%- endif -%}
+
+    <div id="main" role="main" class="anchor">
+      {%- comment -%}
+      IMPLEMENTATION NOTE: on collection and search page, the theme was designed to show on mobile the filter bar and/or sort
+        by at the very top of the page. However, due to the fact that sections are isolated, I had to move the code
+        here. Then, the collection section, based on the selected settings, will eventually hide those elements in CSS
+      {%- endcomment -%}
+      {%- if request.page_type == 'collection' or request.page_type == 'search' -%}
+        {%- assign active_filters_count = 0 -%}
+
+        {%- if request.page_type == 'collection' -%}
+          {%- assign filters = collection.filters -%}
+        {%- else -%}
+          {%- assign filters = search.filters -%}
+        {%- endif -%}
+
+        {%- for filter in filters -%}
+          {%- if filter.type == 'list' -%}
+            {%- assign active_filters_count = active_filters_count | plus: filter.active_values.size -%}
+          {%- elsif filter.type == 'price_range' and filter.min_value.value or filter.max_value.value -%}
+            {%- assign active_filters_count = active_filters_count | plus: 1 -%}
+          {%- endif -%}
+        {%- endfor -%}
+
+        {%- assign is_toolbar_collapsed = false -%}
+
+        {%- if request.page_type == 'search' and search.results.first.object_type != 'product' and search.results_count > 0 -%}
+          {%- assign is_toolbar_collapsed = true -%}
+        {%- endif -%}
+
+        <div id="mobile-facet-toolbar" class="mobile-toolbar {% if is_toolbar_collapsed %}is-collapsed{% endif %} hidden-lap-and-up">
+          <button is="toggle-button" class="mobile-toolbar__item mobile-toolbar__item--filters {% if active_filters_count > 0 %}has-filters{% endif %}" aria-expanded="false" aria-controls="facet-filters" style="display: none">
+            {%- render 'icon' with 'filters' -%}
+            <span class="mobile-toolbar__item-label">{{- 'collection.general.filters' | t -}}</span>
+          </button>
+
+          <button is="toggle-button" class="mobile-toolbar__item mobile-toolbar__item--sort" aria-expanded="false" aria-controls="sort-by-popover" style="display: none">
+            <span class="mobile-toolbar__item-label">{{- 'collection.general.sort_by' | t -}}</span>
+            {%- render 'icon' with 'chevron' -%}
+          </button>
+        </div>
+      {%- endif -%}
+
+      {{ content_for_layout }}
+
+      {%- unless request.page_type == 'index' or request.page_type == 'password' or request.page_type == 'gift_card' -%}
+        {%- section 'static-text-with-icons' -%}
+        {%- section 'static-newsletter' -%}
+      {%- endunless -%}
+    </div>
+
+    {%- if request.page_type != 'gift_card' and request.page_type != 'password' -%}
+      {%- section 'footer' -%}
+    {%- endif -%}
+
+<!-- google dynamic remarketing tag for theme.liquid -->
+{% if template contains 'product' %}
+<script type="text/javascript">
+  var json_product = {{ product | json }};
+</script>
+<script>
+  var ecomm_prodid=[];
+  for(var i=0;i<json_product.variants.length;i++)
+    ecomm_prodid.push('shopify_US_{{product.id}}_'+json_product.variants[i].id);
+</script>
+<script type="text/javascript">
+  var google_tag_params = {
+    ecomm_prodid: ecomm_prodid,
+    ecomm_pagetype: 'product',
+    ecomm_totalvalue: parseFloat('{{ product.price | money_without_currency | remove: ","}}')
+  };
+</script>
+{% elsif template contains 'collection' %}
+<script type="text/javascript">
+  var google_tag_params = {
+    ecomm_pagetype: 'category'
+  };
+</script>
+{% elsif template contains 'cart' %}
+<script type="text/javascript">
+  var id = new Array();
+  {% for item in cart.items %}
+  id.push('shopify_US_{{item.product.id}}_{{item.variant.id}}');
+   {% endfor %}
+
+   var google_tag_params = {
+     ecomm_prodid: id,
+     ecomm_pagetype: 'cart',
+     ecomm_totalvalue: parseFloat('{{ cart.total_price | money_without_currency | remove: ","}}')
+   };
+</script>
+{% elsif template contains 'search' %}
+<script type="text/javascript">
+  var google_tag_params = {
+    ecomm_pagetype: 'searchresults'
+  };
+</script>
+{% elsif template contains 'index' %}
+<script type="text/javascript">
+  var google_tag_params = {
+    ecomm_pagetype: 'home'
+  };
+</script>
+{% else %}
+<script type="text/javascript">
+  var google_tag_params = {
+    ecomm_pagetype: 'other'
+  };
+</script>
+{% endif %}
+<script>
+  gtag('event', 'page_view', {'send_to': 'AW-11002283676',
+                              'ecomm_prodid':window.google_tag_params.ecomm_prodid,
+                              'ecomm_pagetype': window.google_tag_params.ecomm_pagetype,
+                              'ecomm_totalvalue':window.google_tag_params.ecomm_totalvalue
+                             });
+</script>
+
+  <!-- 1010 pixel -->
+  <script type="text/javascript" src="https://a.remarketstats.com/px/smart/?c=25ed66f964d6d7e"></script>
+          
+  </body>
+
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5QWRJ7M"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js" defer></script>
+  <script>
+  $(document).ready(function(){
+    $('.video-slider').slick().on('beforeChange', function(event, slick, currentSlide, nextSlide){
+      var current = $('.slick-current'); 
+      current.html(current.html());
+    });
+  });  
+  </script>
+
+  <!-- CUSTOM HACK SCRIPTS   -->
+  <script>
+    $(document).ready(function(){
+      console.log("TEST");
+      $(".slideshow__slide-inner .button-group a:nth-child(2)").attr("data-src", "#modal");
+      $(".slideshow__slide-inner .button-group a:nth-child(2)").attr("data-fancybox", "");
+    });  
+  </script>
+
+
+<!-- temp claude script-->
+<!-- <script>
+  console.log('=== MINI-CART TRIGGER ANALYSIS ===');
+  
+  document.addEventListener('DOMContentLoaded', function() {
+      // Let's find and analyze all possible cart triggers on your site
+      console.log('Analyzing existing cart triggers...');
+      
+      // Look for cart icons, buttons, or links that might trigger the drawer
+      const potentialTriggers = document.querySelectorAll([
+          '[href*="cart"]',
+          '[data-cart]',
+          '[data-mini-cart]',
+          '.cart-icon',
+          '.mini-cart-trigger',
+          '.cart-trigger',
+          '[onclick*="cart"]',
+          '[onclick*="drawer"]',
+          '[onclick*="mini"]',
+          'a[href="/cart"]',
+          '.header-cart',
+          '.cart-link'
+      ].join(', '));
+      
+      console.log(`Found ${potentialTriggers.length} potential cart triggers:`, potentialTriggers);
+      
+      potentialTriggers.forEach((trigger, index) => {
+          console.log(`Trigger ${index}:`, {
+              element: trigger,
+              text: trigger.textContent?.trim(),
+              href: trigger.href,
+              onclick: trigger.getAttribute('onclick'),
+              classes: trigger.className,
+              dataAttributes: Array.from(trigger.attributes).filter(attr => attr.name.startsWith('data-'))
+          });
+          
+          // Add click listener to see what happens when these are clicked
+          trigger.addEventListener('click', function(e) {
+              console.log(`🖱️ Cart trigger ${index} was clicked:`, this);
+          });
+      });
+      
+      // Look for any JavaScript functions that might control the mini-cart
+      const functionsToCheck = [
+          'openMiniCart',
+          'toggleMiniCart',
+          'showMiniCart',
+          'openCart',
+          'toggleCart',
+          'showCart',
+          'openDrawer',
+          'toggleDrawer',
+          'showDrawer'
+      ];
+      
+      functionsToCheck.forEach(funcName => {
+          if (window[funcName]) {
+              console.log(`✅ Found global function: ${funcName}`, window[funcName]);
+          }
+      });
+      
+      // Check for cart-related event listeners
+      console.log('Checking for cart-related scripts...');
+      const scripts = document.querySelectorAll('script');
+      scripts.forEach((script, index) => {
+          if (script.innerHTML.includes('mini-cart') || 
+              script.innerHTML.includes('miniCart') || 
+              script.innerHTML.includes('cart-drawer') ||
+              script.innerHTML.includes('drawer')) {
+              console.log(`Found cart-related script ${index}:`, script.innerHTML.substring(0, 200) + '...');
+          }
+      });
+      
+      // Monitor for any cart-related DOM changes
+      const observer = new MutationObserver((mutations) => {
+          mutations.forEach(mutation => {
+              if (mutation.type === 'attributes') {
+                  const target = mutation.target;
+                  if (target.classList.contains('mini-cart') || 
+                      target.id === 'mini-cart' ||
+                      target.classList.contains('cart-drawer')) {
+                      console.log('🔍 Cart element attribute changed:', {
+                          element: target,
+                          attributeName: mutation.attributeName,
+                          oldValue: mutation.oldValue,
+                          newValue: target.getAttribute(mutation.attributeName)
+                      });
+                  }
+              }
+              
+              if (mutation.type === 'childList') {
+                  mutation.addedNodes.forEach(node => {
+                      if (node.nodeType === 1 && (
+                          node.classList?.contains('mini-cart') ||
+                          node.id === 'mini-cart' ||
+                          node.querySelector?.('.mini-cart, #mini-cart')
+                      )) {
+                          console.log('🔍 Cart element added to DOM:', node);
+                      }
+                  });
+              }
+          });
+      });
+      
+      observer.observe(document.body, {
+          attributes: true,
+          childList: true,
+          subtree: true,
+          attributeOldValue: true
+      });
+      
+      console.log('=== MINI-CART TRIGGER ANALYSIS COMPLETE ===');
+      console.log('Now go to a regular product page and click "Add to Cart" to see what triggers are activated');
+  });
+  </script>
+ -->
+
+
+
+
+ <!-- <script>
+  console.log('=== CART DRAWER DIAGNOSTICS ON WORKING PAGE ===');
+  
+  document.addEventListener('DOMContentLoaded', function() {
+      console.log('Setting up cart drawer diagnostics...');
+      
+      // Monitor the cart drawer element for changes
+      const cartDrawer = document.querySelector('cart-drawer#mini-cart.mini-cart.drawer.drawer--large');
+      
+      if (cartDrawer) {
+          console.log('✅ Found cart drawer, setting up observers...');
+          
+          // 1. Monitor attribute changes
+          const attributeObserver = new MutationObserver((mutations) => {
+              mutations.forEach(mutation => {
+                  if (mutation.type === 'attributes') {
+                      console.log(`🔍 Cart drawer attribute changed: ${mutation.attributeName} = "${cartDrawer.getAttribute(mutation.attributeName)}"`);
+                  }
+              });
+          });
+          
+          attributeObserver.observe(cartDrawer, {
+              attributes: true,
+              attributeOldValue: true
+          });
+          
+          // 2. Monitor content changes
+          const contentObserver = new MutationObserver((mutations) => {
+              mutations.forEach(mutation => {
+                  if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+                      console.log('🔍 Cart drawer content changed - new nodes added');
+                  }
+              });
+          });
+          
+          contentObserver.observe(cartDrawer, {
+              childList: true,
+              subtree: true
+          });
+          
+          // 3. Log all methods available on the cart drawer element
+          console.log('🔍 Cart drawer element methods:');
+          const methods = [];
+          let obj = cartDrawer;
+          do {
+              Object.getOwnPropertyNames(obj).forEach(prop => {
+                  if (typeof cartDrawer[prop] === 'function' && !methods.includes(prop)) {
+                      methods.push(prop);
+                  }
+              });
+          } while ((obj = Object.getPrototypeOf(obj)) && obj !== HTMLElement.prototype);
+          
+          console.log('Available methods:', methods.filter(m => 
+              m.includes('refresh') || m.includes('update') || m.includes('render') || 
+              m.includes('load') || m.includes('fetch') || m.includes('get')
+          ));
+          
+          // 4. Check for custom properties
+          console.log('🔍 Cart drawer custom properties:', Object.keys(cartDrawer).filter(key => 
+              !key.startsWith('__') && typeof cartDrawer[key] !== 'function'
+          ));
+      }
+      
+      // 5. Monitor all cart-related events
+      const cartEvents = [
+          'cart:updated', 'cart:refresh', 'cart:change', 'cart:loaded',
+          'cartUpdated', 'cart-updated', 'mini-cart:refresh', 'cart:open'
+      ];
+      
+      cartEvents.forEach(eventName => {
+          document.addEventListener(eventName, function(e) {
+              console.log(`🎯 Event detected: ${eventName}`, e.detail);
+          });
+          
+          window.addEventListener(eventName, function(e) {
+              console.log(`🎯 Window event detected: ${eventName}`, e.detail);
+          });
+      });
+      
+      // 6. Monitor fetch requests to cart endpoints
+      const originalFetch = window.fetch;
+      window.fetch = function(...args) {
+          const url = args[0];
+          if (typeof url === 'string' && (url.includes('/cart') || url.includes('cart'))) {
+              console.log(`🌐 Fetch to cart endpoint: ${url}`);
+              
+              return originalFetch.apply(this, args).then(response => {
+                  console.log(`📥 Cart fetch response: ${response.status} for ${url}`);
+                  return response;
+              });
+          }
+          return originalFetch.apply(this, args);
+      };
+      
+      // 7. Intercept add to cart button clicks to see the working flow
+      const addToCartButtons = document.querySelectorAll('button[data-product-add-to-cart-button], [data-add-to-cart]');
+      console.log(`🔍 Found ${addToCartButtons.length} standard add to cart buttons`);
+      
+      addToCartButtons.forEach((button, index) => {
+          button.addEventListener('click', function() {
+              console.log(`🖱️ Standard add to cart button ${index} clicked - watching for cart updates...`);
+          });
+      });
+      
+      console.log('=== DIAGNOSTICS SETUP COMPLETE ===');
+  });
+  </script> -->
+
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,589 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "show_title": false,
+        "page_width": "medium"
+      }
+    },
+    "1654807378fd826912": {
+      "type": "slideshow",
+      "blocks": {
+        "1654807378464338c7-0": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/nw_faqs-shorter-header.png",
+            "text_position": "middle_center",
+            "subheading": "",
+            "title": "FREQUENTLY ASKED QUESTIONS",
+            "button_1_text": "",
+            "button_1_link": "",
+            "button_2_text": "",
+            "button_2_link": "",
+            "text_color": "#ffffff",
+            "button_background": "#ffffff",
+            "button_text_color": "#000000",
+            "overlay_color": "rgba(0,0,0,0)",
+            "overlay_opacity": 0
+          }
+        }
+      },
+      "block_order": [
+        "1654807378464338c7-0"
+      ],
+      "settings": {
+        "section_height": "auto",
+        "transition_type": "sweep",
+        "autoplay": true,
+        "cycle_speed": 5,
+        "background": "rgba(0,0,0,0)"
+      }
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "2683f057-c47b-4378-b769-d1615b336af6": {
+          "type": "category",
+          "settings": {
+            "title": "About Our Mattresses"
+          }
+        },
+        "0cf68659-0af6-4b57-8a0d-6df13b9ab856": {
+          "type": "question",
+          "settings": {
+            "title": "What is the difference between The Original (All Foam) and the (Hybrid) Performance Coil?",
+            "answer": "<p>The Original model is constructed with layers of premium foam.  These materials are breathable (keep you cool), comfortable (help you fall asleep), and supportive.  Recently we have added a Hybrid (Pocketed Coil) version to our offering.  The Performance Coil adds features like firmer support on the edge of the bed.  Also this design helps heavier customer with additional support without making the bed feel too firm. The Nest & Wild mattress has all the comfort of a high-end luxury brand at a price point that won't break the bank. We believe in our product so much, we want you to enjoy 99-nights on us. <a href=\"\/pages\/reviews\" target=\"_blank\" title=\"Reviews\">Please read our reviews <\/a>to understand why our mattress has quickly become a fan-favorite. <\/p>"
+          }
+        },
+        "cd8dc92d-e08a-4276-a886-80ac41b40331": {
+          "type": "question",
+          "settings": {
+            "title": "Will it keep me cool? I'm a hot sleeper.",
+            "answer": "<p>The Nest & Wild mattress has a very heavy cooling cover treated with a Phase Change material that pulls heat AWAY from you.  This coupled with the high airflow foams really helps with hot sleepers! <\/p><p>The materials are all foam, CertiPur Certified materials, no fiberglass, and very safe.<\/p>"
+          }
+        },
+        "4d6e3d28-1e15-4e72-9e2a-fd891e65f562": {
+          "type": "question",
+          "settings": {
+            "title": "On a scale of 1-10, what's the firmness level?",
+            "answer": "<p>Overall, our mattresses are designed to be comfortable and supportive<\/p><p>Luxury Hybrid - 5 of 10. Medium Leaning Plush feel means you will sleep slightly in the bed. Great support while being more confirming for pressure relief. Designed for side sleepers <\/p><p>Original All Foam - 6 of 10. Medium feel for side and combo sleepers with a firmer base to add support at the lower back. Designed for back and side sleepers.<\/p><p>We are committed to 'ditching the ditches' of too-soft mattresses. You will not get a sinking\/stuck feeling with this bed. It feels \"plush\" on top but it is still very supportive.<\/p>"
+          }
+        },
+        "7f054352-b83b-4c6f-8d50-011639139e6a": {
+          "type": "question",
+          "settings": {
+            "title": "Does this mattress give-off harmful chemicals?",
+            "answer": "<p>No. Our mattresses are made without formaldehyde, heavy metals or flame retardants that may cause cancer and genetic defects. All foams meet the standard of less than 0.5 parts per million VOC (volatile organic compounds). <\/p>"
+          }
+        },
+        "8e613e53-696f-4c77-8c59-78f294a8fd9f": {
+          "type": "category",
+          "settings": {
+            "title": "Shipping & Handling"
+          }
+        },
+        "7e97f4db-b12e-4aa2-ab42-4d3bbdb61d7c": {
+          "type": "question",
+          "settings": {
+            "title": "Do you offer free shipping?",
+            "answer": "<p>We do! We ship your bed to you FOR FREE in the lower 48 states. . (For faster shipping options, additional charges will apply at checkout.)<\/p>"
+          }
+        },
+        "213f094c-585b-495f-9c97-e802c5f96645": {
+          "type": "question",
+          "settings": {
+            "title": "How does the 99-night trial work?",
+            "answer": "<p>After you order your mattress, it gets delivered right to your doorstep. After at least 30 days of use, if you are not satisfied with your mattress, simply return it for a 100% refund.<br\/><br\/>You may initiate a return by reaching out to us at: travis@sandmanbedding.com<br\/><br\/>Where available, we work with our service partner to get your Nest & Wild mattress picked up, as is, at a time convenient for you. In the cases where they are unable to provide pick-up, we ask that you donate the product to a local charity and provide proof of donation. <br\/><br\/><\/p>"
+          }
+        },
+        "aeed3202-ac8b-407e-89b4-ba1c61a95611": {
+          "type": "question",
+          "settings": {
+            "title": "If I don’t like the mattress, will I get my money back?",
+            "answer": "<p>Yes. If you find that during your trial period the mattress is not to your liking we will refund the full price.<\/p>"
+          }
+        },
+        "bad73377-f215-4bcb-acbf-1fe114179879": {
+          "type": "question",
+          "settings": {
+            "title": "Does the mattress sleep hot like other memory foam mattresses?",
+            "answer": "<p>It’s true that memory foam mattresses typically sleep warmer than spring mattresses. However, we have designed the fabric to be made of wicking materials that pull moisture away from your skin keeping you cool. The top multiple layers of the mattress are made with open cell memory foam which allows air to flow more easily and helps keep you cooler. If you are switching from a spring mattress to a foam mattress your body will need time to adjust to the change.<\/p>"
+          }
+        },
+        "e6fcd337-0322-420c-b587-5f7a7544f499": {
+          "type": "question",
+          "settings": {
+            "title": "How does mattress delivery work?",
+            "answer": "<p>Fed-Ex will deliver the box right to your doorstep.<\/p>"
+          }
+        },
+        "21574d90-7675-44a0-9dcf-7b7169965e86": {
+          "type": "question",
+          "settings": {
+            "title": "How long before I receive my mattress?",
+            "answer": "<p>Mattresses typically arrive at your doorstep within 3-5 business days following your order. Once the shipment is ready we will send you a tracking number so you can make plans and prepare for your new bed.<\/p>"
+          }
+        },
+        "question_g4iihj": {
+          "type": "question",
+          "settings": {
+            "title": "Do you ship to Hawaii or Alaska?",
+            "answer": "<p>Absolutely! We bring Better Sleep for Better Days to all 50 states daily. Shipping to Alaska and Hawaii does incur an additional shipping fee of $250 per large item, which will be applied to your order on check out. Please note that any Shipping fees for products that have been delivered to an address in Alaska and Hawaii are non-refundable.<\/p>"
+          }
+        },
+        "62d255ad-bc56-463b-98a7-efa90cfcb830": {
+          "type": "category",
+          "settings": {
+            "title": "Before buying a Nest & Wild Mattress"
+          }
+        },
+        "8138b127-3dbc-4ce2-a7de-227f92f5d1d9": {
+          "type": "question",
+          "settings": {
+            "title": "What kind of bed frame should I use?",
+            "answer": "<p><strong>Box Spring<\/strong>, <strong>Slatted Frames<\/strong> (slats no more than 4” apart) <strong>Platform & Adjustable Bases<\/strong>. The mattress will even work perfectly on the <strong>Floor<\/strong>!<\/p>"
+          }
+        },
+        "8a60436e-e76c-452e-bb3b-791e143dbbf6": {
+          "type": "question",
+          "settings": {
+            "title": "Will my mattress work on an adjustable bed frame?",
+            "answer": "<p>No problem. The foam construction allows the foam to bed and conform to the adjustable base.<\/p>"
+          }
+        },
+        "9c97feb0-e119-4964-b5c1-d265e69dab4d": {
+          "type": "question",
+          "settings": {
+            "title": "What does a foam mattress smell like?",
+            "answer": "<p>Most newly manufactured mattresses have a new foam smell. This will dissipate rather quickly and you should not be alarmed. This is not harmful to you. While you can sleep on your new mattress almost instantly, it is best to open the package and allow the mattress to recover for 24 hours prior to sleeping on it. This allows the foam to fully recover and the new mattress smell a chance to go away. It can take up to a week for the new smell to complete dissipate.<\/p>"
+          }
+        },
+        "f17cd25e-ee15-4ca6-95bd-293f0d205c4b": {
+          "type": "question",
+          "settings": {
+            "title": "Is there sales tax?",
+            "answer": "<p>Yes, local state taxes will be applied to your purchase when it is required by law.<\/p>"
+          }
+        },
+        "549bd19f-a7e2-430c-ab84-eea22a415f74": {
+          "type": "category",
+          "settings": {
+            "title": "Specs & Materials"
+          }
+        },
+        "c0002fc7-0a31-4e08-8376-fc3009306258": {
+          "type": "question",
+          "settings": {
+            "title": "What are the dimensions and weight of the mattress?",
+            "answer": "<p>Our mattress ships directly to your doorstep compressed and packed in conveniently sized box. <\/p><p><\/p><p><strong>Mattress Dimensions:<br\/><\/strong>Twin 39\" x 75\" x 12\"<br\/>Twin XL 39\" x 80\" x 12\"<br\/>Full 54\" x 75\" x 12\"<br\/>Queen 60\" x 80\" x 12\"<br\/>King 76\" x 80\" x 12\"<br\/>Cal King 72\" x 84\" x 12\"<br\/> <\/p><p><strong> All Foam - Mattress Weight<br\/><\/strong>Twin - 53bs<br\/>Twin XL - 60lbs<br\/>Full - 85lbs<br\/>Queen - 95lbs<br\/>King - 112lbs<br\/>California King - 112lbs<\/p><p><strong>Hybrid - Mattress Weight<br\/><\/strong>Twin - 75lbs<br\/>Twin XL - 75lbs<br\/>Full - 100lbs<br\/>Queen - 120lbs<br\/>King - 140lbs<br\/>California King - 140lbs<\/p>"
+          }
+        },
+        "1fd91798-538a-4ecd-901b-7d18a03c5295": {
+          "type": "question",
+          "settings": {
+            "title": "What kind of bed frame should I use?",
+            "answer": "<p>Our mattress works well with most box spring, slatted-frame (with slats no more than 4” apart), platform and adjustable bed frames.<\/p>"
+          }
+        },
+        "2126f29b-b9b8-47bb-9e01-384c7bf6f480": {
+          "type": "question",
+          "settings": {
+            "title": "Will my mattress work on an adjustable bed frame?",
+            "answer": "<p>Yes, the foam construction allows the foam to bed and conform to the adjustable base.<\/p>"
+          }
+        },
+        "2dee7591-c4c7-4290-a1c4-14c7ca7b46c0": {
+          "type": "category",
+          "settings": {
+            "title": "Delivery & Returns"
+          }
+        },
+        "a1ff2130-a66d-4a09-aeb4-ce79b5c0c9d6": {
+          "type": "question",
+          "settings": {
+            "title": "Where are our mattresses shipped from?",
+            "answer": "<p>Our mattresses ship from our factory in Tupelo MS. We are proud to say that every that every thread, stitch, cover, foam component and box was made right here in the USA!<\/p>"
+          }
+        },
+        "8176ea34-40b2-407b-8fa1-bacc94bdc20a": {
+          "type": "question",
+          "settings": {
+            "title": "How much does it cost to ship the mattress?",
+            "answer": "<p>Nothing! We ship your bed to you for free in the lower 48 states. There is extra charges for fast shipping applied at checkout.<\/p>"
+          }
+        },
+        "756b0611-03d8-4fac-8a0f-ddda6bb1c639": {
+          "type": "question",
+          "settings": {
+            "title": "Does the mattress have a warranty?",
+            "answer": "<p>We offer a 15 year limited warranty on our Luxury Hybrid and a 10 year limited warranty on our Original Foam. The warranty coverage includes things like sagging or body impressions that are greater than an inch. It’s also going to cover any material breakdown of the foam that causes it to split, crack, or deteriorate in any other way. This excludes improper use of the mattress such as wet, dirty or torn products. The cover is also included in the warranty. If you notice loose stitching, a broken zipper, or anything else out of the ordinary, simply reach out to us at (662) 610-1882 and we'll work with you to find a solution.<\/p>"
+          }
+        },
+        "32930bdf-7f87-4ae4-9ea0-4c16d9bf9291": {
+          "type": "question",
+          "settings": {
+            "title": "How long before I receive my mattress?",
+            "answer": "<p>Our mattresses typically ship out with in one to three days from your order. They normally are delivered within two days from shipment. This means typically your mattress will arrive 3-5 business days after your order.<\/p>"
+          }
+        },
+        "a38fd2b9-2d2d-462f-87c5-0c37e6b3f00b": {
+          "type": "question",
+          "settings": {
+            "title": "Who will deliver my mattress?",
+            "answer": "<p>We will use a national delivery service such as UPS or Fed-Ex to deliver the box right to your doorstep.<\/p>"
+          }
+        },
+        "question_eViJ3J": {
+          "type": "question",
+          "settings": {
+            "title": "What is the return policy for the adjustable bases.",
+            "answer": "<p>The manufacturer provides a warranty against defects.  Beyond this we do not offer a return policy for the adjustable bases. e content to help your customers to better understand your products or policies.<\/p>"
+          }
+        },
+        "a099863e-e09b-4cba-9069-8086602d0692": {
+          "type": "category",
+          "settings": {
+            "title": "Mattress Maintenance"
+          }
+        },
+        "2362f740-04dc-4b25-95cf-26ee8a8394ab": {
+          "type": "question",
+          "settings": {
+            "title": "Can I remove my mattress cover?",
+            "answer": "<p>No. You should not remove the cover.  <\/p>"
+          }
+        },
+        "8772412d-7908-4ad5-b584-1777eb23d3da": {
+          "type": "question",
+          "settings": {
+            "title": "How long can I leave my mattress in the box after I receive it?",
+            "answer": "<p>You should remove the bed from the box as soon as you can. However, if you'd like to wait to open your mattress we suggest waiting no more than a few weeks.<\/p>"
+          }
+        },
+        "f470e4ec-bc28-4744-94ec-dc12a12d068d": {
+          "type": "question",
+          "settings": {
+            "title": "How do I clean my mattress?",
+            "answer": "<p>If you need to clean your mattress, just spot clean the stain using cold water and a gentle detergent. Make sure the cleaned area is completely dry before replacing the cover or placing sheets back on the mattress. DO NOT machine wash or dry the mattress cover.<\/p>"
+          }
+        },
+        "48e507e7-f9ce-4961-8020-74466d784346": {
+          "type": "question",
+          "settings": {
+            "title": "Do I need to flip the mattress?",
+            "answer": "<p>Nope! If you and your partner have a significant difference between weights or if you sleep on one specific side of the mattress, we do recommend rotating the mattress every 6 months.<\/p>"
+          }
+        },
+        "f11d2975-1861-4744-8d5b-47453cb1a6a6": {
+          "type": "category",
+          "settings": {
+            "title": "Sleeping on your new mattress"
+          }
+        },
+        "9c4ca580-dce5-4926-ac65-c4b75f7d612a": {
+          "type": "question",
+          "settings": {
+            "title": "Does the Nest & Wild transfer movement?",
+            "answer": "<p>No, not nearly as much as a traditional spring mattress.  In most cases you can’t feel your partner getting in and out of bed. <\/p>"
+          }
+        },
+        "36403659-ba91-422a-b8c4-c3f23943c096": {
+          "type": "question",
+          "settings": {
+            "title": "What's the weight capacity of the mattress?",
+            "answer": "<p>The mattress was designed to comfortably support up to 350lbs per sleeper.  <\/p>"
+          }
+        },
+        "7ecc6c71-4ce4-421e-88ec-55511c8f423c": {
+          "type": "question",
+          "settings": {
+            "title": "Adjusting from innerspring or worn mattress to our new memory foam bed…",
+            "answer": "<p>If you are switching from a lifetime of sleeping on an innerspring mattress to sleeping on a memory foam mattress, a break-in period where your body adjusts to the new support is common because the materials have not had time to soften and conform to your body.<\/p><p>This is why we ask people to try our memory foam bed for at least 30 days prior to going thru the return process.<\/p><p>The old mattress you’ve been sleeping on for years has adjusted to the shape and size of your body as well as your sleeping positions. After years of repeated use, materials compress and no longer adequately support your body. That indentation left by your body may cause sagging, reducing sleep quality.<\/p><p>A new pair of shoes often requires a breaking in period. The same principle applies to your new mattress; it may not feel comfortable until the materials have stretched and softened.<\/p><p>The break in period allows time for your body to adapt to your new mattress, but also for it to adjust to you. If your old sleeping surface was beginning to break down, your body might have overcompensated to make you feel comfortable. A new sleeping surface means your body may have to readjust to the support of your new mattress.These beds are built to last a life time and we designed them to be at just the perfect balance of support and comfort once they break in.This process typically takes a week.<\/p>"
+          }
+        },
+        "category_FKDjN4": {
+          "type": "category",
+          "settings": {
+            "title": "About Our Bases"
+          }
+        },
+        "question_TVKGVe": {
+          "type": "question",
+          "settings": {
+            "title": "What Types of Bases Do you Sale?",
+            "answer": "<p>We provide two options for bases. One powered adjustable base and one wooden platform base.<\/p>"
+          }
+        },
+        "question_PYWLhz": {
+          "type": "question",
+          "settings": {
+            "title": "How much weight does your bases support?",
+            "answer": "<p>Both bases support up to 1,000 lbs of weight.<\/p>"
+          }
+        },
+        "question_cwgAqN": {
+          "type": "question",
+          "settings": {
+            "title": "What is the Walnut Wooden Platform made of.",
+            "answer": "<p>The wooden platform is made from a combination of hardwood, pine and plywood.  The walnut refers to the color of the stain. <\/p>"
+          }
+        },
+        "question_Tcemgz": {
+          "type": "question",
+          "settings": {
+            "title": "What if I have issues setting up my adjustable base?",
+            "answer": "<p>Included in the packaging there is a customer service number to call. 99% of all issues can be handled and corrected over the phone. Just in case, if you need further assistance and team will be sent to your home to correct the problem. <\/p>"
+          }
+        },
+        "question_ztdaFL": {
+          "type": "question",
+          "settings": {
+            "title": "Is Assembly Required for the bases?",
+            "answer": "<p>Yes, for both of our bases there is assembly required.  All tools and instructions needed are included with the bases. <\/p>"
+          }
+        },
+        "question_4Mk4DP": {
+          "type": "question",
+          "settings": {
+            "title": "Does your bases require a box spring?",
+            "answer": "<p>No.  You do not need a box spring or foundation for either bases we offer. If you desire a taller bed height you can add a box spring or foundation to the Wooden Platform. <\/p>"
+          }
+        },
+        "question_3cn4xC": {
+          "type": "question",
+          "settings": {
+            "title": "How does the Split King Bases work?",
+            "answer": "<p>Do due the weight restrictions for UPS and Fed-Ex we have to use a split king (2 - twin xl) base.  The split king ships in two boxes.  There is a connection cable packed with the bases.  This allows you to connect the two bases together to be operated as one or leave them separated to be controlled individually.  <\/p>"
+          }
+        },
+        "question_V7Jdj7": {
+          "type": "question",
+          "settings": {
+            "title": "What size mattress do I need for the Split King Adjustable Bases?",
+            "answer": "<p>For the Split King Adjustable Bases you can buy a King size mattress or two twin xl.  If you choose to go with the King size mattress you will likely want to connect the two bases together so they can be controlled with one remote and operate as one unit. If want each side to operate separately then you will want to buy two twin xl mattresses.  <\/p>"
+          }
+        },
+        "question_P8naz7": {
+          "type": "question",
+          "settings": {
+            "title": "Where our the bases made?",
+            "answer": "<p>We do not produce these bases.  Both bases are imported from Asia. We buy them from a wholesaler in the USA who imports them. <\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "2683f057-c47b-4378-b769-d1615b336af6",
+        "0cf68659-0af6-4b57-8a0d-6df13b9ab856",
+        "cd8dc92d-e08a-4276-a886-80ac41b40331",
+        "4d6e3d28-1e15-4e72-9e2a-fd891e65f562",
+        "7f054352-b83b-4c6f-8d50-011639139e6a",
+        "8e613e53-696f-4c77-8c59-78f294a8fd9f",
+        "7e97f4db-b12e-4aa2-ab42-4d3bbdb61d7c",
+        "213f094c-585b-495f-9c97-e802c5f96645",
+        "aeed3202-ac8b-407e-89b4-ba1c61a95611",
+        "bad73377-f215-4bcb-acbf-1fe114179879",
+        "e6fcd337-0322-420c-b587-5f7a7544f499",
+        "21574d90-7675-44a0-9dcf-7b7169965e86",
+        "question_g4iihj",
+        "62d255ad-bc56-463b-98a7-efa90cfcb830",
+        "8138b127-3dbc-4ce2-a7de-227f92f5d1d9",
+        "8a60436e-e76c-452e-bb3b-791e143dbbf6",
+        "9c97feb0-e119-4964-b5c1-d265e69dab4d",
+        "f17cd25e-ee15-4ca6-95bd-293f0d205c4b",
+        "549bd19f-a7e2-430c-ab84-eea22a415f74",
+        "c0002fc7-0a31-4e08-8376-fc3009306258",
+        "1fd91798-538a-4ecd-901b-7d18a03c5295",
+        "2126f29b-b9b8-47bb-9e01-384c7bf6f480",
+        "2dee7591-c4c7-4290-a1c4-14c7ca7b46c0",
+        "a1ff2130-a66d-4a09-aeb4-ce79b5c0c9d6",
+        "8176ea34-40b2-407b-8fa1-bacc94bdc20a",
+        "756b0611-03d8-4fac-8a0f-ddda6bb1c639",
+        "32930bdf-7f87-4ae4-9ea0-4c16d9bf9291",
+        "a38fd2b9-2d2d-462f-87c5-0c37e6b3f00b",
+        "question_eViJ3J",
+        "a099863e-e09b-4cba-9069-8086602d0692",
+        "2362f740-04dc-4b25-95cf-26ee8a8394ab",
+        "8772412d-7908-4ad5-b584-1777eb23d3da",
+        "f470e4ec-bc28-4744-94ec-dc12a12d068d",
+        "48e507e7-f9ce-4961-8020-74466d784346",
+        "f11d2975-1861-4744-8d5b-47453cb1a6a6",
+        "9c4ca580-dce5-4926-ac65-c4b75f7d612a",
+        "36403659-ba91-422a-b8c4-c3f23943c096",
+        "7ecc6c71-4ce4-421e-88ec-55511c8f423c",
+        "category_FKDjN4",
+        "question_TVKGVe",
+        "question_PYWLhz",
+        "question_cwgAqN",
+        "question_Tcemgz",
+        "question_ztdaFL",
+        "question_4Mk4DP",
+        "question_3cn4xC",
+        "question_V7Jdj7",
+        "question_P8naz7"
+      ],
+      "settings": {
+        "show_navigation": true,
+        "title": "",
+        "content": "",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "82ab5762-62c1-4313-9470-4dde706bb52a": {
+      "type": "rich-text",
+      "settings": {
+        "subheading": "",
+        "title": "Is setup easy?",
+        "content": "",
+        "button_text": "",
+        "button_link": "",
+        "background_type": "full_width",
+        "text_width": "medium",
+        "text_position": "center",
+        "text_alignment": "center",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "93dc278c-f69f-421d-87f8-b679b9f7e7c2": {
+      "type": "video",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "video_url": "https:\/\/www.youtube.com\/watch?v=qLWvu1v1c0E",
+        "image": "shopify:\/\/shop_images\/faq.webp",
+        "background_type": "boxed",
+        "video_size": "small",
+        "autoplay": false,
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "1655848926fc31d5c5": {
+      "type": "multi-column",
+      "blocks": {
+        "1655848926db4e52c3-0": {
+          "type": "item",
+          "settings": {
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "Built for Sleep.",
+            "content": "<p>We believe that bells and whistles aren’t very conducive to rest, so we did away with all of the unnecessary noise and concentrated on the most important aspects of a good night’s sleep. Our premium foam coupled with the Best in Class cooling cover makes for optimal comfort and support. The Nest and Wild Mattress is built for sleep. <\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
+        "1655848926db4e52c3-1": {
+          "type": "item",
+          "settings": {
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "Made Well In America.",
+            "content": "<p>Our beds aren’t just designed in America, every component is made and assembled in the USA. There are very few things as important as a good night’s rest. That’s why we start with the best raw materials and make it right here. Domestic production makes for better quality control and hassle free shipping direct to your door. <\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
+        "1655848926db4e52c3-2": {
+          "type": "item",
+          "settings": {
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "99 Nights On Us.",
+            "content": "<p>We believe in our product. That's why Nest and Wild offers our customers a 99 night trial on every mattress we make.<\/p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        }
+      },
+      "block_order": [
+        "1655848926db4e52c3-0",
+        "1655848926db4e52c3-1",
+        "1655848926db4e52c3-2"
+      ],
+      "settings": {
+        "reveal_on_scroll": true,
+        "stack_items": false,
+        "subheading": "",
+        "title": "",
+        "content": "",
+        "column_alignment": "center",
+        "mobile_item_size": "medium",
+        "desktop_item_size": "large",
+        "spacing": "loose",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "16558489325eb8cfd0": {
+      "type": "image-with-text",
+      "blocks": {
+        "16558489324365acda-0": {
+          "type": "item",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/nw_factory.jpg",
+            "tab_label": "Item",
+            "subheading": "About Us",
+            "title": "You’ve got a big day tomorrow, sleep better tonight.",
+            "content": "<p>Our company is headquartered in Tupelo, Mississippi. Our town is a place where things get made. We make cars, furniture, blue jeans, tires, and lawn tractors, just to name a few. Elvis Presley is probably still the most famous Tupelo made product. We’ve taken our years of manufacturing experience and focused our efforts on making a mattress with the quality, durability, and value you can be proud of. We believe in this product so much we've backed our mattress with 99 Nights on Us. <\/p><p> <\/p><p><\/p>",
+            "button_text": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "16558489324365acda-0"
+      ],
+      "settings": {
+        "reveal_on_scroll": true,
+        "background_type": "full_width",
+        "background_overlap": "image",
+        "image_position": "left",
+        "text_alignment": "center",
+        "cycle_speed": 8,
+        "accent_background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "1654808365765f3c55": {
+      "type": "newsletter",
+      "settings": {
+        "reveal_on_scroll": true,
+        "image": "shopify:\/\/shop_images\/NW_newsletter_bg-image.jpg",
+        "subheading": "Ready for better days?",
+        "content": "<p>Sign up for our newsletter for product updates and company news. <\/p>",
+        "text_position": "left",
+        "text_alignment": "left",
+        "text_background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "1654807378fd826912",
+    "faq",
+    "82ab5762-62c1-4313-9470-4dde706bb52a",
+    "93dc278c-f69f-421d-87f8-b679b9f7e7c2",
+    "1655848926fc31d5c5",
+    "16558489325eb8cfd0",
+    "1654808365765f3c55"
+  ]
+}
