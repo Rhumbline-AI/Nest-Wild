@@ -1,0 +1,77 @@
+{% comment %}
+  Bundle & Save Section - Bundler2 Template
+  Independent section for product bundling functionality
+{% endcomment %}
+
+{%- render 'bundle-save-bundler2' -%}
+
+{% schema %}
+{
+  "name": "Bundle & Save",
+  "class": "shopify-section--bundle-save",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Bundle Configuration"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_bundle",
+      "label": "Enable Bundle & Save",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "bundle_title",
+      "label": "Bundle Title",
+      "default": "Bundle & Save"
+    },
+    {
+      "type": "text",
+      "id": "bundle_subtitle",
+      "label": "Bundle Subtitle",
+      "default": "Add to cart to unlock the best deal"
+    },
+    {
+      "type": "header",
+      "content": "Pillow Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_pillow_bundle",
+      "label": "Enable Pillow Bundle",
+      "default": true
+    },
+    {
+      "type": "product",
+      "id": "pillow_product",
+      "label": "Pillow Product"
+    },
+    {
+      "type": "header",
+      "content": "Bed Base Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_bedbase_bundle",
+      "label": "Enable Bed Base Bundle",
+      "default": true
+    },
+    {
+      "type": "product",
+      "id": "adjustable_base_product",
+      "label": "Adjustable Base Product"
+    },
+    {
+      "type": "product",
+      "id": "platform_base_product",
+      "label": "Platform Base Product"
+    },
+    {
+      "type": "product",
+      "id": "riser_base_product",
+      "label": "Riser Base Product"
+    }
+  ]
+}
+{% endschema %}

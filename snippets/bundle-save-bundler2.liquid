@@ -1,0 +1,522 @@
+{% comment %}
+  Bundle & Save Component - Bundler2 Template
+  Handles pillow and bed base bundling with cart integration
+{% endcomment %}
+
+{%- if section.settings.enable_bundle -%}
+<div class="bundle-save-container" id="bundle-save-bundler2">
+  <!-- Bundle Header -->
+  <div class="bundle-save-header">
+    <h3 class="bundle-save-title">{{ section.settings.bundle_title | default: 'Bundle & Save' }}</h3>
+    <p class="bundle-save-subtitle">{{ section.settings.bundle_subtitle | default: 'Add to cart to unlock the best deal' }}</p>
+  </div>
+
+  <!-- Status Messages (hidden by default) -->
+  <div class="bundle-status-messages" style="display: none;">
+    <div class="bundle-success-message" style="display: none;"></div>
+    <div class="bundle-error-message" style="display: none;"></div>
+  </div>
+
+  <!-- Pillow Bundle Section -->
+  {%- if section.settings.enable_pillow_bundle -%}
+  <div class="bundle-option pillow-bundle">
+    <div class="bundle-option-header">
+      <label class="checkbox-container">
+        <input type="checkbox" class="checkbox bundle-checkbox" id="add-pillow" data-bundle-type="pillow">
+        <span class="checkmark"></span>
+        <span class="bundle-option-title">Add Pillow</span>
+      </label>
+    </div>
+    
+    <div class="bundle-option-details" id="pillow-details" style="display: none;">
+      <div class="bundle-product-info">
+        <div class="bundle-product-image">
+          <img src="" alt="DreamChill Quattro Pillow" id="pillow-image" loading="lazy">
+        </div>
+        <div class="bundle-product-meta">
+          <h4 class="bundle-product-title">DreamChill Quattro Pillow</h4>
+          <div class="bundle-product-price" id="pillow-price">$XX.XX</div>
+        </div>
+      </div>
+      
+      <div class="bundle-controls">
+        <div class="bundle-size-selector">
+          <label class="bundle-field-label">Size:</label>
+          <div class="bundle-size-options">
+            <label class="radio-container">
+              <input type="radio" name="pillow-size" value="standard" class="bundle-radio" checked>
+              <span class="radio-checkmark"></span>
+              <span class="radio-label">Standard</span>
+            </label>
+            <label class="radio-container">
+              <input type="radio" name="pillow-size" value="king" class="bundle-radio">
+              <span class="radio-checkmark"></span>
+              <span class="radio-label">King</span>
+            </label>
+          </div>
+        </div>
+        
+        <div class="bundle-quantity-selector">
+          <label class="bundle-field-label" for="pillow-quantity">Quantity:</label>
+          <div class="quantity-input-wrapper">
+            <button type="button" class="quantity-btn quantity-minus" data-target="pillow-quantity">-</button>
+            <input type="number" id="pillow-quantity" class="quantity-input" value="1" min="1" max="10">
+            <button type="button" class="quantity-btn quantity-plus" data-target="pillow-quantity">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {%- endif -%}
+
+  <!-- Bed Base Bundle Section -->
+  {%- if section.settings.enable_bedbase_bundle -%}
+  <div class="bundle-option bedbase-bundle">
+    <div class="bundle-option-header">
+      <label class="checkbox-container">
+        <input type="checkbox" class="checkbox bundle-checkbox" id="add-bedbase" data-bundle-type="bedbase">
+        <span class="checkmark"></span>
+        <span class="bundle-option-title">Add Bed Base</span>
+      </label>
+    </div>
+    
+    <div class="bundle-option-details" id="bedbase-details" style="display: none;">
+      <div class="bundle-product-info">
+        <div class="bundle-product-image">
+          <img src="" alt="Bed Base" id="bedbase-image" loading="lazy">
+        </div>
+        <div class="bundle-product-meta">
+          <h4 class="bundle-product-title" id="bedbase-title">Select a Bed Base</h4>
+          <div class="bundle-product-price" id="bedbase-price">$XX.XX</div>
+        </div>
+      </div>
+      
+      <div class="bundle-controls">
+        <div class="bundle-bedbase-selector">
+          <label class="bundle-field-label">Base Type:</label>
+          <div class="bundle-bedbase-options">
+            <label class="radio-container">
+              <input type="radio" name="bedbase-type" value="adjustable" class="bundle-radio bedbase-radio" data-product-id="7599628746928">
+              <span class="radio-checkmark"></span>
+              <span class="radio-label">Adjustable Base</span>
+            </label>
+            <label class="radio-container">
+              <input type="radio" name="bedbase-type" value="platform" class="bundle-radio bedbase-radio" data-product-id="7569218633904">
+              <span class="radio-checkmark"></span>
+              <span class="radio-label">Wooden Platform</span>
+            </label>
+            <label class="radio-container">
+              <input type="radio" name="bedbase-type" value="riser" class="bundle-radio bedbase-radio" data-product-id="7725286883504">
+              <span class="radio-checkmark"></span>
+              <span class="radio-label">HD Riser Frame</span>
+            </label>
+          </div>
+        </div>
+        
+        <div class="bundle-size-display">
+          <label class="bundle-field-label">Size:</label>
+          <span class="bundle-size-match" id="bedbase-size-display">Will match mattress size</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  {%- endif -%}
+
+  <!-- Bundle Actions -->
+  <div class="bundle-actions" style="display: none;">
+    <button type="button" class="button button--primary bundle-add-to-cart" id="bundle-add-to-cart">
+      Add Bundle to Cart
+    </button>
+    <div class="bundle-total-price">
+      <span class="bundle-total-label">Bundle Total: </span>
+      <span class="bundle-total-amount" id="bundle-total">$XXX.XX</span>
+    </div>
+  </div>
+
+  <!-- Hidden Product Data -->
+  <div class="bundle-product-data" style="display: none;">
+    <!-- Pillow product data -->
+    <div id="pillow-product-data" 
+         data-product-id="7608185880752"
+         data-handle="dreamchill-quattro-pillow">
+    </div>
+    
+    <!-- Bed base product data -->
+    <div id="bedbase-adjustable-data" 
+         data-product-id="7599628746928"
+         data-handle="nest-wild-adjustable-base">
+    </div>
+    <div id="bedbase-platform-data" 
+         data-product-id="7569218633904"
+         data-handle="nest-wild-wooden-platform">
+    </div>
+    <div id="bedbase-riser-data" 
+         data-product-id="7725286883504"
+         data-handle="nest-wild-hd-riser-frame">
+    </div>
+  </div>
+</div>
+{%- endif -%}
+
+<style>
+/* Bundle & Save Container */
+.bundle-save-container {
+  background: #f8f8f8;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 24px;
+  margin: 24px 0;
+  font-family: var(--heading-font-family, inherit);
+}
+
+/* Bundle Header */
+.bundle-save-header {
+  text-align: center;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #e0e0e0;
+  padding-bottom: 16px;
+}
+
+.bundle-save-title {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 8px 0;
+  color: var(--heading-color, #333);
+}
+
+.bundle-save-subtitle {
+  font-size: 14px;
+  color: var(--text-color-light, #666);
+  margin: 0;
+  font-style: italic;
+}
+
+/* Status Messages */
+.bundle-status-messages {
+  margin-bottom: 16px;
+}
+
+.bundle-success-message,
+.bundle-error-message {
+  padding: 12px 16px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.bundle-success-message {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.bundle-error-message {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Bundle Options */
+.bundle-option {
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: white;
+  overflow: hidden;
+}
+
+.bundle-option-header {
+  padding: 16px 20px;
+  background: #fafafa;
+  border-bottom: 1px solid #eee;
+}
+
+.bundle-option-details {
+  padding: 20px;
+}
+
+/* Checkbox Styling */
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+
+.checkbox-container input[type="checkbox"] {
+  opacity: 0;
+  position: absolute;
+  cursor: pointer;
+}
+
+.checkmark {
+  height: 20px;
+  width: 20px;
+  background-color: #fff;
+  border: 2px solid #ddd;
+  border-radius: 3px;
+  margin-right: 12px;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.checkbox-container:hover .checkmark {
+  border-color: var(--primary-button-background, #f04f23);
+}
+
+.checkbox-container input:checked ~ .checkmark {
+  background-color: var(--primary-button-background, #f04f23);
+  border-color: var(--primary-button-background, #f04f23);
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 6px;
+  top: 2px;
+  width: 6px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.bundle-option-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--heading-color, #333);
+}
+
+/* Product Info */
+.bundle-product-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.bundle-product-image {
+  width: 80px;
+  height: 80px;
+  margin-right: 16px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #f0f0f0;
+}
+
+.bundle-product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bundle-product-title {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--heading-color, #333);
+}
+
+.bundle-product-price {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary-button-background, #f04f23);
+}
+
+/* Controls */
+.bundle-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.bundle-field-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--heading-color, #333);
+}
+
+/* Radio Button Styling */
+.radio-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 16px;
+  margin-bottom: 8px;
+}
+
+.radio-container input[type="radio"] {
+  opacity: 0;
+  position: absolute;
+  cursor: pointer;
+}
+
+.radio-checkmark {
+  height: 18px;
+  width: 18px;
+  background-color: #fff;
+  border: 2px solid #ddd;
+  border-radius: 50%;
+  margin-right: 8px;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.radio-container:hover .radio-checkmark {
+  border-color: var(--primary-button-background, #f04f23);
+}
+
+.radio-container input:checked ~ .radio-checkmark {
+  border-color: var(--primary-button-background, #f04f23);
+}
+
+.radio-checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  top: 4px;
+  left: 4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary-button-background, #f04f23);
+}
+
+.radio-container input:checked ~ .radio-checkmark:after {
+  display: block;
+}
+
+.radio-label {
+  font-size: 14px;
+  color: var(--text-color, #333);
+}
+
+/* Size Options */
+.bundle-size-options,
+.bundle-bedbase-options {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+/* Quantity Selector */
+.quantity-input-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.quantity-btn {
+  background: #f8f8f8;
+  border: none;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-color, #333);
+  transition: background-color 0.2s ease;
+}
+
+.quantity-btn:hover {
+  background: #e8e8e8;
+}
+
+.quantity-input {
+  border: none;
+  width: 60px;
+  height: 36px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-color, #333);
+}
+
+.quantity-input:focus {
+  outline: none;
+}
+
+/* Size Display */
+.bundle-size-match {
+  font-size: 14px;
+  color: var(--text-color-light, #666);
+  font-style: italic;
+}
+
+/* Bundle Actions */
+.bundle-actions {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #e0e0e0;
+  text-align: center;
+}
+
+.bundle-add-to-cart {
+  background: var(--primary-button-background, #f04f23);
+  color: var(--primary-button-text-color, #fff);
+  border: none;
+  padding: 14px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-bottom: 16px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.bundle-add-to-cart:hover {
+  background: var(--primary-button-background-hover, #e03f1a);
+}
+
+.bundle-total-price {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--heading-color, #333);
+}
+
+.bundle-total-amount {
+  color: var(--primary-button-background, #f04f23);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 740px) {
+  .bundle-save-container {
+    padding: 16px;
+    margin: 16px 0;
+  }
+  
+  .bundle-controls {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .bundle-product-info {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .bundle-product-image {
+    margin: 0 auto 12px auto;
+  }
+  
+  .bundle-size-options,
+  .bundle-bedbase-options {
+    flex-direction: column;
+  }
+  
+  .radio-container {
+    margin-right: 0;
+    margin-bottom: 12px;
+  }
+}
+</style>
