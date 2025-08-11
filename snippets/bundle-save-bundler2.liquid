@@ -19,13 +19,14 @@
 
   <!-- Pillow Bundle Section -->
   {%- if section.settings.enable_pillow_bundle -%}
-  <div class="bundle-option pillow-bundle">
+  <div class="bundle-option pillow-bundle" role="group" aria-labelledby="pillow-bundle-title">
     <div class="bundle-option-header">
       <label class="checkbox-container">
-        <input type="checkbox" class="checkbox bundle-checkbox" id="add-pillow" data-bundle-type="pillow">
-        <span class="checkmark"></span>
-        <span class="bundle-option-title">Add Pillow</span>
+        <input type="checkbox" class="checkbox bundle-checkbox" id="add-pillow" data-bundle-type="pillow" aria-describedby="pillow-bundle-description">
+        <span class="checkmark" aria-hidden="true"></span>
+        <span class="bundle-option-title" id="pillow-bundle-title">Add Pillow</span>
       </label>
+      <span class="sr-only" id="pillow-bundle-description">Select to add a pillow to your bundle with size and quantity options</span>
     </div>
     
     <div class="bundle-option-details" id="pillow-details" style="display: none;">
@@ -41,28 +42,33 @@
       
       <div class="bundle-controls">
         <div class="bundle-size-selector">
-          <label class="bundle-field-label">Size:</label>
-          <div class="bundle-size-options">
-            <label class="radio-container">
-              <input type="radio" name="pillow-size" value="standard" class="bundle-radio" checked>
-              <span class="radio-checkmark"></span>
-              <span class="radio-label">Standard</span>
-            </label>
-            <label class="radio-container">
-              <input type="radio" name="pillow-size" value="king" class="bundle-radio">
-              <span class="radio-checkmark"></span>
-              <span class="radio-label">King</span>
-            </label>
-          </div>
+          <fieldset>
+            <legend class="bundle-field-label">Pillow Size:</legend>
+            <div class="bundle-size-options" role="radiogroup" aria-labelledby="pillow-size-legend">
+              <label class="radio-container">
+                <input type="radio" name="pillow-size" value="standard" class="bundle-radio" checked aria-describedby="pillow-size-standard-desc">
+                <span class="radio-checkmark" aria-hidden="true"></span>
+                <span class="radio-label">Standard</span>
+                <span class="sr-only" id="pillow-size-standard-desc">Standard size pillow, suitable for Twin, Full, and Queen mattresses</span>
+              </label>
+              <label class="radio-container">
+                <input type="radio" name="pillow-size" value="king" class="bundle-radio" aria-describedby="pillow-size-king-desc">
+                <span class="radio-checkmark" aria-hidden="true"></span>
+                <span class="radio-label">King</span>
+                <span class="sr-only" id="pillow-size-king-desc">King size pillow, suitable for King and California King mattresses</span>
+              </label>
+            </div>
+          </fieldset>
         </div>
         
         <div class="bundle-quantity-selector">
-          <label class="bundle-field-label" for="pillow-quantity">Quantity:</label>
-          <div class="quantity-input-wrapper">
-            <button type="button" class="quantity-btn quantity-minus" data-target="pillow-quantity">-</button>
-            <input type="number" id="pillow-quantity" class="quantity-input" value="1" min="1" max="10">
-            <button type="button" class="quantity-btn quantity-plus" data-target="pillow-quantity">+</button>
+          <label class="bundle-field-label" for="pillow-quantity">Pillow Quantity:</label>
+          <div class="quantity-input-wrapper" role="group" aria-labelledby="pillow-quantity-label">
+            <button type="button" class="quantity-btn quantity-minus" data-target="pillow-quantity" aria-label="Decrease pillow quantity">-</button>
+            <input type="number" id="pillow-quantity" class="quantity-input" value="1" min="1" max="10" aria-describedby="pillow-quantity-help">
+            <button type="button" class="quantity-btn quantity-plus" data-target="pillow-quantity" aria-label="Increase pillow quantity">+</button>
           </div>
+          <span class="sr-only" id="pillow-quantity-help">Select quantity between 1 and 10 pillows</span>
         </div>
       </div>
     </div>
@@ -223,6 +229,12 @@
   border-radius: 6px;
   background: white;
   overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.bundle-option:hover {
+  border-color: #ccc;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .bundle-option-header {
@@ -457,6 +469,14 @@
   padding-top: 20px;
   border-top: 1px solid #e0e0e0;
   text-align: center;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.bundle-actions.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .bundle-add-to-cart {
@@ -517,6 +537,245 @@
   .radio-container {
     margin-right: 0;
     margin-bottom: 12px;
+  }
+}
+</style>
+
+<!-- Bundle Save JavaScript -->
+<script src="{{ 'bundle-save-bundler2.js' | asset_url }}" defer></script>
+
+<!-- Accessibility and Mobile Enhancements -->
+<style>
+/* Accessibility Improvements */
+.bundle-save-container {
+  /* Ensure proper contrast ratios */
+  --bundle-text-color: #333;
+  --bundle-link-color: #0066cc;
+  --bundle-error-color: #d73027;
+  --bundle-success-color: #1a7f37;
+}
+
+/* Focus indicators for keyboard navigation */
+.checkbox-container:focus-within,
+.radio-container:focus-within,
+.quantity-btn:focus,
+.bundle-add-to-cart:focus {
+  outline: 2px solid var(--bundle-link-color);
+  outline-offset: 2px;
+}
+
+/* Screen reader only text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .bundle-save-container {
+    border-width: 2px;
+  }
+  
+  .bundle-option {
+    border-width: 2px;
+  }
+  
+  .checkmark,
+  .radio-checkmark {
+    border-width: 2px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .bundle-option,
+  .bundle-actions,
+  .bundle-product-image img,
+  .bundle-product-title,
+  .bundle-product-price,
+  .quantity-btn,
+  .bundle-spinner {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Mobile-first responsive design */
+@media screen and (max-width: 740px) {
+  .bundle-save-container {
+    margin: 16px -16px; /* Extend to screen edges on mobile */
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+  }
+  
+  .bundle-save-header {
+    padding: 16px;
+  }
+  
+  .bundle-save-title {
+    font-size: 20px;
+  }
+  
+  .bundle-save-subtitle {
+    font-size: 13px;
+  }
+  
+  .bundle-option-header {
+    padding: 12px 16px;
+  }
+  
+  .bundle-option-details {
+    padding: 16px;
+  }
+  
+  .bundle-product-info {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+  
+  .bundle-product-image {
+    margin: 0 auto;
+    width: 100px;
+    height: 100px;
+  }
+  
+  .bundle-controls {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .bundle-size-options,
+  .bundle-bedbase-options {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .radio-container {
+    margin: 0 0 8px 0;
+    padding: 8px;
+    background: #f8f8f8;
+    border-radius: 4px;
+  }
+  
+  .quantity-input-wrapper {
+    max-width: 140px;
+    margin: 0 auto;
+  }
+  
+  .bundle-actions {
+    padding: 16px;
+    margin-top: 16px;
+  }
+  
+  .bundle-add-to-cart {
+    width: 100%;
+    padding: 16px;
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+  
+  /* Ensure touch targets are at least 44px */
+  .quantity-btn {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  
+  .checkbox-container,
+  .radio-container {
+    min-height: 44px;
+    align-items: center;
+  }
+}
+
+/* Tablet adjustments */
+@media screen and (min-width: 741px) and (max-width: 999px) {
+  .bundle-save-container {
+    margin: 20px 0;
+  }
+  
+  .bundle-controls {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  
+  .bundle-size-options,
+  .bundle-bedbase-options {
+    flex-wrap: wrap;
+  }
+}
+
+/* Desktop hover states (only on devices that support hover) */
+@media (hover: hover) and (pointer: fine) {
+  .bundle-option:hover {
+    transform: translateY(-1px);
+  }
+  
+  .bundle-add-to-cart:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+  
+  .quantity-btn:hover {
+    transform: scale(1.05);
+  }
+}
+
+/* Loading states */
+.bundle-add-to-cart:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.bundle-loading .bundle-add-to-cart {
+  pointer-events: none;
+}
+
+/* Performance optimizations */
+.bundle-product-image {
+  contain: layout style paint;
+}
+
+.bundle-option-details {
+  contain: layout style;
+}
+
+/* Error states */
+.bundle-option.error {
+  border-color: var(--bundle-error-color);
+  background-color: #fef2f2;
+}
+
+.bundle-option.error .bundle-option-header {
+  background-color: #fee2e2;
+}
+
+/* Success states */
+.bundle-option.success {
+  border-color: var(--bundle-success-color);
+}
+
+.bundle-option.success .bundle-option-header {
+  background-color: #f0fdf4;
+}
+
+/* Print styles */
+@media print {
+  .bundle-save-container {
+    break-inside: avoid;
+    border: 1px solid #000;
+  }
+  
+  .bundle-actions {
+    display: none;
   }
 }
 </style>

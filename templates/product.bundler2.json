@@ -1,0 +1,96 @@
+{
+  "order": [
+    "main",
+    "bundle-save",
+    "product-content",
+    "product-recommendations"
+  ],
+  "sections": {
+    "main": {
+      "block_order": [
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons"
+      ],
+      "blocks": {
+        "buy_buttons": {
+          "settings": {
+            "atc_button_background": "#f04f23",
+            "atc_button_text_color": "#ffffff",
+            "buy_now_button_background": "rgba(0,0,0,0)",
+            "buy_now_button_text_color": "rgba(0,0,0,0)",
+            "show_payment_button": true
+          },
+          "type": "buy_buttons"
+        },
+        "quantity_selector": {
+          "settings": {},
+          "type": "quantity_selector"
+        },
+        "variant_picker": {
+          "settings": {
+            "color_mode": "color",
+            "hide_sold_out_variants": false,
+            "selector_mode": "block",
+            "size_chart_page": ""
+          },
+          "type": "variant_picker"
+        }
+      },
+      "settings": {
+        "desktop_thumbnails_position": "bottom",
+        "enable_image_zoom": true,
+        "enable_video_autoplay": true,
+        "enable_video_looping": false,
+        "help_page": "",
+        "show_product_rating": false,
+        "show_share_buttons": true,
+        "show_sku": false,
+        "show_sticky_add_to_cart": true,
+        "show_taxes_included": false,
+        "show_thumbnails_on_mobile": false,
+        "show_vendor": true,
+        "transition_effect": "slide"
+      },
+      "type": "main-product-bundler2"
+    },
+    "bundle-save": {
+      "settings": {
+        "enable_bundle": true,
+        "bundle_title": "Bundle & Save",
+        "bundle_subtitle": "Add to cart to unlock the best deal",
+        "enable_pillow_bundle": true,
+        "pillow_product": "dreamchill-quatro-pillow",
+        "enable_bedbase_bundle": true,
+        "bedbase_adjustable_product": "nest-wild-adjustable-base",
+        "bedbase_platform_product": "nest-wild-wooden-platform",
+        "bedbase_riser_product": "nest-wild-hd-riser-frame"
+      },
+      "type": "bundle-save-bundler2"
+    },
+    "product-content": {
+      "block_order": [
+        "description"
+      ],
+      "blocks": {
+        "description": {
+          "settings": {},
+          "type": "description"
+        }
+      },
+      "settings": {},
+      "type": "product-content"
+    },
+    "product-recommendations": {
+      "settings": {
+        "background": "rgba(0,0,0,0)",
+        "products": [],
+        "recommendations_count": 4,
+        "subheading": "",
+        "text_color": "rgba(0,0,0,0)",
+        "title": "You may also like"
+      },
+      "type": "product-recommendations"
+    }
+  }
+}
