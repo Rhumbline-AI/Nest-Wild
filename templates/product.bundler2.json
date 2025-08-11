@@ -64,11 +64,11 @@
         "bundle_title": "Bundle & Save",
         "bundle_subtitle": "Add to cart to unlock the best deal",
         "enable_pillow_bundle": true,
-        "pillow_product": "dreamchill-quatro-pillow",
+        "pillow_product": "dreamchill-quattro-pillow",
         "enable_bedbase_bundle": true,
-        "bedbase_adjustable_product": "nest-wild-adjustable-base",
-        "bedbase_platform_product": "nest-wild-wooden-platform",
-        "bedbase_riser_product": "nest-wild-hd-riser-frame"
+        "adjustable_base_product": "nest-wild-adjustable-base",
+        "platform_base_product": "nest-wild-wooden-platform",
+        "riser_base_product": "nest-wild-hd-riser-frame"
       },
       "type": "bundle-save-bundler2"
     },

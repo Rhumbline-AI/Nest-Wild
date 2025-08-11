@@ -422,6 +422,106 @@
       }
     },
 
+    // Auto-select pillow size based on mattress size
+    autoSelectPillowSize: function() {
+      const mattressSize = this.getMattressSize();
+      if (!mattressSize) return;
+      
+      const pillowSizeMapping = {
+        'twin': 'standard',
+        'twin-xl': 'standard', 
+        'full': 'standard',
+        'queen': 'standard',
+        'king': 'king',
+        'california-king': 'king'
+      };
+      
+      const pillowSize = pillowSizeMapping[mattressSize.toLowerCase()] || 'standard';
+      $(`${this.selectors.pillowSizeRadios}[value="${pillowSize}"]`).prop('checked', true);
+      this.state.selectedPillowSize = pillowSize;
+      
+      console.log(`Auto-selected pillow size: ${pillowSize} for mattress: ${mattressSize}`);
+    },
+
+    // Reset pillow options to defaults
+    resetPillowOptions: function() {
+      $(this.selectors.pillowQuantity).val(1);
+      $(`${this.selectors.pillowSizeRadios}[value="standard"]`).prop('checked', true);
+      this.state.selectedPillowSize = 'standard';
+    },
+
+    // Reset bed base options to defaults  
+    resetBedbaseOptions: function() {
+      $(this.selectors.bedbaseTypeRadios).prop('checked', false);
+      $(this.selectors.bedbaseTitle).text('Select a Bed Base');
+      $(this.selectors.bedbasePrice).text('$0.00');
+      $(this.selectors.bedbaseImage).hide();
+      this.state.selectedBedbaseType = null;
+    },
+
+    // Get current mattress size from main product form
+    getMattressSize: function() {
+      // Try to get from selected variant radio
+      const selectedRadio = $(this.selectors.variantRadios + ':checked');
+      if (selectedRadio.length) {
+        return selectedRadio.val();
+      }
+      
+      // Try to get from select dropdown
+      const selectedOption = $(this.selectors.variantSelects + ' option:selected');
+      if (selectedOption.length) {
+        return selectedOption.val();
+      }
+      
+      return null;
+    },
+
+    // Sync bed base size to mattress size
+    syncBedbaseSize: function() {
+      const mattressSize = this.getMattressSize();
+      if (mattressSize) {
+        $(this.selectors.bedbaseSizeDisplay).text(`${mattressSize} (matches mattress)`);
+        this.state.currentMattressSize = mattressSize;
+        console.log(`Synced bed base size to: ${mattressSize}`);
+      }
+    },
+
+    // Handle bed base type selection change
+    handleBedbaseTypeChange: function(selectedRadio) {
+      const $radio = $(selectedRadio);
+      this.state.selectedBedbaseType = $radio.val();
+      
+      console.log('Bed base type changed:', this.state.selectedBedbaseType);
+      
+      // Update bundle total when bed base type changes
+      this.updateBundleTotal();
+    },
+
+    // Handle quantity button clicks
+    handleQuantityChange: function(button) {
+      const $button = $(button);
+      const target = $button.data('target');
+      const $input = $(`#${target}`);
+      const currentValue = parseInt($input.val()) || 1;
+      
+      if ($button.hasClass('quantity-plus')) {
+        const max = parseInt($input.attr('max')) || 10;
+        if (currentValue < max) {
+          $input.val(currentValue + 1);
+        }
+      } else if ($button.hasClass('quantity-minus')) {
+        const min = parseInt($input.attr('min')) || 1;
+        if (currentValue > min) {
+          $input.val(currentValue - 1);
+        }
+      }
+      
+      // Update bundle total when quantity changes
+      this.updateBundleTotal();
+      
+      console.log(`Quantity changed for ${target}: ${$input.val()}`);
+    },
+
     // Update bed base display when selection changes
     updateBedbaseDisplay: function(selectedRadio) {
       const $radio = $(selectedRadio);
