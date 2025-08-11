@@ -2,12 +2,12 @@
   "order": [
     "main",
     "bundle-save",
-    "product-content",
     "product-recommendations"
   ],
   "sections": {
     "main": {
       "block_order": [
+        "description",
         "variant_picker",
         "quantity_selector",
         "buy_buttons"
@@ -22,6 +22,10 @@
             "show_payment_button": true
           },
           "type": "buy_buttons"
+        },
+        "description": {
+          "settings": {},
+          "type": "description"
         },
         "quantity_selector": {
           "settings": {},
@@ -67,19 +71,6 @@
         "bedbase_riser_product": "nest-wild-hd-riser-frame"
       },
       "type": "bundle-save-bundler2"
-    },
-    "product-content": {
-      "block_order": [
-        "description"
-      ],
-      "blocks": {
-        "description": {
-          "settings": {},
-          "type": "description"
-        }
-      },
-      "settings": {},
-      "type": "product-content"
     },
     "product-recommendations": {
       "settings": {
