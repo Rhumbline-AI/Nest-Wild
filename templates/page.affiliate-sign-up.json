@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -14,7 +23,7 @@
         "1654808575510f2bfb-0": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/nw_piggy-back-ride.png",
+            "image": "shopify://shop_images/nw_piggy-back-ride.png",
             "text_position": "middle_center",
             "subheading": "",
             "title": "Become An Affiliate",
@@ -43,15 +52,6 @@
     },
     "1657569615368cead8": {
       "type": "apps",
-      "blocks": {
-        "535b07b8-8e51-48a5-882a-a84b06e53e89": {
-          "type": "shopify:\/\/apps\/snowball-affiliate-marketing\/blocks\/affiliate-sign-up\/6e5feda3-ec24-4171-ae41-64028b660bc7",
-          "settings": {}
-        }
-      },
-      "block_order": [
-        "535b07b8-8e51-48a5-882a-a84b06e53e89"
-      ],
       "settings": {
         "include_horizontal_margins": true,
         "include_vertical_margins": true
@@ -64,40 +64,40 @@
           "type": "item",
           "settings": {
             "icon": "picto-box",
-            "custom_icon": "shopify:\/\/shop_images\/NW_icon-americanMade.png",
+            "custom_icon": "shopify://shop_images/NW_icon-americanMade.png",
             "custom_icon_width": 80,
             "title": "AMERICAN MADE",
-            "content": "<p>And proud of it.<\/p>"
+            "content": "<p>And proud of it.</p>"
           }
         },
         "16548093155fa3bf12-1": {
           "type": "item",
           "settings": {
             "icon": "picto-phone",
-            "custom_icon": "shopify:\/\/shop_images\/NW_icon-0-financing.png",
+            "custom_icon": "shopify://shop_images/NW_icon-0-financing.png",
             "custom_icon_width": 80,
             "title": "0% Financing Available",
-            "content": "<p>Pay at your pace.<\/p>"
+            "content": "<p>Pay at your pace.</p>"
           }
         },
         "16548093155fa3bf12-2": {
           "type": "item",
           "settings": {
             "icon": "picto-lock",
-            "custom_icon": "shopify:\/\/shop_images\/NW_icon-free-shipping.png",
+            "custom_icon": "shopify://shop_images/NW_icon-free-shipping.png",
             "custom_icon_width": 80,
             "title": "Free Shipping & Returns",
-            "content": "<p>Delivered right to your door.<\/p>"
+            "content": "<p>Delivered right to your door.</p>"
           }
         },
         "16548093155fa3bf12-3": {
           "type": "item",
           "settings": {
             "icon": "picto-email",
-            "custom_icon": "shopify:\/\/shop_images\/NW_icon-99nights.png",
+            "custom_icon": "shopify://shop_images/NW_icon-99nights.png",
             "custom_icon_width": 80,
             "title": "99 Nights on Us",
-            "content": "<p>Or your money back.<\/p>"
+            "content": "<p>Or your money back.</p>"
           }
         }
       },
@@ -116,9 +116,9 @@
       "type": "newsletter",
       "settings": {
         "reveal_on_scroll": true,
-        "image": "shopify:\/\/shop_images\/NW_newsletter_bg-image.jpg",
+        "image": "shopify://shop_images/NW_newsletter_bg-image.jpg",
         "subheading": "Ready for better days?",
-        "content": "<p>Sign up for our newsletter for product updates and company news. <\/p>",
+        "content": "<p>Sign up for our newsletter for product updates and company news. </p>",
         "text_position": "left",
         "text_alignment": "left",
         "text_background": "rgba(0,0,0,0)",
