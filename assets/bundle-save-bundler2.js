@@ -59,8 +59,8 @@
       container: '#bundle-save-bundler2',
       pillowCheckbox: '#add-pillow',
       bedbaseCheckbox: '#add-bedbase',
-      pillowDetails: '#pillow-details',
-      bedbaseDetails: '#bedbase-details',
+      pillowDetails: '#pillow-options',
+      bedbaseDetails: '#bedbase-options',
       pillowQuantity: '#pillow-quantity',
       pillowSizeRadios: 'input[name="pillow-size"]',
       bedbaseTypeRadios: 'input[name="bedbase-type"]',
@@ -85,14 +85,17 @@
     init: function() {
       console.log('Initializing Bundle Save functionality...');
       
-      // Wait for DOM to be ready
-      $(document).ready(() => {
-        this.bindEvents();
-        this.detectCurrentMattressSize();
-        this.initializeState();
-        
-        console.log('Bundle Save initialized successfully');
-      });
+      // Check if container exists
+      if ($(this.selectors.container).length === 0) {
+        console.warn('Bundle Save container not found');
+        return;
+      }
+      
+      this.bindEvents();
+      this.detectCurrentMattressSize();
+      this.initializeState();
+      
+      console.log('Bundle Save initialized successfully');
     },
 
     // Bind all event handlers
@@ -175,14 +178,12 @@
         // Auto-select pillow size based on mattress size
         this.autoSelectPillowSize();
         
-        $details.fadeIn(this.config.animationDuration, () => {
-          this.updateBundleVisibility();
-        });
+        $details.show();
+        this.updateBundleVisibility();
       } else {
-        $details.fadeOut(this.config.animationDuration, () => {
-          this.resetPillowOptions();
-          this.updateBundleVisibility();
-        });
+        $details.hide();
+        this.resetPillowOptions();
+        this.updateBundleVisibility();
       }
     },
 
@@ -195,14 +196,12 @@
         // Auto-match bed base size to mattress
         this.syncBedbaseSize();
         
-        $details.fadeIn(this.config.animationDuration, () => {
-          this.updateBundleVisibility();
-        });
+        $details.show();
+        this.updateBundleVisibility();
       } else {
-        $details.fadeOut(this.config.animationDuration, () => {
-          this.resetBedbaseOptions();
-          this.updateBundleVisibility();
-        });
+        $details.hide();
+        this.resetBedbaseOptions();
+        this.updateBundleVisibility();
       }
     },
 
@@ -407,16 +406,43 @@
       const shouldShow = this.state.pillowEnabled || this.state.bedbaseEnabled;
       const $actions = $(this.selectors.bundleActions);
       
+      console.log('Bundle visibility update:', {
+        shouldShow,
+        pillowEnabled: this.state.pillowEnabled,
+        bedbaseEnabled: this.state.bedbaseEnabled,
+        actionsFound: $actions.length
+      });
+      
       if (shouldShow) {
-        $actions.show().addClass('visible');
+        $actions.show();
+        this.updateBundleTotal();
       } else {
-        $actions.removeClass('visible');
-        setTimeout(() => {
-          if (!this.state.pillowEnabled && !this.state.bedbaseEnabled) {
-            $actions.hide();
-          }
-        }, this.config.animationDuration);
+        $actions.hide();
       }
+    },
+
+    // Update bundle total price
+    updateBundleTotal: function() {
+      let total = 0;
+      
+      if (this.state.pillowEnabled) {
+        const quantity = parseInt($(this.selectors.pillowQuantity).val()) || 1;
+        const pillowPrice = 89.99; // This will come from product data
+        total += pillowPrice * quantity;
+      }
+      
+      if (this.state.bedbaseEnabled && this.state.selectedBedbaseType) {
+        const bedbasePrices = {
+          'adjustable': 899.00,
+          'platform': 399.00,
+          'riser': 199.00
+        };
+        total += bedbasePrices[this.state.selectedBedbaseType] || 0;
+      }
+      
+      $(this.selectors.bundleTotal).text(`$${total.toFixed(2)}`);
+      
+      console.log(`Bundle total updated: $${total.toFixed(2)}`);
     },
 
     // Handle bundle add to cart button click
@@ -828,8 +854,13 @@
   // Inject additional CSS
   $('head').append(bundleCSS);
 
-  // Initialize when jQuery is ready
-  BundleSave.init();
+  // Initialize when DOM is ready
+  $(document).ready(function() {
+    console.log('DOM ready, initializing Bundle Save...');
+    console.log('jQuery available:', typeof $);
+    console.log('Container exists:', $('#bundle-save-bundler2').length);
+    BundleSave.init();
+  });
 
   // Expose to global scope for debugging
   window.BundleSave = BundleSave;

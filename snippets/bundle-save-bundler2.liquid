@@ -29,7 +29,7 @@
       <span class="sr-only" id="pillow-bundle-description">Select to add a pillow to your bundle with size and quantity options</span>
     </div>
     
-    <div class="bundle-option-details" id="pillow-details" style="display: none;">
+    <div class="bundle-option-details" id="pillow-options" style="display: none;">
       <div class="bundle-product-info">
         <div class="bundle-product-image">
           <img src="" alt="DreamChill Quattro Pillow" id="pillow-image" loading="lazy">
@@ -86,7 +86,7 @@
       </label>
     </div>
     
-    <div class="bundle-option-details" id="bedbase-details" style="display: none;">
+    <div class="bundle-option-details" id="bedbase-options" style="display: none;">
       <div class="bundle-product-info">
         <div class="bundle-product-image">
           <img src="" alt="Bed Base" id="bedbase-image" loading="lazy">
@@ -249,6 +249,7 @@
 
 .bundle-option-details {
   padding: 20px;
+  display: none; /* Hidden by default, shown by JavaScript */
 }
 
 /* Checkbox Styling */
@@ -479,14 +480,11 @@
   padding-top: 20px;
   border-top: 1px solid #e0e0e0;
   text-align: center;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.3s ease;
+  display: none;
 }
 
 .bundle-actions.visible {
-  opacity: 1;
-  transform: translateY(0);
+  display: block;
 }
 
 .bundle-add-to-cart {
