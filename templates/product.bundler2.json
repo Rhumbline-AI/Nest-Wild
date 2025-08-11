@@ -52,7 +52,7 @@
         "show_vendor": true,
         "transition_effect": "slide"
       },
-      "type": "main-product-bundler2"
+      "type": "main-product"
     },
     "bundle-save": {
       "settings": {
