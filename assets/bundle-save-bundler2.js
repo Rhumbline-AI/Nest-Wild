@@ -126,6 +126,7 @@
       // Bed base type change
       $container.on('change', this.selectors.bedbaseTypeRadios, (e) => {
         this.handleBedbaseTypeChange(e.target);
+        this.updateBedbaseDisplay(e.target);
       });
 
       // Quantity controls
@@ -421,28 +422,57 @@
       }
     },
 
+    // Update bed base display when selection changes
+    updateBedbaseDisplay: function(selectedRadio) {
+      const $radio = $(selectedRadio);
+      const productTitle = $radio.data('product-title');
+      const productPrice = $radio.data('product-price');
+      const productImage = $radio.data('product-image');
+      
+      // Update display elements
+      $(this.selectors.bedbaseTitle).text(productTitle || 'Select a Bed Base');
+      $(this.selectors.bedbasePrice).text(productPrice || '$0.00');
+      
+      const $image = $(this.selectors.bedbaseImage);
+      if (productImage) {
+        $image.attr('src', productImage).show();
+      } else {
+        $image.hide();
+      }
+      
+      console.log('Bed base display updated:', {
+        title: productTitle,
+        price: productPrice,
+        image: productImage
+      });
+    },
+
     // Update bundle total price
     updateBundleTotal: function() {
       let total = 0;
       
       if (this.state.pillowEnabled) {
         const quantity = parseInt($(this.selectors.pillowQuantity).val()) || 1;
-        const pillowPrice = 89.99; // This will come from product data
+        // Get pillow price from the displayed price (remove $ and convert to number)
+        const pillowPriceText = $(this.selectors.pillowPrice).text().replace(/[^0-9.]/g, '');
+        const pillowPrice = parseFloat(pillowPriceText) || 0;
         total += pillowPrice * quantity;
       }
       
       if (this.state.bedbaseEnabled && this.state.selectedBedbaseType) {
-        const bedbasePrices = {
-          'adjustable': 899.00,
-          'platform': 399.00,
-          'riser': 199.00
-        };
-        total += bedbasePrices[this.state.selectedBedbaseType] || 0;
+        // Get selected bed base price from the displayed price
+        const bedbasePriceText = $(this.selectors.bedbasePrice).text().replace(/[^0-9.]/g, '');
+        const bedbasePrice = parseFloat(bedbasePriceText) || 0;
+        total += bedbasePrice;
       }
       
       $(this.selectors.bundleTotal).text(`$${total.toFixed(2)}`);
       
-      console.log(`Bundle total updated: $${total.toFixed(2)}`);
+      console.log(`Bundle total updated: $${total.toFixed(2)}`, {
+        pillowEnabled: this.state.pillowEnabled,
+        bedbaseEnabled: this.state.bedbaseEnabled,
+        bedbaseType: this.state.selectedBedbaseType
+      });
     },
 
     // Handle bundle add to cart button click

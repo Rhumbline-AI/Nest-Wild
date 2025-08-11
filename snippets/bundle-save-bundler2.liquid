@@ -31,13 +31,24 @@
     
     <div class="bundle-option-details" id="pillow-options" style="display: none;">
       <div class="bundle-product-info">
+        {%- assign pillow_product = section.settings.pillow_product -%}
+        {%- if pillow_product -%}
         <div class="bundle-product-image">
-          <img src="" alt="DreamChill Quattro Pillow" id="pillow-image" loading="lazy">
+          <img src="{{ pillow_product.featured_image | image_url: width: 100 }}" alt="{{ pillow_product.title }}" id="pillow-image" loading="lazy">
         </div>
         <div class="bundle-product-meta">
-          <h4 class="bundle-product-title">DreamChill Quattro Pillow</h4>
-          <div class="bundle-product-price" id="pillow-price">$XX.XX</div>
+          <h4 class="bundle-product-title">{{ pillow_product.title }}</h4>
+          <div class="bundle-product-price" id="pillow-price">{{ pillow_product.price | money }}</div>
         </div>
+        {%- else -%}
+        <div class="bundle-product-image">
+          <img src="" alt="Pillow" id="pillow-image" loading="lazy">
+        </div>
+        <div class="bundle-product-meta">
+          <h4 class="bundle-product-title">Select a pillow product in theme settings</h4>
+          <div class="bundle-product-price" id="pillow-price">$0.00</div>
+        </div>
+        {%- endif -%}
       </div>
       
       <div class="bundle-controls">
@@ -89,11 +100,11 @@
     <div class="bundle-option-details" id="bedbase-options" style="display: none;">
       <div class="bundle-product-info">
         <div class="bundle-product-image">
-          <img src="" alt="Bed Base" id="bedbase-image" loading="lazy">
+          <img src="" alt="Bed Base" id="bedbase-image" loading="lazy" style="display: none;">
         </div>
         <div class="bundle-product-meta">
           <h4 class="bundle-product-title" id="bedbase-title">Select a Bed Base</h4>
-          <div class="bundle-product-price" id="bedbase-price">$XX.XX</div>
+          <div class="bundle-product-price" id="bedbase-price">$0.00</div>
         </div>
       </div>
       
@@ -101,21 +112,48 @@
         <div class="bundle-bedbase-selector">
           <label class="bundle-field-label">Base Type:</label>
           <div class="bundle-bedbase-options">
+            {%- assign adjustable_product = section.settings.adjustable_base_product -%}
+            {%- assign platform_product = section.settings.platform_base_product -%}
+            {%- assign riser_product = section.settings.riser_base_product -%}
+            
+            {%- if adjustable_product -%}
             <label class="radio-container">
-              <input type="radio" name="bedbase-type" value="adjustable" class="bundle-radio bedbase-radio" data-product-id="7599628746928">
+              <input type="radio" name="bedbase-type" value="adjustable" class="bundle-radio bedbase-radio" 
+                     data-product-id="{{ adjustable_product.id }}" 
+                     data-product-handle="{{ adjustable_product.handle }}"
+                     data-product-title="{{ adjustable_product.title }}"
+                     data-product-price="{{ adjustable_product.price | money }}"
+                     data-product-image="{{ adjustable_product.featured_image | image_url: width: 200 }}">
               <span class="radio-checkmark"></span>
-              <span class="radio-label">Adjustable Base</span>
+              <span class="radio-label">{{ adjustable_product.title }}</span>
             </label>
+            {%- endif -%}
+            
+            {%- if platform_product -%}
             <label class="radio-container">
-              <input type="radio" name="bedbase-type" value="platform" class="bundle-radio bedbase-radio" data-product-id="7569218633904">
+              <input type="radio" name="bedbase-type" value="platform" class="bundle-radio bedbase-radio"
+                     data-product-id="{{ platform_product.id }}" 
+                     data-product-handle="{{ platform_product.handle }}"
+                     data-product-title="{{ platform_product.title }}"
+                     data-product-price="{{ platform_product.price | money }}"
+                     data-product-image="{{ platform_product.featured_image | image_url: width: 200 }}">
               <span class="radio-checkmark"></span>
-              <span class="radio-label">Wooden Platform</span>
+              <span class="radio-label">{{ platform_product.title }}</span>
             </label>
+            {%- endif -%}
+            
+            {%- if riser_product -%}
             <label class="radio-container">
-              <input type="radio" name="bedbase-type" value="riser" class="bundle-radio bedbase-radio" data-product-id="7725286883504">
+              <input type="radio" name="bedbase-type" value="riser" class="bundle-radio bedbase-radio"
+                     data-product-id="{{ riser_product.id }}" 
+                     data-product-handle="{{ riser_product.handle }}"
+                     data-product-title="{{ riser_product.title }}"
+                     data-product-price="{{ riser_product.price | money }}"
+                     data-product-image="{{ riser_product.featured_image | image_url: width: 200 }}">
               <span class="radio-checkmark"></span>
-              <span class="radio-label">HD Riser Frame</span>
+              <span class="radio-label">{{ riser_product.title }}</span>
             </label>
+            {%- endif -%}
           </div>
         </div>
         
