@@ -166,13 +166,9 @@
   </div> <!-- End bundle-options-grid -->
 
   <!-- Bundle Actions -->
-  <div class="bundle-actions">
-    <div class="bundle-actions-content">
-      <button type="button" class="bundle-add-to-cart" id="bundle-add-to-cart">
-        ADD BUNDLE TO CART
-      </button>
-    </div>
-  </div>
+  <button type="button" class="bundle-add-to-cart" id="bundle-add-to-cart">
+    ADD BUNDLE TO CART
+  </button>
 
   <!-- Hidden Product Data -->
   <div class="bundle-product-data" style="display: none;">
@@ -770,47 +766,14 @@ fieldset {
 }
 
 /* Bundle Actions */
-.bundle-actions {
-  margin-top: 16px;
-  padding: 12px;
-  border-top: 1px solid #e5e5e5;
-  background: #f9f9f9;
-  border-radius: 4px;
-  display: block;
-}
-
-.bundle-actions.visible {
-  display: block;
-}
-
-.bundle-actions-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.bundle-total-price {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--heading-color, #333);
-}
-
-.bundle-total-label {
-  color: var(--text-color, #666);
-  font-weight: 400;
-}
-
-.bundle-total-amount {
-  color: var(--primary-button-background, #f04f23);
-}
-
 .bundle-add-to-cart {
-  background: var(--primary-button-background, #f04f23);
-  color: var(--primary-button-text-color, #fff);
+  margin-top: 20px;
+  background: #0e2333;
+  color: #ffffff;
   border: none;
-  padding: 10px 20px;
-  font-size: 12px;
-  font-weight: 600;
+  padding: 15px 20px;
+  font-size: 14px;
+  font-weight: 800;
   font-family: inherit;
   border-radius: 0;
   cursor: pointer;
@@ -818,21 +781,16 @@ fieldset {
   white-space: nowrap;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  width: 100%;
+  display: block;
+  text-align: center;
 }
 
 .bundle-add-to-cart:hover {
-  background: var(--primary-button-background-hover, #e03f1a);
+  background: #1a3c57;
 }
 
-.bundle-total-price {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--heading-color, #333);
-}
 
-.bundle-total-amount {
-  color: var(--primary-button-background, #f04f23);
-}
 
 /* Responsive Design */
 @media screen and (max-width: 740px) {
@@ -877,16 +835,7 @@ fieldset {
     margin-bottom: 8px;
   }
   
-  .bundle-actions {
-    padding: 10px;
-    margin-top: 12px;
-  }
-  
-  .bundle-actions-content {
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
-  }
+
   
   .bundle-add-to-cart {
     width: 100%;
