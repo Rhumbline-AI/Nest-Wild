@@ -133,7 +133,6 @@
               <input type="radio" name="bedbase-type" value="adjustable" class="bundle-radio bedbase-radio" checked
                      data-product-id="7599628746928"
                      data-product-title="Adjustable Base"
-                     data-product-price="$899.00"
                      data-product-image="https://cdn.shopify.com/s/files/1/0152/7916/1444/files/adjustable-base-tn.png?v=1754993620">
               <span class="radio-checkmark" aria-hidden="true"></span>
               <span class="radio-label">Adjustable Base</span>
@@ -145,7 +144,6 @@
               <input type="radio" name="bedbase-type" value="platform" class="bundle-radio bedbase-radio"
                      data-product-id="7569218633904"
                      data-product-title="Wooden Platform"
-                     data-product-price="$299.00"
                      data-product-image="https://cdn.shopify.com/s/files/1/0152/7916/1444/files/wooden-platform.png?v=1754993526">
               <span class="radio-checkmark" aria-hidden="true"></span>
               <span class="radio-label">Wooden Platform</span>
@@ -157,7 +155,6 @@
               <input type="radio" name="bedbase-type" value="riser" class="bundle-radio bedbase-radio"
                      data-product-id="7725286883504"
                      data-product-title="HD Riser Frame"
-                     data-product-price="$199.00"
                      data-product-image="https://cdn.shopify.com/s/files/1/0152/7916/1444/files/hd-riser.png?v=1754993527">
               <span class="radio-checkmark" aria-hidden="true"></span>
               <span class="radio-label">HD Riser Frame</span>
@@ -167,41 +164,25 @@
             <div class="bedbase-variants" style="display: none;">
               <!-- Adjustable Base Variants -->
               <div class="adjustable-base-variants">
-                {%- for variant in adjustable_base.variants -%}
-                  <div class="variant-data"
-                       data-id="{{ variant.id }}"
-                       data-size="{{ variant.option1 | downcase }}"
-                       data-price="{{ variant.price | money_without_trailing_zeros }}"
-                       data-available="{{ variant.available }}"
-                       data-type="adjustable">
-                  </div>
-                {%- endfor -%}
+                <div class="variant-data" data-size="twin xl" data-price="778.99" data-type="adjustable"></div>
+                <div class="variant-data" data-size="queen" data-price="898.99" data-type="adjustable"></div>
+                <div class="variant-data" data-size="split king - 2 txl" data-price="1448.99" data-type="adjustable"></div>
               </div>
 
               <!-- Wooden Platform Variants -->
               <div class="platform-base-variants">
-                {%- for variant in wooden_platform.variants -%}
-                  <div class="variant-data"
-                       data-id="{{ variant.id }}"
-                       data-size="{{ variant.option1 | downcase }}"
-                       data-price="{{ variant.price | money_without_trailing_zeros }}"
-                       data-available="{{ variant.available }}"
-                       data-type="platform">
-                  </div>
-                {%- endfor -%}
+                <div class="variant-data" data-size="full" data-price="328.99" data-type="platform"></div>
+                <div class="variant-data" data-size="queen" data-price="348.99" data-type="platform"></div>
+                <div class="variant-data" data-size="king" data-price="398.99" data-type="platform"></div>
               </div>
 
               <!-- HD Riser Frame Variants -->
               <div class="riser-base-variants">
-                {%- for variant in riser_frame.variants -%}
-                  <div class="variant-data"
-                       data-id="{{ variant.id }}"
-                       data-size="{{ variant.option1 | downcase }}"
-                       data-price="{{ variant.price | money_without_trailing_zeros }}"
-                       data-available="{{ variant.available }}"
-                       data-type="riser">
-                  </div>
-                {%- endfor -%}
+                <div class="variant-data" data-size="twin" data-price="228.99" data-type="riser"></div>
+                <div class="variant-data" data-size="twin xl" data-price="248.99" data-type="riser"></div>
+                <div class="variant-data" data-size="full" data-price="278.99" data-type="riser"></div>
+                <div class="variant-data" data-size="queen" data-price="298.99" data-type="riser"></div>
+                <div class="variant-data" data-size="king" data-price="398.99" data-type="riser"></div>
               </div>
             </div>
 
