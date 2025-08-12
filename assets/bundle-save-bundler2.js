@@ -157,6 +157,8 @@
 
     // Initialize component state
     initializeState: function() {
+      console.log('Initializing component state...');
+      
       // Show all detail sections by default
       $(this.selectors.pillowDetails).show();
       $(this.selectors.bedbaseDetails).show();
@@ -169,13 +171,27 @@
       // Set default pillow size
       $(`${this.selectors.pillowSizeRadios}[value="standard"]`).prop('checked', true);
       
-      // Set default bed base to adjustable
-      $(`${this.selectors.bedbaseTypeRadios}[value="adjustable"]`).prop('checked', true);
+      // Set default bed base to adjustable and trigger its display update
+      const $adjustableRadio = $(`${this.selectors.bedbaseTypeRadios}[value="adjustable"]`);
+      console.log('Default bed base radio:', $adjustableRadio.length ? 'found' : 'not found');
       
-      // Update bundle state
-      this.state.pillowEnabled = true;
-      this.state.bedbaseEnabled = true;
-      this.state.selectedBedbaseType = 'adjustable';
+      if ($adjustableRadio.length) {
+        $adjustableRadio.prop('checked', true);
+        this.updateBedbaseDisplay($adjustableRadio[0]);
+        
+        // Update bundle state
+        this.state.pillowEnabled = true;
+        this.state.bedbaseEnabled = true;
+        this.state.selectedBedbaseType = 'adjustable';
+        
+        console.log('Default bed base set:', {
+          radio: $adjustableRadio.get(0),
+          data: $adjustableRadio.data(),
+          checked: $adjustableRadio.prop('checked')
+        });
+      } else {
+        console.warn('Could not find adjustable base radio button');
+      }
       
       // Update bundle total
       this.updateBundleTotal();
@@ -536,26 +552,56 @@
     // Update bed base display when selection changes
     updateBedbaseDisplay: function(selectedRadio) {
       const $radio = $(selectedRadio);
-      const productTitle = $radio.data('product-title');
-      const productPrice = $radio.data('product-price');
-      const productImage = $radio.data('product-image');
+      const type = $radio.val();
       
-      // Update display elements
-      $(this.selectors.bedbaseTitle).text(productTitle || 'Select a Bed Base');
-      $(this.selectors.bedbasePrice).text(productPrice || '$0.00');
+      // Default product data
+      const productData = {
+        adjustable: {
+          title: 'Adjustable Base',
+          price: '$1,299.00',
+          image: 'https://cdn.shopify.com/s/files/1/0152/7916/1444/files/adjustable-base-tn.png?v=1754993620'
+        },
+        platform: {
+          title: 'Wooden Platform',
+          price: '$399.00',
+          image: 'https://cdn.shopify.com/s/files/1/0152/7916/1444/files/wooden-platform.png?v=1754993526'
+        },
+        riser: {
+          title: 'HD Riser Frame',
+          price: '$228.99',
+          image: 'https://cdn.shopify.com/s/files/1/0152/7916/1444/files/hd-riser.png?v=1754993527'
+        }
+      };
       
-      const $image = $(this.selectors.bedbaseImage);
-      if (productImage) {
-        $image.attr('src', productImage).show();
-      } else {
-        $image.hide();
-      }
+      const data = productData[type] || productData.adjustable;
       
-      console.log('Bed base display updated:', {
-        title: productTitle,
-        price: productPrice,
-        image: productImage
+      console.log('Updating bed base display:', {
+        type: type,
+        data: data,
+        radio: $radio.get(0)
       });
+      
+      // Update display elements with fade effect
+      const $title = $(this.selectors.bedbaseTitle);
+      const $price = $(this.selectors.bedbasePrice);
+      const $image = $(this.selectors.bedbaseImage);
+      
+      $title.fadeOut(200, function() {
+        $(this).text(data.title).fadeIn(200);
+      });
+      
+      $price.fadeOut(200, function() {
+        $(this).text(data.price).fadeIn(200);
+      });
+      
+      $image.fadeOut(200, function() {
+        $(this).attr('src', data.image)
+              .attr('alt', data.title)
+              .fadeIn(200);
+      });
+      
+      // Update bundle total
+      this.updateBundleTotal();
     },
 
     // Update bundle total price

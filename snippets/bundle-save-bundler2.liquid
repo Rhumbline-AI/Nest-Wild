@@ -98,69 +98,77 @@
     </div>
     
     <div class="bundle-option-details" id="bedbase-options">
-      <div class="bundle-product-info">
-        <div class="bundle-product-image">
-          <img src="" alt="Bed Base" id="bedbase-image" loading="lazy" style="display: none;">
-        </div>
-        <div class="bundle-product-meta">
-          <h4 class="bundle-product-title" id="bedbase-title">Select a Bed Base</h4>
-          <div class="bundle-product-price" id="bedbase-price">$0.00</div>
-        </div>
+      <div class="bundle-product-image-full">
+        <img src="https://cdn.shopify.com/s/files/1/0152/7916/1444/files/adjustable-base-tn.png?v=1754993620" alt="Bed Base" id="bedbase-image" loading="lazy">
+      </div>
+      <div class="bundle-product-meta">
+        <h4 class="bundle-product-title" id="bedbase-title">Adjustable Base</h4>
+        <div class="bundle-product-price" id="bedbase-price">$1,299.00</div>
       </div>
       
       <div class="bundle-controls">
         <div class="bundle-bedbase-selector">
-          <label class="bundle-field-label">Base Type:</label>
-          <div class="bundle-bedbase-options">
-            {%- assign adjustable_product = section.settings.adjustable_base_product -%}
-            {%- assign platform_product = section.settings.platform_base_product -%}
-            {%- assign riser_product = section.settings.riser_base_product -%}
-            
-            {%- if adjustable_product -%}
+          <fieldset>
+            <legend class="bundle-field-label">Base Type:</legend>
+            <div class="bundle-bedbase-options" role="radiogroup" aria-labelledby="bedbase-type-legend">
+            <!-- Adjustable Base (First and Default) -->
+            {%- assign adjustable_base = all_products['nest-wild-adjustable-base'] -%}
+            {%- if adjustable_base == blank -%}
+              {%- assign adjustable_base = all_products['nest-and-wild-adjustable-base'] -%}
+            {%- endif -%}
             <label class="radio-container">
               <input type="radio" name="bedbase-type" value="adjustable" class="bundle-radio bedbase-radio" checked
-                     data-product-id="{{ adjustable_product.id }}" 
-                     data-product-handle="{{ adjustable_product.handle }}"
-                     data-product-title="{{ adjustable_product.title }}"
-                     data-product-price="{{ adjustable_product.price | money }}"
-                     data-product-image="{{ adjustable_product.featured_image | image_url: width: 200 }}">
+                     data-product-id="7599628746928" 
+                     data-product-handle="nest-wild-adjustable-base"
+                     data-product-title="Adjustable Base"
+                     data-product-price="{% if adjustable_base.price %}{{ adjustable_base.price | money_without_trailing_zeros }}{% else %}$1,299.00{% endif %}"
+                     data-product-image="{% if adjustable_base.featured_media %}{{ adjustable_base.featured_media | img_url: '200x' }}{% else %}https://cdn.shopify.com/s/files/1/0152/7916/1444/products/adjustable_base.jpg{% endif %}">
               <span class="radio-checkmark" aria-hidden="true"></span>
-              <span class="radio-label">{{ adjustable_product.title }}</span>
+              <span class="radio-label">Adjustable Base</span>
             </label>
-            {%- endif -%}
             
-            {%- if platform_product -%}
+            <!-- Wooden Platform -->
+            {%- assign wooden_platform = all_products['nest-wild-wooden-platform'] -%}
+            {%- if wooden_platform == blank -%}
+              {%- assign wooden_platform = all_products['nest-and-wild-wooden-platform'] -%}
+            {%- endif -%}
             <label class="radio-container">
               <input type="radio" name="bedbase-type" value="platform" class="bundle-radio bedbase-radio"
-                     data-product-id="{{ platform_product.id }}" 
-                     data-product-handle="{{ platform_product.handle }}"
-                     data-product-title="{{ platform_product.title }}"
-                     data-product-price="{{ platform_product.price | money }}"
-                     data-product-image="{{ platform_product.featured_image | image_url: width: 200 }}">
-              <span class="radio-checkmark"></span>
-              <span class="radio-label">{{ platform_product.title }}</span>
+                     data-product-id="7569218633904" 
+                     data-product-handle="nest-wild-wooden-platform"
+                     data-product-title="Wooden Platform"
+                     data-product-price="{% if wooden_platform.price %}{{ wooden_platform.price | money_without_trailing_zeros }}{% else %}$399.00{% endif %}"
+                     data-product-image="{% if wooden_platform.featured_media %}{{ wooden_platform.featured_media | img_url: '200x' }}{% else %}https://cdn.shopify.com/s/files/1/0152/7916/1444/products/wooden_platform.jpg{% endif %}">
+              <span class="radio-checkmark" aria-hidden="true"></span>
+              <span class="radio-label">Wooden Platform</span>
             </label>
-            {%- endif -%}
             
-            {%- if riser_product -%}
+            <!-- HD Riser Frame -->
+            {%- assign riser_frame = all_products['nest-wild-hd-riser-frame'] -%}
+            {%- if riser_frame == blank -%}
+              {%- assign riser_frame = all_products['nest-and-wild-hd-riser-frame'] -%}
+            {%- endif -%}
             <label class="radio-container">
               <input type="radio" name="bedbase-type" value="riser" class="bundle-radio bedbase-radio"
-                     data-product-id="{{ riser_product.id }}" 
-                     data-product-handle="{{ riser_product.handle }}"
-                     data-product-title="{{ riser_product.title }}"
-                     data-product-price="{{ riser_product.price | money }}"
-                     data-product-image="{{ riser_product.featured_image | image_url: width: 200 }}">
-              <span class="radio-checkmark"></span>
-              <span class="radio-label">{{ riser_product.title }}</span>
+                     data-product-id="7725286883504" 
+                     data-product-handle="nest-wild-hd-riser-frame"
+                     data-product-title="HD Riser Frame"
+                     data-product-price="{% if riser_frame.price %}{{ riser_frame.price | money_without_trailing_zeros }}{% else %}$228.99{% endif %}"
+                     data-product-image="{% if riser_frame.featured_media %}{{ riser_frame.featured_media | img_url: '200x' }}{% else %}https://cdn.shopify.com/s/files/1/0152/7916/1444/products/riser_frame.jpg{% endif %}">
+              <span class="radio-checkmark" aria-hidden="true"></span>
+              <span class="radio-label">HD Riser Frame</span>
             </label>
-            {%- endif -%}
+
+            <!-- Debug Info (will be hidden) -->
+            <div style="display: none;" class="debug-info">
+              Adjustable Base: {{ adjustable_base.title }} - {{ adjustable_base.price | money_without_trailing_zeros }}<br>
+              Wooden Platform: {{ wooden_platform.title }} - {{ wooden_platform.price | money_without_trailing_zeros }}<br>
+              Riser Frame: {{ riser_frame.title }} - {{ riser_frame.price | money_without_trailing_zeros }}
+            </div>
           </div>
         </div>
         
-        <div class="bundle-size-display">
-          <label class="bundle-field-label">Size:</label>
-          <span class="bundle-size-match" id="bedbase-size-display">Will match mattress size</span>
-        </div>
+        <!-- Size is handled automatically -->
       </div>
     </div>
     </div>
@@ -471,9 +479,15 @@
   display: flex;
   align-items: center;
   cursor: pointer;
-  margin-right: 16px;
-  margin-bottom: 8px;
+  margin: 0;
   position: relative;
+  padding: 6px 8px;
+  border-radius: 3px;
+  transition: background-color 0.2s ease;
+}
+
+.radio-container:hover {
+  background-color: #f5f5f5;
 }
 
 .radio-container input[type="radio"] {
@@ -533,36 +547,24 @@
   gap: 10px;
 }
 
-.bundle-product-image {
-  width: 50px;
-  height: auto;
-  border: 1px solid #e5e5e5;
-  border-radius: 4px;
-  flex-shrink: 0;
-  overflow: visible;
-}
-
-.bundle-product-image img {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-}
-
 .bundle-product-image-full {
   width: 100%;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
   border-radius: 4px;
   overflow: hidden;
+  background: #fff;
 }
 
 .bundle-product-image-full img {
   width: 100%;
   height: auto;
   display: block;
+  object-fit: contain;
 }
 
 .bundle-product-meta {
   flex: 1;
+  margin-bottom: 16px;
 }
 
 .bundle-product-title {
@@ -579,15 +581,40 @@
   font-weight: 600;
   color: var(--primary-button-background, #f04f23);
   font-family: inherit;
-  margin: 0;
+  margin: 0 0 12px 0;
 }
 
 /* Size Options */
+fieldset {
+  border: 1px solid #e5e5e5;
+  border-radius: 4px;
+  padding: 8px;
+  margin: 0;
+}
+
 .bundle-size-options,
 .bundle-bedbase-options {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 4px;
+  background: #fff;
+}
+
+.radio-container {
+  margin: 0;
+  padding: 2px 8px;
+  border-radius: 2px;
+  transition: background-color 0.2s ease;
+}
+
+.radio-container:hover {
+  background: #f9f9f9;
+}
+
+.radio-container input:checked ~ .radio-label {
+  font-weight: 500;
+  color: var(--primary-button-background, #f04f23);
 }
 
 /* Bundle Controls Layout */
@@ -637,10 +664,10 @@
 }
 
 .radio-checkmark {
-  height: 16px;
-  width: 16px;
+  height: 14px;
+  width: 14px;
   background-color: #fff;
-  border: 2px solid #ddd;
+  border: 1px solid #ddd;
   border-radius: 50%;
   margin-right: 8px;
   position: relative;
@@ -659,10 +686,11 @@
 .radio-container input:checked ~ .radio-checkmark:after {
   content: "";
   position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 6px;
-  height: 6px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 4px;
+  height: 4px;
   border-radius: 50%;
   background: white;
 }
@@ -862,6 +890,11 @@
   }
 }
 </style>
+
+<!-- Preload Bundle Images -->
+<link rel="preload" as="image" href="https://cdn.shopify.com/s/files/1/0152/7916/1444/files/adjustable-base-tn.png?v=1754993620">
+<link rel="preload" as="image" href="https://cdn.shopify.com/s/files/1/0152/7916/1444/files/wooden-platform.png?v=1754993526">
+<link rel="preload" as="image" href="https://cdn.shopify.com/s/files/1/0152/7916/1444/files/hd-riser.png?v=1754993527">
 
 <!-- Bundle Save JavaScript -->
 <script src="{{ 'bundle-save-bundler2.js' | asset_url }}" defer></script>
