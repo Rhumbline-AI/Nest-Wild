@@ -36,9 +36,28 @@
       <div class="bundle-product-image-full">
         <img src="https://cdn.shopify.com/s/files/1/0152/7916/1444/files/pillow-white.png?v=1754956385" alt="{{ pillow_product.title }}" id="pillow-image" loading="lazy">
       </div>
-      {%- assign pillow_product = section.settings.pillow_product -%}
-      <h4 class="bundle-product-title">DreamChill Quattro Pillow</h4>
-      <div class="bundle-product-price" id="pillow-price">$89.99</div>
+      {%- assign pillow_product = all_products[section.settings.pillow_product] -%}
+      <h4 class="bundle-product-title">{{ pillow_product.title }}</h4>
+      <div class="bundle-product-price" id="pillow-price">
+        {%- assign standard_variant = pillow_product.variants | where: "title", "Standard/Queen" | first -%}
+        {%- if standard_variant -%}
+          {{ standard_variant.price | money }}
+        {%- else -%}
+          $97.99
+        {%- endif -%}
+      </div>
+      
+      <!-- Hidden variant data -->
+      <div class="pillow-variants" style="display: none;">
+        {%- for variant in pillow_product.variants -%}
+          <div class="variant-data"
+               data-id="{{ variant.id }}"
+               data-size="{{ variant.option1 | downcase }}"
+               data-price="{{ variant.price | money_without_trailing_zeros }}"
+               data-available="{{ variant.available }}">
+          </div>
+        {%- endfor -%}
+      </div>
       
       <div class="bundle-controls">
         <div class="bundle-quantity-selector">
@@ -55,14 +74,22 @@
           <fieldset>
             <legend class="bundle-field-label">Pillow Size:</legend>
             <div class="bundle-size-options" role="radiogroup" aria-labelledby="pillow-size-legend">
+              {%- assign pillow_product = all_products[section.settings.pillow_product] -%}
+              {%- assign standard_variant = pillow_product.variants | where: "title", "Standard/Queen" | first -%}
+              {%- assign king_variant = pillow_product.variants | where: "title", "King" | first -%}
+              
               <label class="radio-container">
-                              <input type="radio" name="pillow-size" value="standard" class="bundle-radio" checked aria-describedby="pillow-size-standard-desc">
-              <span class="radio-checkmark" aria-hidden="true"></span>
-              <span class="radio-label">Standard</span>
+                <input type="radio" name="pillow-size" value="standard" class="bundle-radio" checked 
+                       data-price="{%- if standard_variant -%}{{ standard_variant.price | money }}{%- else -%}$97.99{%- endif -%}"
+                       aria-describedby="pillow-size-standard-desc">
+                <span class="radio-checkmark" aria-hidden="true"></span>
+                <span class="radio-label">Standard</span>
                 <span class="sr-only" id="pillow-size-standard-desc">Standard size pillow, suitable for Twin, Full, and Queen mattresses</span>
               </label>
               <label class="radio-container">
-                <input type="radio" name="pillow-size" value="king" class="bundle-radio" aria-describedby="pillow-size-king-desc">
+                <input type="radio" name="pillow-size" value="king" class="bundle-radio"
+                       data-price="{%- if king_variant -%}{{ king_variant.price | money }}{%- else -%}$127.99{%- endif -%}"
+                       aria-describedby="pillow-size-king-desc">
                 <span class="radio-checkmark" aria-hidden="true"></span>
                 <span class="radio-label">King</span>
                 <span class="sr-only" id="pillow-size-king-desc">King size pillow, suitable for King and California King mattresses</span>
@@ -92,7 +119,7 @@
       </div>
       <div class="bundle-product-meta">
         <h4 class="bundle-product-title" id="bedbase-title">Adjustable Base</h4>
-        <div class="bundle-product-price" id="bedbase-price">$1,299.00</div>
+        <div class="bundle-product-price" id="bedbase-price">$899.00</div>
       </div>
       
       <div class="bundle-controls">
@@ -100,53 +127,83 @@
           <fieldset>
             <legend class="bundle-field-label">Base Type:</legend>
             <div class="bundle-bedbase-options" role="radiogroup" aria-labelledby="bedbase-type-legend">
-            <!-- Adjustable Base (First and Default) -->
-            {%- assign adjustable_base = all_products['nest-wild-adjustable-base'] -%}
-            {%- if adjustable_base == blank -%}
-              {%- assign adjustable_base = all_products['nest-and-wild-adjustable-base'] -%}
-            {%- endif -%}
+            <!-- Adjustable Base -->
+            {%- assign adjustable_base = all_products[section.settings.adjustable_base_product] -%}
             <label class="radio-container">
               <input type="radio" name="bedbase-type" value="adjustable" class="bundle-radio bedbase-radio" checked
-                     data-product-id="7599628746928" 
-                     data-product-handle="nest-wild-adjustable-base"
+                     data-product-id="7599628746928"
                      data-product-title="Adjustable Base"
-                     data-product-price="{% if adjustable_base.price %}{{ adjustable_base.price | money_without_trailing_zeros }}{% else %}$1,299.00{% endif %}"
-                     data-product-image="{% if adjustable_base.featured_media %}{{ adjustable_base.featured_media | img_url: '200x' }}{% else %}https://cdn.shopify.com/s/files/1/0152/7916/1444/products/adjustable_base.jpg{% endif %}">
+                     data-product-price="$899.00"
+                     data-product-image="https://cdn.shopify.com/s/files/1/0152/7916/1444/files/adjustable-base-tn.png?v=1754993620">
               <span class="radio-checkmark" aria-hidden="true"></span>
               <span class="radio-label">Adjustable Base</span>
             </label>
             
             <!-- Wooden Platform -->
-            {%- assign wooden_platform = all_products['nest-wild-wooden-platform'] -%}
-            {%- if wooden_platform == blank -%}
-              {%- assign wooden_platform = all_products['nest-and-wild-wooden-platform'] -%}
-            {%- endif -%}
+            {%- assign wooden_platform = all_products[section.settings.platform_base_product] -%}
             <label class="radio-container">
               <input type="radio" name="bedbase-type" value="platform" class="bundle-radio bedbase-radio"
-                     data-product-id="7569218633904" 
-                     data-product-handle="nest-wild-wooden-platform"
+                     data-product-id="7569218633904"
                      data-product-title="Wooden Platform"
-                     data-product-price="{% if wooden_platform.price %}{{ wooden_platform.price | money_without_trailing_zeros }}{% else %}$399.00{% endif %}"
-                     data-product-image="{% if wooden_platform.featured_media %}{{ wooden_platform.featured_media | img_url: '200x' }}{% else %}https://cdn.shopify.com/s/files/1/0152/7916/1444/products/wooden_platform.jpg{% endif %}">
+                     data-product-price="$299.00"
+                     data-product-image="https://cdn.shopify.com/s/files/1/0152/7916/1444/files/wooden-platform.png?v=1754993526">
               <span class="radio-checkmark" aria-hidden="true"></span>
               <span class="radio-label">Wooden Platform</span>
             </label>
             
             <!-- HD Riser Frame -->
-            {%- assign riser_frame = all_products['nest-wild-hd-riser-frame'] -%}
-            {%- if riser_frame == blank -%}
-              {%- assign riser_frame = all_products['nest-and-wild-hd-riser-frame'] -%}
-            {%- endif -%}
+            {%- assign riser_frame = all_products[section.settings.riser_base_product] -%}
             <label class="radio-container">
               <input type="radio" name="bedbase-type" value="riser" class="bundle-radio bedbase-radio"
-                     data-product-id="7725286883504" 
-                     data-product-handle="nest-wild-hd-riser-frame"
+                     data-product-id="7725286883504"
                      data-product-title="HD Riser Frame"
-                     data-product-price="{% if riser_frame.price %}{{ riser_frame.price | money_without_trailing_zeros }}{% else %}$228.99{% endif %}"
-                     data-product-image="{% if riser_frame.featured_media %}{{ riser_frame.featured_media | img_url: '200x' }}{% else %}https://cdn.shopify.com/s/files/1/0152/7916/1444/products/riser_frame.jpg{% endif %}">
+                     data-product-price="$199.00"
+                     data-product-image="https://cdn.shopify.com/s/files/1/0152/7916/1444/files/hd-riser.png?v=1754993527">
               <span class="radio-checkmark" aria-hidden="true"></span>
               <span class="radio-label">HD Riser Frame</span>
             </label>
+
+            <!-- Hidden variant data for bed bases -->
+            <div class="bedbase-variants" style="display: none;">
+              <!-- Adjustable Base Variants -->
+              <div class="adjustable-base-variants">
+                {%- for variant in adjustable_base.variants -%}
+                  <div class="variant-data"
+                       data-id="{{ variant.id }}"
+                       data-size="{{ variant.option1 | downcase }}"
+                       data-price="{{ variant.price | money_without_trailing_zeros }}"
+                       data-available="{{ variant.available }}"
+                       data-type="adjustable">
+                  </div>
+                {%- endfor -%}
+              </div>
+
+              <!-- Wooden Platform Variants -->
+              <div class="platform-base-variants">
+                {%- for variant in wooden_platform.variants -%}
+                  <div class="variant-data"
+                       data-id="{{ variant.id }}"
+                       data-size="{{ variant.option1 | downcase }}"
+                       data-price="{{ variant.price | money_without_trailing_zeros }}"
+                       data-available="{{ variant.available }}"
+                       data-type="platform">
+                  </div>
+                {%- endfor -%}
+              </div>
+
+              <!-- HD Riser Frame Variants -->
+              <div class="riser-base-variants">
+                {%- for variant in riser_frame.variants -%}
+                  <div class="variant-data"
+                       data-id="{{ variant.id }}"
+                       data-size="{{ variant.option1 | downcase }}"
+                       data-price="{{ variant.price | money_without_trailing_zeros }}"
+                       data-available="{{ variant.available }}"
+                       data-type="riser">
+                  </div>
+                {%- endfor -%}
+              </div>
+            </div>
 
             <!-- Debug Info (will be hidden) -->
             <div style="display: none;" class="debug-info">
@@ -173,9 +230,14 @@
   <!-- Hidden Product Data -->
   <div class="bundle-product-data" style="display: none;">
     <!-- Pillow product data -->
+    {%- assign pillow_product = all_products[section.settings.pillow_product] -%}
+    {%- assign standard_variant = pillow_product.variants | where: "title", "Standard" | first -%}
+    {%- assign king_variant = pillow_product.variants | where: "title", "King" | first -%}
     <div id="pillow-product-data" 
-         data-product-id="7608185880752"
-         data-handle="dreamchill-quattro-pillow">
+         data-product-id="{{ pillow_product.id }}"
+         data-handle="{{ pillow_product.handle }}"
+         data-standard-price="{{ standard_variant.price | money }}"
+         data-king-price="{{ king_variant.price | money }}">
     </div>
     
     <!-- Bed base product data -->
@@ -210,21 +272,18 @@
   position: relative;
 }
 
-/* Position bundle section above product recommendations */
+/* Position bundle section */
 .shopify-section--bundle-save {
-  margin: -40px 0 40px 0;
-  padding: 0;
+  max-width: 1375px;
+  margin: auto;
 }
 
-/* For desktop: position next to product on larger screens */
+/* For desktop: container sizing */
 @media screen and (min-width: 1000px) {
-  .shopify-section--bundle-save {
-    margin: -80px 0 40px 0;
-  }
-  
   .bundle-save-container {
-    margin: 0 auto;
     max-width: 600px;
+    margin-left: auto;
+    margin-right: 0;
   }
 }
 
