@@ -126,6 +126,12 @@
       $container.on('click', this.selectors.quantityButtons, (e) => {
         this.handleQuantityChange($(e.target));
       });
+
+      // Add bundle to cart
+      $container.on('click', this.selectors.bundleAddToCart, (e) => {
+        e.preventDefault();
+        this.addBundleToCart();
+      });
     },
 
     initializeState: function() {
@@ -257,6 +263,166 @@
       if ($selectedBase.length) {
         this.updateBedbaseDisplay($selectedBase);
       }
+    },
+
+    showNotification: function(message, type = 'success') {
+      const $messages = $('.bundle-status-messages');
+      const $message = type === 'success' ? $('.bundle-success-message') : $('.bundle-error-message');
+      
+      $message.text(message);
+      $messages.show();
+      $message.show();
+      
+      // Auto-hide after 3 seconds
+      setTimeout(() => {
+        $message.fadeOut();
+        setTimeout(() => {
+          if (!$('.bundle-success-message').is(':visible') && !$('.bundle-error-message').is(':visible')) {
+            $messages.hide();
+          }
+        }, 300);
+      }, 3000);
+    },
+
+    getPillowVariantId: function() {
+      const selectedSize = $(this.selectors.pillowSizeRadios + ':checked').val();
+      
+      // Get variant ID from the hidden variant data
+      const $variant = $(`.pillow-variants .variant-data[data-size="${selectedSize}"]`);
+      return $variant.data('id');
+    },
+
+    getBedbaseVariantId: function() {
+      const selectedType = $(this.selectors.bedbaseTypeRadios + ':checked').val();
+      const mattressSize = this.state.currentMattressSize;
+      
+      // Use the correct variant IDs from the existing codebase
+      const variantMap = {
+        adjustable: {
+          'twin xl': '43518441160880',
+          'queen': '43518441193648', 
+          'king': '43518441226416',
+          'split king': '43518441226416',
+          'california king': '43518441226416'
+        },
+        platform: {
+          'full': '43557194268848',
+          'queen': '43454855905456',
+          'king': '43454855938224'
+        },
+        riser: {
+          'twin': '43932973072560',
+          'twin xl': '43932973007024',
+          'full': '43932973138096',
+          'queen': '43932973039792',
+          'king': '43932973105328'
+        }
+      };
+      
+      return variantMap[selectedType] && variantMap[selectedType][mattressSize];
+    },
+
+    addBundleToCart: function() {
+      const $button = $(this.selectors.bundleAddToCart);
+      const originalText = $button.text();
+      
+      // Disable button and show loading state
+      $button.prop('disabled', true).text('BUILDING BUNDLE...');
+      this.showNotification('Building bundle...', 'success');
+      
+      const itemsToAdd = [];
+      
+      // Add pillow if enabled
+      if ($(this.selectors.pillowCheckbox).is(':checked')) {
+        const pillowVariantId = this.getPillowVariantId();
+        const pillowQuantity = parseInt($(this.selectors.pillowQuantity).val()) || 1;
+        
+        console.log('Pillow selection:', {
+          enabled: $(this.selectors.pillowCheckbox).is(':checked'),
+          variantId: pillowVariantId,
+          quantity: pillowQuantity
+        });
+        
+        if (pillowVariantId) {
+          itemsToAdd.push({
+            id: pillowVariantId,
+            quantity: pillowQuantity
+          });
+        }
+      }
+      
+      // Add bed base if enabled
+      if ($(this.selectors.bedbaseCheckbox).is(':checked')) {
+        const bedbaseVariantId = this.getBedbaseVariantId();
+        const selectedType = $(this.selectors.bedbaseTypeRadios + ':checked').val();
+        const mattressSize = this.state.currentMattressSize;
+        
+        console.log('Bed base selection:', {
+          enabled: $(this.selectors.bedbaseCheckbox).is(':checked'),
+          selectedType: selectedType,
+          mattressSize: mattressSize,
+          variantId: bedbaseVariantId
+        });
+        
+        if (bedbaseVariantId) {
+          itemsToAdd.push({
+            id: bedbaseVariantId,
+            quantity: 1
+          });
+        }
+      }
+      
+      console.log('Items to add to cart:', itemsToAdd);
+      
+      if (itemsToAdd.length === 0) {
+        this.showNotification('Please select at least one item to add to bundle', 'error');
+        $button.prop('disabled', false).text(originalText);
+        return;
+      }
+      
+      // Add items to cart using Shopify Ajax API
+      $.ajax({
+        url: '/cart/add.js',
+        method: 'POST',
+        dataType: 'json',
+        data: {
+          items: itemsToAdd
+        },
+        success: (response) => {
+          console.log('Bundle added to cart successfully:', response);
+          this.showNotification('Bundle added to cart!', 'success');
+          
+          // Update cart count/icon
+          this.updateCartCount();
+          
+          // Reset button
+          $button.prop('disabled', false).text(originalText);
+        },
+        error: (xhr, status, error) => {
+          console.error('Error adding bundle to cart:', {
+            status: xhr.status,
+            statusText: xhr.statusText,
+            responseText: xhr.responseText,
+            error: error
+          });
+          this.showNotification('Error adding bundle to cart. Please try again.', 'error');
+          $button.prop('disabled', false).text(originalText);
+        }
+      });
+    },
+
+    updateCartCount: function() {
+      // Fetch updated cart data
+      $.getJSON('/cart.js', (cart) => {
+        // Trigger cart update event for theme compatibility
+        $(document).trigger('cart:updated', { cart: cart });
+        
+        // Update cart count if theme has a cart counter
+        const $cartCount = $('.cart-count, .cart-count-bubble, [data-cart-count]');
+        if ($cartCount.length) {
+          $cartCount.text(cart.item_count);
+        }
+      });
     },
 
     handleQuantityChange: function($button) {
