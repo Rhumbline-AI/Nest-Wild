@@ -46,6 +46,8 @@
       this.bindEvents();
       this.initializeState();
       this.updateBedbasePricing();
+      this.placeBundlerAboveBuyButtons();
+      this.bindResizeHandler();
       
       // Debug: Check if mattress size selector exists
       console.log('Mattress size selector found:', $(this.selectors.mattressSizeSelector).length);
@@ -435,6 +437,38 @@
       } else if ($button.hasClass('quantity-minus') && currentVal > 1) {
         $input.val(currentVal - 1);
       }
+    },
+
+    placeBundlerAboveBuyButtons: function() {
+      try {
+        const isDesktop = window.matchMedia('(min-width: 1000px)').matches;
+        const $bundleSection = $('.shopify-section--bundle-save');
+        const $buyButtons = $('.product-form__buy-buttons');
+        if (!$bundleSection.length || !$buyButtons.length) return;
+
+        if (isDesktop) {
+          // If not already placed right before buy buttons, move it
+          const alreadyPlaced = $bundleSection.next()[0] === $buyButtons[0];
+          if (!alreadyPlaced) {
+            $bundleSection.insertBefore($buyButtons);
+            console.log('[Bundler] Moved bundler above buy buttons');
+          }
+        } else {
+          // On mobile, ensure bundler stays below the form (default order)
+          const $templateBundleSlot = $('#shopify-section-' + $bundleSection.attr('id'));
+          // No-op: we leave at current position for mobile
+        }
+      } catch (e) {
+        console.warn('[Bundler] placeBundlerAboveBuyButtons error', e);
+      }
+    },
+
+    bindResizeHandler: function() {
+      let resizeTimer = null;
+      $(window).on('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => this.placeBundlerAboveBuyButtons(), 150);
+      });
     }
   };
 
