@@ -676,24 +676,29 @@
 
 /* Quantity Selector */
 .quantity-input-wrapper {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   border: 1px solid #ddd;
   border-radius: 4px;
   overflow: hidden;
-  width: fit-content;
+  height: 36px;
 }
 
 .quantity-btn {
   background: #f8f8f8;
   border: none;
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  font-size: 16px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 400;
   color: var(--text-color, #333);
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
 }
 
 .quantity-btn:hover {
@@ -702,12 +707,22 @@
 
 .quantity-input {
   border: none;
-  width: 50px;
-  height: 32px;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  width: 40px;
+  height: 36px;
+  padding: 0;
   text-align: center;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--text-color, #333);
+  -moz-appearance: textfield;
+}
+
+.quantity-input::-webkit-outer-spin-button,
+.quantity-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .quantity-input:focus {
