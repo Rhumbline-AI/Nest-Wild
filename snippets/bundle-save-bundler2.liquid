@@ -292,7 +292,7 @@
   border: 1px solid #e5e5e5;
   border-radius: 6px;
   overflow: hidden;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   background: #fafafa;
 }
 
@@ -306,6 +306,12 @@
   background: #fff;
 }
 
+.bundle-option.disabled .bundle-option-details {
+  opacity: 0.5;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
 .bundle-option-header {
   padding: 10px 12px;
   background: transparent;
@@ -314,9 +320,15 @@
 
 .bundle-option-details {
   padding: 12px;
-  display: block; /* Show by default */
   border-top: 1px solid #e5e5e5;
   background: #fff;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.bundle-option.disabled .bundle-option-details {
+  opacity: 0.5;
+  pointer-events: none;
 }
 
 /* Toggle Switch Styling */

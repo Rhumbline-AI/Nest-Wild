@@ -197,40 +197,36 @@
       this.updateBundleTotal();
     },
 
-    // Toggle pillow section visibility
+    // Toggle pillow section state
     togglePillowSection: function(enabled) {
       this.state.pillowEnabled = enabled;
-      const $details = $(this.selectors.pillowDetails);
+      const $option = $(this.selectors.pillowDetails).closest('.bundle-option');
       
       if (enabled) {
         // Auto-select pillow size based on mattress size
         this.autoSelectPillowSize();
-        
-        $details.show();
-        this.updateBundleVisibility();
+        $option.removeClass('disabled');
       } else {
-        $details.hide();
+        $option.addClass('disabled');
         this.resetPillowOptions();
-        this.updateBundleVisibility();
       }
+      this.updateBundleVisibility();
     },
 
-    // Toggle bed base section visibility
+    // Toggle bed base section state
     toggleBedbaseSection: function(enabled) {
       this.state.bedbaseEnabled = enabled;
-      const $details = $(this.selectors.bedbaseDetails);
+      const $option = $(this.selectors.bedbaseDetails).closest('.bundle-option');
       
       if (enabled) {
         // Auto-match bed base size to mattress
         this.syncBedbaseSize();
-        
-        $details.show();
-        this.updateBundleVisibility();
+        $option.removeClass('disabled');
       } else {
-        $details.hide();
+        $option.addClass('disabled');
         this.resetBedbaseOptions();
-        this.updateBundleVisibility();
       }
+      this.updateBundleVisibility();
     },
 
     // Auto-select pillow size based on mattress size
