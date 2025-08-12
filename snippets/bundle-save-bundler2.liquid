@@ -36,22 +36,21 @@
       <div class="bundle-product-image-full">
         <img src="https://cdn.shopify.com/s/files/1/0152/7916/1444/files/pillow-white.png?v=1754956385" alt="{{ pillow_product.title }}" id="pillow-image" loading="lazy">
       </div>
-      <div class="bundle-product-info">
-        {%- assign pillow_product = section.settings.pillow_product -%}
-        {%- if pillow_product -%}
-        <div class="bundle-product-meta">
-          <h4 class="bundle-product-title">{{ pillow_product.title }}</h4>
-          <div class="bundle-product-price" id="pillow-price">{{ pillow_product.price | money }}</div>
-        </div>
-        {%- else -%}
-        <div class="bundle-product-meta">
-          <h4 class="bundle-product-title">Select a pillow product in theme settings</h4>
-          <div class="bundle-product-price" id="pillow-price">$0.00</div>
-        </div>
-        {%- endif -%}
-      </div>
+      {%- assign pillow_product = section.settings.pillow_product -%}
+      <h4 class="bundle-product-title">DreamChill Quattro Pillow</h4>
+      <div class="bundle-product-price" id="pillow-price">$89.99</div>
       
       <div class="bundle-controls">
+        <div class="bundle-quantity-selector">
+          <label class="bundle-field-label" for="pillow-quantity">Pillow Quantity:</label>
+          <div class="quantity-input-wrapper" role="group" aria-labelledby="pillow-quantity-label">
+            <button type="button" class="quantity-btn quantity-minus" data-target="pillow-quantity" aria-label="Decrease pillow quantity">-</button>
+            <input type="number" id="pillow-quantity" class="quantity-input" value="1" min="1" max="10" aria-describedby="pillow-quantity-help">
+            <button type="button" class="quantity-btn quantity-plus" data-target="pillow-quantity" aria-label="Increase pillow quantity">+</button>
+          </div>
+          <span class="sr-only" id="pillow-quantity-help">Select quantity between 1 and 10 pillows</span>
+        </div>
+
         <div class="bundle-size-selector">
           <fieldset>
             <legend class="bundle-field-label">Pillow Size:</legend>
@@ -70,16 +69,6 @@
               </label>
             </div>
           </fieldset>
-        </div>
-        
-        <div class="bundle-quantity-selector">
-          <label class="bundle-field-label" for="pillow-quantity">Pillow Quantity:</label>
-          <div class="quantity-input-wrapper" role="group" aria-labelledby="pillow-quantity-label">
-            <button type="button" class="quantity-btn quantity-minus" data-target="pillow-quantity" aria-label="Decrease pillow quantity">-</button>
-            <input type="number" id="pillow-quantity" class="quantity-input" value="1" min="1" max="10" aria-describedby="pillow-quantity-help">
-            <button type="button" class="quantity-btn quantity-plus" data-target="pillow-quantity" aria-label="Increase pillow quantity">+</button>
-          </div>
-          <span class="sr-only" id="pillow-quantity-help">Select quantity between 1 and 10 pillows</span>
         </div>
       </div>
     </div>
@@ -549,10 +538,14 @@
 
 .bundle-product-image-full {
   width: 100%;
-  margin-bottom: 16px;
+  margin: 12px 0 16px;
   border-radius: 4px;
   overflow: hidden;
   background: #fff;
+}
+
+.pillow-bundle .bundle-product-image-full {
+  padding: 25px 0;
 }
 
 .bundle-product-image-full img {

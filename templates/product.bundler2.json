@@ -48,7 +48,7 @@
         "enable_video_looping": false,
         "help_page": "",
         "show_product_rating": false,
-        "show_share_buttons": true,
+        "show_share_buttons": false,
         "show_sku": false,
         "show_sticky_add_to_cart": true,
         "show_taxes_included": false,
