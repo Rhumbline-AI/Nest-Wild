@@ -186,7 +186,7 @@
 
                 <button type="button" tabindex="-1" {% if settings.reveal_product_media and is_media_filtered == false %}reveal{% endif %} class="product__thumbnail-item {% if is_media_filtered %}is-filtered{% endif %} {% unless section.settings.show_thumbnails_on_mobile %}hidden-pocket{% endunless %}" {% if selected_media.id == media.id %}aria-current="true"{% endif %} aria-controls="product-{{ section.id }}-{{ media.id }}" data-media-id="{{ media.id }}" data-action="select">
                   <div class="product__thumbnail">
-                    <img loading="lazy" sizes="(max-width: 999px) 72px, 60px" {% render 'image-attributes', image: media.preview_image, alt: alt, sizes: '60,72,120,144,180,216,240,288' %}>
+                    <img loading="lazy" sizes="(max-width: 999px) 160px, 160px" {% render 'image-attributes', image: media.preview_image, alt: alt, sizes: '160,320,480,640' %}>
 
                     {%- case media.media_type -%}
                       {%- when 'model' -%}

@@ -45,6 +45,12 @@
           "type": "variant_picker"
         }
       },
+      "custom_css": [
+        ".product__thumbnail { width: 160px !important; height: 160px !important; }",
+        ".product__thumbnail img { width: 160px !important; height: 160px !important; object-fit: cover !important; }",
+        ".product__thumbnail-list { gap: 20px !important; }",
+        ".product__thumbnail-list-inner { gap: 20px !important; }"
+      ],
       "settings": {
         "desktop_thumbnails_position": "bottom",
         "enable_image_zoom": true,
