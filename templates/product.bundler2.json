@@ -2,7 +2,11 @@
   "order": [
     "main",
     "bundle-save",
-    "product-recommendations"
+    "165480090792111191",
+    "1654802427da9341a8",
+    "1654802872b05ec474",
+    "custom_liquid_RgwWtY",
+    "1654802817fd94f76c"
   ],
   "sections": {
     "main": {
@@ -72,16 +76,177 @@
       },
       "type": "bundle-save-bundler2"
     },
-    "product-recommendations": {
-      "settings": {
-        "background": "rgba(0,0,0,0)",
-        "products": [],
-        "recommendations_count": 4,
-        "subheading": "",
-        "text_color": "rgba(0,0,0,0)",
-        "title": "You may also like"
+    "165480090792111191": {
+      "type": "text-with-icons",
+      "blocks": {
+        "1654800907b07c7429-0": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-box",
+            "custom_icon": "shopify://shop_images/NW_icon-americanMade.png",
+            "custom_icon_width": 80,
+            "title": "American made",
+            "content": "<p>And proud of it.</p>"
+          }
+        },
+        "1654800907b07c7429-1": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-phone",
+            "custom_icon": "shopify://shop_images/NW_icon-0-financing.png",
+            "custom_icon_width": 80,
+            "title": "0% Financing Available",
+            "content": "<p>Pay at your pace.</p>"
+          }
+        },
+        "1654800907b07c7429-2": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-lock",
+            "custom_icon": "shopify://shop_images/NW_icon-free-shipping.png",
+            "custom_icon_width": 80,
+            "title": "Free Shipping & Returns",
+            "content": "<p>Delivered right to your door.</p>"
+          }
+        },
+        "1654800907b07c7429-3": {
+          "type": "item",
+          "settings": {
+            "icon": "picto-email",
+            "custom_icon": "shopify://shop_images/NW_icon-99nights.png",
+            "custom_icon_width": 80,
+            "title": "99 Nights on Us",
+            "content": "<p>Or your money back.</p>"
+          }
+        }
       },
-      "type": "product-recommendations"
+      "block_order": [
+        "1654800907b07c7429-0",
+        "1654800907b07c7429-1",
+        "1654800907b07c7429-2",
+        "1654800907b07c7429-3"
+      ],
+      "settings": {
+        "background": "#e7e7e7",
+        "text_color": "#292929"
+      }
+    },
+    "1654802427da9341a8": {
+      "type": "image-with-text-block",
+      "settings": {
+        "reveal_on_scroll": true,
+        "image": "shopify://shop_images/nw_piggy-back-ride.png",
+        "subheading": "Made well",
+        "title": "in america.",
+        "content": "<p>We believe the best days start with a good night's sleep. We source the best mattress materials in America and assemble them in our hometown of Tupelo, Mississippi for better quality control and hassle-free shipping direct to your door.</p>",
+        "button_text": "SEE OUR STORY",
+        "button_link": "shopify://pages/our-story",
+        "background_type": "full_width",
+        "text_position": "overlap_right",
+        "text_alignment": "center",
+        "text_background": "#0e2333",
+        "text_color": "#ffffff",
+        "button_background": "#f04f23",
+        "button_text_color": "#ffffff"
+      }
+    },
+    "1654802872b05ec474": {
+      "type": "multi-column",
+      "blocks": {
+        "1654802872fa952eb9-0": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/nw_matress-closeup.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "<p>Designed for high airflow.</p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
+        "1654802872fa952eb9-1": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/nw_kid-on-mattress_checkeredpants.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "<p>Provides comfort for\u0003sleepers of all sizes.</p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        },
+        "1654802872fa952eb9-2": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/nw_couple-sleeping.jpg",
+            "image_width": 100,
+            "image_border": "rgba(0,0,0,0)",
+            "title": "",
+            "content": "<p>Ensures long-lasting,\u0003high-quality sleep.</p>",
+            "link_text": "",
+            "link_url": "",
+            "link_style": "link",
+            "text_alignment": "center",
+            "vertical_alignment": "start"
+          }
+        }
+      },
+      "block_order": [
+        "1654802872fa952eb9-0",
+        "1654802872fa952eb9-1",
+        "1654802872fa952eb9-2"
+      ],
+      "settings": {
+        "reveal_on_scroll": true,
+        "stack_items": false,
+        "subheading": "",
+        "title": "PREMIUM FEATURES BUILT IN.",
+        "content": "",
+        "column_alignment": "center",
+        "mobile_item_size": "medium",
+        "desktop_item_size": "medium",
+        "spacing": "tight",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "custom_liquid_RgwWtY": {
+      "type": "custom-liquid",
+      "custom_css": [
+        ".stamped-widget-buttons {display: none !important;}"
+      ],
+      "settings": {
+        "subheading": "Nest & Wild",
+        "title": "Reviews",
+        "liquid": "<script async src=\"https://cdn1.stamped.io/files/widget.min.js\"></script>\n\n<div id=\"stamped-reviews-widget\" data-widget-type=\"full-page\" data-take=\"10\"></div>",
+        "add_vertical_spacing": true,
+        "background_type": "full_width",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "1654802817fd94f76c": {
+      "type": "newsletter",
+      "settings": {
+        "reveal_on_scroll": true,
+        "image": "shopify://shop_images/NW_newsletter_bg-image.jpg",
+        "subheading": "Ready for better days?",
+        "content": "<p>Sign up for our newsletter for product updates and company news. </p>",
+        "text_position": "left",
+        "text_alignment": "left",
+        "text_background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
     }
   }
 }
