@@ -24,12 +24,7 @@
     {%- if section.settings.enable_pillow_bundle -%}
     <div class="bundle-option pillow-bundle" role="group" aria-labelledby="pillow-bundle-title">
     <div class="bundle-option-header">
-      <label class="toggle-container">
-        <input type="checkbox" class="toggle-input bundle-checkbox" id="add-pillow" data-bundle-type="pillow" aria-describedby="pillow-bundle-description">
-        <span class="toggle-slider" aria-hidden="true"></span>
-        <span class="bundle-option-title" id="pillow-bundle-title">Add Pillow</span>
-      </label>
-      <span class="sr-only" id="pillow-bundle-description">Select to add a pillow to your bundle with size and quantity options</span>
+      <span class="bundle-option-title" id="pillow-bundle-title">Add Pillow</span>
     </div>
     
     <div class="bundle-option-details" id="pillow-options">
@@ -111,11 +106,7 @@
     {%- if section.settings.enable_bedbase_bundle -%}
     <div class="bundle-option bedbase-bundle">
     <div class="bundle-option-header">
-      <label class="toggle-container">
-        <input type="checkbox" class="toggle-input bundle-checkbox" id="add-bedbase" data-bundle-type="bedbase">
-        <span class="toggle-slider"></span>
-        <span class="bundle-option-title">Add Bed Base</span>
-      </label>
+      <span class="bundle-option-title">Add Bed Base</span>
     </div>
     
     <div class="bundle-option-details" id="bedbase-options">
@@ -376,55 +367,7 @@
   pointer-events: none;
 }
 
-/* Toggle Switch Styling */
-.toggle-container {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  user-select: none;
-  position: relative;
-}
 
-.toggle-input {
-  opacity: 0;
-  position: absolute;
-  cursor: pointer;
-}
-
-.toggle-slider {
-  position: relative;
-  width: 44px;
-  height: 24px;
-  background-color: #ccc;
-  border-radius: 12px;
-  margin-right: 12px;
-  transition: background-color 0.3s ease;
-}
-
-.toggle-slider:before {
-  content: "";
-  position: absolute;
-  height: 18px;
-  width: 18px;
-  left: 3px;
-  bottom: 3px;
-  background-color: white;
-  border-radius: 50%;
-  transition: transform 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-}
-
-.toggle-input:checked + .toggle-slider {
-  background-color: #f04f23 !important;
-}
-
-.toggle-input:checked + .toggle-slider:before {
-  transform: translateX(20px);
-}
-
-.toggle-input:focus + .toggle-slider {
-  box-shadow: 0 0 0 2px rgba(240, 79, 35, 0.3);
-}
   border: 2px solid #ddd;
   border-radius: 3px;
   margin-right: 12px;

@@ -6,25 +6,23 @@
   'use strict';
   
   const BundleSave = {
-    selectors: {
-      container: '#bundle-save-bundler2',
-      pillowCheckbox: '#add-pillow',
-      bedbaseCheckbox: '#add-bedbase',
-      pillowDetails: '#pillow-options',
-      bedbaseDetails: '#bedbase-options',
-      pillowQuantity: '#pillow-quantity',
-      pillowSizeRadios: 'input[name="pillow-size"]',
-      bedbaseTypeRadios: 'input[name="bedbase-type"]',
-      bedbaseImage: '#bedbase-image',
-      bedbaseTitle: '#bedbase-title',
-      bedbasePrice: '#bedbase-price',
-      pillowAddButton: '#pillow-add-button',
-      bedbaseAddButton: '#bedbase-add-button',
-      quantityButtons: '.quantity-btn',
-      pillowPrice: '#pillow-price',
-      pillowData: '#pillow-product-data',
-      mattressSizeSelector: 'input[name="option2"]'
-    },
+      selectors: {
+    container: '#bundle-save-bundler2',
+    pillowDetails: '#pillow-options',
+    bedbaseDetails: '#bedbase-options',
+    pillowQuantity: '#pillow-quantity',
+    pillowSizeRadios: 'input[name="pillow-size"]',
+    bedbaseTypeRadios: 'input[name="bedbase-type"]',
+    bedbaseImage: '#bedbase-image',
+    bedbaseTitle: '#bedbase-title',
+    bedbasePrice: '#bedbase-price',
+    pillowAddButton: '#pillow-add-button',
+    bedbaseAddButton: '#bedbase-add-button',
+    quantityButtons: '.quantity-btn',
+    pillowPrice: '#pillow-price',
+    pillowData: '#pillow-product-data',
+    mattressSizeSelector: 'input[name="option2"]'
+  },
 
     state: {
       pillowPrices: {
@@ -78,14 +76,7 @@
     bindEvents: function() {
       const $container = $(this.selectors.container);
       
-      // Toggle sections
-      $container.on('change', this.selectors.pillowCheckbox, (e) => {
-        this.toggleSection($(this.selectors.pillowDetails), e.target.checked);
-      });
-
-      $container.on('change', this.selectors.bedbaseCheckbox, (e) => {
-        this.toggleSection($(this.selectors.bedbaseDetails), e.target.checked);
-      });
+      // Sections are now always visible, no toggle functionality needed
 
       // Handle pillow size changes
       $container.on('change', this.selectors.pillowSizeRadios, (e) => {
@@ -141,13 +132,9 @@
     },
 
     initializeState: function() {
-      // Show sections by default
+      // Sections are always visible now
       $(this.selectors.pillowDetails).show();
       $(this.selectors.bedbaseDetails).show();
-      
-      // Set checkboxes checked by default
-      $(this.selectors.pillowCheckbox).prop('checked', true);
-      $(this.selectors.bedbaseCheckbox).prop('checked', true);
       
       // Set default bed base
       const $defaultBase = $(`${this.selectors.bedbaseTypeRadios}[value="adjustable"]`);
@@ -155,14 +142,7 @@
       this.updateBedbaseDisplay($defaultBase);
     },
 
-    toggleSection: function($section, enabled) {
-      const $option = $section.closest('.bundle-option');
-      if (enabled) {
-        $option.removeClass('disabled');
-      } else {
-        $option.addClass('disabled');
-      }
-    },
+
 
     updateBedbaseDisplay: function($radio) {
       if (!$radio.length) return;
@@ -482,12 +462,6 @@
       const $button = $(this.selectors.pillowAddButton);
       const originalText = $button.text();
       
-      // Check if pillow is enabled
-      if (!$(this.selectors.pillowCheckbox).is(':checked')) {
-        this.showNotification('Please enable pillow option first', 'error');
-        return;
-      }
-      
       // Get pillow details
       const pillowQuantity = parseInt($(this.selectors.pillowQuantity).val()) || 1;
       const pillowSize = $(this.selectors.pillowSizeRadios + ':checked').val();
@@ -539,12 +513,6 @@
     addBedbaseToBundle: function() {
       const $button = $(this.selectors.bedbaseAddButton);
       const originalText = $button.text();
-      
-      // Check if bed base is enabled
-      if (!$(this.selectors.bedbaseCheckbox).is(':checked')) {
-        this.showNotification('Please enable bed base option first', 'error');
-        return;
-      }
       
       // Get bed base details
       const selectedType = $(this.selectors.bedbaseTypeRadios + ':checked').val();
@@ -616,13 +584,13 @@
         $notification.addClass('show');
       }, 100);
       
-      // Auto-hide after 5 seconds
+      // Auto-hide after 6 seconds
       setTimeout(() => {
         $notification.removeClass('show');
         setTimeout(() => {
           $notification.remove();
         }, 300);
-      }, 5000);
+      }, 6000);
       
       // Close button functionality
       $notification.on('click', '.bundle-notification-close', () => {
