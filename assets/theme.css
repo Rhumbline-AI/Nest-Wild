@@ -15541,3 +15541,26 @@ button#AddToCart .loader-button__text {
   height: auto;
   border-radius: 6px;
 }
+
+/* Mobile: Move video below add to cart buttons */
+@media screen and (max-width: 740px) {
+  .product-video-section {
+    order: 10;
+    margin: 20px 0;
+    max-width: 100%;
+  }
+  
+  /* Ensure the product form uses flexbox for ordering */
+  .product {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .product__info {
+    order: 5;
+  }
+  
+  .product__media {
+    order: 1;
+  }
+}

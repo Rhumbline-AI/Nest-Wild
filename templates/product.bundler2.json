@@ -47,7 +47,7 @@
           "settings": {
             "color_mode": "color",
             "hide_sold_out_variants": false,
-            "selector_mode": "block",
+            "selector_mode": "dropdown",
             "size_chart_page": ""
           },
           "type": "variant_picker"
