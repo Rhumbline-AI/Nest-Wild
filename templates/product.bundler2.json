@@ -1,6 +1,7 @@
 {
   "order": [
     "main",
+    "product-video",
     "bundle-save",
     "165480090792111191",
     "1654802427da9341a8",
@@ -14,9 +15,16 @@
         "description",
         "variant_picker",
         "quantity_selector",
+        "liquid_bundler_target",
         "buy_buttons"
       ],
       "blocks": {
+        "liquid_bundler_target": {
+          "type": "liquid",
+          "settings": {
+            "liquid": "<div id=\"bundler-target-element\"></div>"
+          }
+        },
         "buy_buttons": {
           "settings": {
             "atc_button_background": "#f04f23",
@@ -67,6 +75,19 @@
         "transition_effect": "slide"
       },
       "type": "main-product"
+    },
+    "product-video": {
+      "type": "custom-liquid",
+      "settings": {
+        "subheading": "",
+        "title": "",
+        "liquid": "<!-- Video section moved to product-media.liquid snippet for proper DOM positioning -->",
+        "add_vertical_spacing": false,
+        "background_type": "full_width",
+        "background": "rgba(0,0,0,0)",
+        "text_color": "rgba(0,0,0,0)"
+      },
+
     },
     "bundle-save": {
       "settings": {

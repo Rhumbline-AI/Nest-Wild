@@ -45,6 +45,7 @@
       this.bindEvents();
       this.initializeState();
       this.updateBedbasePricing();
+      this.moveBundleToTarget();
       
       // Debug: Check if mattress size selector exists
       console.log('Mattress size selector found:', $(this.selectors.mattressSizeSelector).length);
@@ -601,6 +602,20 @@
       });
     },
 
+    moveBundleToTarget: function() {
+      // Move bundle to the bundler target element if it exists
+      const $targetElement = $('#bundler-target-element');
+      const $bundleSection = $('.shopify-section--bundle-save');
+      
+      if ($targetElement.length && $bundleSection.length) {
+        console.log('Moving bundle to target element above cart');
+        $bundleSection.detach().appendTo($targetElement);
+      } else {
+        console.log('Bundle target element not found or bundle section not found');
+        console.log('Target element:', $targetElement.length);
+        console.log('Bundle section:', $bundleSection.length);
+      }
+    }
 
   };
 

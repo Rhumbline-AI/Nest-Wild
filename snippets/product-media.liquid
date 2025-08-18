@@ -208,6 +208,22 @@
       </flickity-controls>
     {%- endif -%}
 
+    {%- comment -%}Video section positioned right after thumbnails{%- endcomment -%}
+    <div class="product-video-section" id="product-video-section">
+      <div class="product-video-content">
+        <h3 class="product-video-title">What's the Difference?</h3>
+        <p class="product-video-description">Learn about our unique mattress construction and what sets us apart from the competition.</p>
+        <video 
+          class="product-video" 
+          poster="https://cdn.shopify.com/s/files/1/0152/7916/1444/files/gempages_502959637507605259-9075ce0c-a354-4557-bb04-5c87befcaeaa.jpg"
+          controls
+          preload="metadata">
+          <source src="https://cdn.shopify.com/videos/c/o/v/1a618eac6934486b83f3bf846049bc38.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+
     {%- if section.settings.enable_image_zoom -%}
       {%- comment -%}This code MUST NOT be changed, and is part of the PhotoSwipe required interface{%- endcomment -%}
       <product-image-zoom product-handle="{{ product.handle }}" id="product-{{ section.id }}-{{ product.id }}-zoom" class="pswp" tabindex="-1" role="dialog">

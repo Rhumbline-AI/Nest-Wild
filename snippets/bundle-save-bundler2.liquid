@@ -17,6 +17,8 @@
     <div class="bundle-error-message" style="display: none;"></div>
   </div>
 
+
+
   <!-- Bundle Options Grid -->
   <div class="bundle-options-grid">
     
@@ -314,6 +316,8 @@
   color: #721c24;
   border: 1px solid #f5c6cb;
 }
+
+
 
 /* Bundle Options Layout */
 .bundle-options-grid {
@@ -944,6 +948,61 @@ fieldset {
 <!-- Bundle Save JavaScript -->
 <script src="{{ 'bundle-save-bundler2.js' | asset_url }}" defer></script>
 
+<!-- Reviews Badge Positioning Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // Function to position reviews badge
+  function positionReviewsBadge() {
+    const reviewsWidget = document.getElementById('stamped-reviews-widget');
+    if (reviewsWidget) {
+      reviewsWidget.style.textAlign = 'right';
+      reviewsWidget.style.transform = 'scale(0.8)';
+      reviewsWidget.style.transformOrigin = 'right center';
+      reviewsWidget.style.display = 'flex';
+      reviewsWidget.style.justifyContent = 'flex-end';
+      reviewsWidget.style.width = '100%';
+      reviewsWidget.style.minWidth = '200px';
+      reviewsWidget.style.maxWidth = '300px';
+      reviewsWidget.style.margin = '0';
+      reviewsWidget.style.padding = '0';
+      reviewsWidget.style.maxHeight = '100%';
+      reviewsWidget.style.overflow = 'visible';
+      
+      // Also target any child elements
+      const childElements = reviewsWidget.querySelectorAll('*');
+      childElements.forEach(function(element) {
+        element.style.textAlign = 'right';
+        element.style.maxHeight = '100%';
+        element.style.overflow = 'visible';
+        element.style.minWidth = '200px';
+        element.style.maxWidth = '300px';
+      });
+      
+      // Ensure the container has proper spacing
+      const container = reviewsWidget.closest('.product-meta__reviews-badge');
+      if (container) {
+        container.style.overflow = 'visible';
+        container.style.paddingBottom = '20px';
+        container.style.position = 'relative';
+        container.style.minWidth = '200px';
+        container.style.maxWidth = '300px';
+      }
+    }
+  }
+  
+  // Run immediately
+  positionReviewsBadge();
+  
+  // Run again after a delay to catch dynamic loading
+  setTimeout(positionReviewsBadge, 1000);
+  setTimeout(positionReviewsBadge, 2000);
+  setTimeout(positionReviewsBadge, 3000);
+  
+  // Also run when the window loads
+  window.addEventListener('load', positionReviewsBadge);
+});
+</script>
+
 <!-- Accessibility and Mobile Enhancements -->
 <style>
 /* Accessibility Improvements */
@@ -1187,5 +1246,50 @@ fieldset {
   .bundle-actions {
     display: none;
   }
+}
+
+/* Reviews Badge - Only for product meta area */
+.product-meta .product-meta__reviews-badge {
+  text-align: right !important;
+  transform: scale(0.8);
+  transform-origin: right center;
+  display: flex !important;
+  justify-content: flex-end !important;
+  margin: 10px 0 !important;
+  width: 100% !important;
+  min-width: 200px !important;
+  max-width: 300px !important;
+  margin-left: auto !important;
+  margin-right: 0 !important;
+  float: right !important;
+}
+
+.product-meta #stamped-reviews-widget {
+  text-align: right !important;
+  transform: scale(0.8);
+  transform-origin: right center;
+  display: flex !important;
+  justify-content: flex-end !important;
+  width: 100% !important;
+  min-width: 200px !important;
+  max-width: 300px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.product-meta #stamped-reviews-widget .stamped-badge,
+.product-meta #stamped-reviews-widget .stamped-badge-container {
+  text-align: right !important;
+  transform: scale(0.8);
+  transform-origin: right center;
+  margin-left: auto !important;
+  margin-right: 0 !important;
+  float: right !important;
+  display: block !important;
+}
+
+/* Add padding to product-meta to accommodate badge */
+.product-meta {
+  padding-bottom: 75px !important;
 }
 </style>
