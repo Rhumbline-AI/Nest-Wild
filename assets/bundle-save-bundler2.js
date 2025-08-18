@@ -18,7 +18,8 @@
       bedbaseImage: '#bedbase-image',
       bedbaseTitle: '#bedbase-title',
       bedbasePrice: '#bedbase-price',
-      bundleAddToCart: '#bundle-add-to-cart',
+      pillowAddButton: '#pillow-add-button',
+      bedbaseAddButton: '#bedbase-add-button',
       quantityButtons: '.quantity-btn',
       pillowPrice: '#pillow-price',
       pillowData: '#pillow-product-data',
@@ -127,10 +128,15 @@
         this.handleQuantityChange($(e.target));
       });
 
-      // Add bundle to cart
-      $container.on('click', this.selectors.bundleAddToCart, (e) => {
+      // Individual add buttons
+      $container.on('click', this.selectors.pillowAddButton, (e) => {
         e.preventDefault();
-        this.addBundleToCart();
+        this.addPillowToBundle();
+      });
+
+      $container.on('click', this.selectors.bedbaseAddButton, (e) => {
+        e.preventDefault();
+        this.addBedbaseToBundle();
       });
     },
 
@@ -435,6 +441,161 @@
       } else if ($button.hasClass('quantity-minus') && currentVal > 1) {
         $input.val(currentVal - 1);
       }
+    },
+
+    addPillowToBundle: function() {
+      const $button = $(this.selectors.pillowAddButton);
+      const originalText = $button.text();
+      
+      // Check if pillow is enabled
+      if (!$(this.selectors.pillowCheckbox).is(':checked')) {
+        this.showNotification('Please enable pillow option first', 'error');
+        return;
+      }
+      
+      // Get pillow details
+      const pillowQuantity = parseInt($(this.selectors.pillowQuantity).val()) || 1;
+      const pillowSize = $(this.selectors.pillowSizeRadios + ':checked').val();
+      
+      // Get pillow variant ID
+      const pillowVariantId = this.getPillowVariantId();
+      
+      if (!pillowVariantId) {
+        this.showNotification('Unable to get pillow variant. Please try again.', 'error');
+        return;
+      }
+      
+      // Disable button and show loading
+      $button.prop('disabled', true).text('ADDING...');
+      
+      // Add pillow to cart
+      $.ajax({
+        url: '/cart/add.js',
+        method: 'POST',
+        dataType: 'json',
+        data: {
+          id: pillowVariantId,
+          quantity: pillowQuantity
+        },
+        success: (response) => {
+          console.log('Pillow added to cart successfully:', response);
+          
+          // Show success notification
+          const quantityText = pillowQuantity > 1 ? 'pillows' : 'pillow';
+          this.showNotification(
+            `${pillowQuantity} ${quantityText} added to bundle - add mattress to cart to see total savings`,
+            'success'
+          );
+          
+          // Update cart count
+          this.updateCartCount();
+          
+          // Reset button
+          $button.prop('disabled', false).text(originalText);
+        },
+        error: (xhr, status, error) => {
+          console.error('Error adding pillow to cart:', error);
+          this.showNotification('Error adding pillow to cart. Please try again.', 'error');
+          $button.prop('disabled', false).text(originalText);
+        }
+      });
+    },
+
+    addBedbaseToBundle: function() {
+      const $button = $(this.selectors.bedbaseAddButton);
+      const originalText = $button.text();
+      
+      // Check if bed base is enabled
+      if (!$(this.selectors.bedbaseCheckbox).is(':checked')) {
+        this.showNotification('Please enable bed base option first', 'error');
+        return;
+      }
+      
+      // Get bed base details
+      const selectedType = $(this.selectors.bedbaseTypeRadios + ':checked').val();
+      const mattressSize = this.state.currentMattressSize;
+      
+      // Get bed base variant ID
+      const bedbaseVariantId = this.getBedbaseVariantId();
+      
+      if (!bedbaseVariantId) {
+        this.showNotification('Unable to get bed base variant. Please try again.', 'error');
+        return;
+      }
+      
+      // Disable button and show loading
+      $button.prop('disabled', true).text('ADDING...');
+      
+      // Add bed base to cart
+      $.ajax({
+        url: '/cart/add.js',
+        method: 'POST',
+        dataType: 'json',
+        data: {
+          id: bedbaseVariantId,
+          quantity: 1
+        },
+        success: (response) => {
+          console.log('Bed base added to cart successfully:', response);
+          
+          // Show success notification
+          const baseTypeText = selectedType === 'adjustable' ? 'Adjustable Base' : 
+                              selectedType === 'platform' ? 'Wooden Platform' : 'HD Riser Frame';
+          this.showNotification(
+            `${baseTypeText} added to bundle - add mattress to cart to see total savings`,
+            'success'
+          );
+          
+          // Update cart count
+          this.updateCartCount();
+          
+          // Reset button
+          $button.prop('disabled', false).text(originalText);
+        },
+        error: (xhr, status, error) => {
+          console.error('Error adding bed base to cart:', error);
+          this.showNotification('Error adding bed base to cart. Please try again.', 'error');
+          $button.prop('disabled', false).text(originalText);
+        }
+      });
+    },
+
+    showNotification: function(message, type = 'info') {
+      // Remove any existing notifications
+      $('.bundle-notification').remove();
+      
+      // Create notification element
+      const $notification = $(`
+        <div class="bundle-notification ${type}">
+          <button class="bundle-notification-close">&times;</button>
+          <div class="bundle-notification-title">${type === 'success' ? 'Success!' : type === 'error' ? 'Error' : 'Info'}</div>
+          <div class="bundle-notification-message">${message}</div>
+        </div>
+      `);
+      
+      // Add to page
+      $('body').append($notification);
+      
+      // Show notification
+      setTimeout(() => {
+        $notification.addClass('show');
+      }, 100);
+      
+      // Auto-hide after 5 seconds
+      setTimeout(() => {
+        $notification.removeClass('show');
+        setTimeout(() => {
+          $notification.remove();
+        }, 300);
+      }, 5000);
+      
+      // Close button functionality
+      $notification.on('click', '.bundle-notification-close', () => {
+        $notification.removeClass('show');
+        setTimeout(() => {
+          $notification.remove();
+        }, 300);
+      });
     },
 
 

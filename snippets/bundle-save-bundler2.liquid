@@ -98,6 +98,11 @@
           </fieldset>
         </div>
       </div>
+      
+      <!-- Pillow Add Button -->
+      <button type="button" class="bundle-add-button pillow-add-button" id="pillow-add-button">
+        ADD +
+      </button>
     </div>
     </div>
     {%- endif -%}
@@ -197,16 +202,16 @@
         
         <!-- Size is handled automatically -->
       </div>
+      
+      <!-- Bed Base Add Button -->
+      <button type="button" class="bundle-add-button bedbase-add-button" id="bedbase-add-button">
+        ADD +
+      </button>
     </div>
     </div>
     {%- endif -%}
     
   </div> <!-- End bundle-options-grid -->
-
-  <!-- Bundle Actions -->
-  <button type="button" class="bundle-add-to-cart" id="bundle-add-to-cart">
-    Build My Bundle
-  </button>
 
   <!-- Hidden Product Data -->
   <div class="bundle-product-data" style="display: none;">
@@ -832,6 +837,105 @@ fieldset {
 
 .bundle-add-to-cart:hover {
   background: #1a3c57;
+}
+
+/* Bundle Add Buttons */
+.bundle-add-button {
+  margin-top: 12px;
+  background: #0e2333;
+  color: #ffffff;
+  border: none;
+  padding: 12px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: inherit;
+  border-radius: 0;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+
+.bundle-add-button:hover {
+  background: #1a3c57;
+}
+
+.bundle-add-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Notification System */
+.bundle-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: white;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  padding: 16px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 10000;
+  max-width: 350px;
+  transform: translateX(400px);
+  transition: transform 0.3s ease;
+  font-family: inherit;
+}
+
+.bundle-notification.show {
+  transform: translateX(0);
+}
+
+.bundle-notification.success {
+  border-left: 4px solid #10b981;
+  background: #f0fdf4;
+}
+
+.bundle-notification.error {
+  border-left: 4px solid #ef4444;
+  background: #fef2f2;
+}
+
+.bundle-notification.info {
+  border-left: 4px solid #3b82f6;
+  background: #eff6ff;
+}
+
+.bundle-notification-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #1f2937;
+}
+
+.bundle-notification-message {
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.4;
+}
+
+.bundle-notification-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: #9ca3af;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bundle-notification-close:hover {
+  color: #6b7280;
 }
 
 
