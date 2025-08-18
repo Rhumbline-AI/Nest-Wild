@@ -293,9 +293,44 @@
     getPillowVariantId: function() {
       const selectedSize = $(this.selectors.pillowSizeRadios + ':checked').val();
       
+      console.log('Selected pillow size:', selectedSize);
+      
+      // Map radio button values to actual variant sizes
+      const sizeMapping = {
+        'standard': 'standard/queen',
+        'king': 'king'
+      };
+      
+      const actualSize = sizeMapping[selectedSize] || selectedSize;
+      console.log('Mapped to actual size:', actualSize);
+      
       // Get variant ID from the hidden variant data
-      const $variant = $(`.pillow-variants .variant-data[data-size="${selectedSize}"]`);
-      return $variant.data('id');
+      const $variant = $(`.pillow-variants .variant-data[data-size="${actualSize}"]`);
+      
+      // Debug: Log all available variants
+      console.log('Available pillow variants:');
+      $('.pillow-variants .variant-data').each(function() {
+        console.log('Variant:', $(this).data('size'), 'ID:', $(this).data('id'));
+      });
+      
+      let variantId = $variant.data('id');
+      console.log('Found variant ID from variant data:', variantId);
+      
+      // Fallback: If no variant found, use hardcoded variant IDs
+      if (!variantId) {
+        console.log('No variant found, using fallback variant IDs...');
+        
+        // Fallback variant IDs for DreamChill Quattro Pillow
+        const fallbackVariants = {
+          'standard': '43549412032688', // Standard variant
+          'king': '43549412065456'      // King variant
+        };
+        
+        variantId = fallbackVariants[selectedSize];
+        console.log('Using fallback variant ID:', variantId);
+      }
+      
+      return variantId;
     },
 
     getBedbaseVariantId: function() {
