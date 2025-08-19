@@ -15522,6 +15522,50 @@ button#AddToCart .loader-button__text {
   max-width: 500px;
 }
 
+/* Fix reviews badge overlap for luxuryhybrid and nestwildmattress products */
+.product__info {
+  padding-bottom: 80px !important;
+}
+
+#stamped-reviews-widget {
+  margin-top: 20px !important;
+  position: relative !important;
+  clear: both !important;
+  z-index: 1 !important;
+}
+
+.product-meta {
+  margin-bottom: 60px !important;
+  position: relative !important;
+}
+
+/* Additional spacing for the reviews badge container */
+.product-meta__reviews-badge {
+  margin-top: 15px !important;
+  margin-bottom: 15px !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+/* Force spacing around the reviews badge to prevent overlap */
+.product-meta__reviews-badge + *,
+.product-meta__reviews-badge ~ * {
+  margin-top: 20px !important;
+}
+
+/* Target the specific stamped reviews widget */
+#stamped-reviews-widget[data-widget-type="badge"] {
+  margin-top: 45px !important;
+  margin-bottom: 25px !important;
+  display: block !important;
+  clear: both !important;
+}
+
+/* Ensure product info has enough space */
+.product__info .product-meta {
+  padding-bottom: 100px !important;
+}
+
 .product-video-title {
   margin: 0 0 10px 0;
   font-size: 1.2em;
