@@ -21,7 +21,7 @@
     quantityButtons: '.quantity-btn',
     pillowPrice: '#pillow-price',
     pillowData: '#pillow-product-data',
-    mattressSizeSelector: 'input[name="option2"]'
+    mattressSizeSelector: 'input[name="option2"], select[name="option2"]'
   },
 
     state: {
@@ -97,20 +97,18 @@
         this.updateBedbaseDisplay($(e.target));
       });
 
-      // Listen for mattress size changes
-      $(document).on('change', this.selectors.mattressSizeSelector, (e) => {
-        console.log('Mattress size change event triggered');
-        this.state.currentMattressSize = $(e.target).val().toLowerCase();
-        console.log('Mattress size changed to:', this.state.currentMattressSize);
+      // Listen for mattress size changes on any option selector
+      $(document).on('change', 'select[name*="option"], input[name*="option"]', (e) => {
+        console.log('Option change event triggered for:', $(e.target).attr('name'));
+        this.updateMattressSize();
         this.updateBedbasePricing();
       });
       
-      // Also listen for clicks on mattress size options
-      $(document).on('click', this.selectors.mattressSizeSelector, (e) => {
-        console.log('Mattress size click event triggered');
+      // Also listen for clicks on option radio buttons
+      $(document).on('click', 'input[name*="option"]', (e) => {
+        console.log('Option click event triggered for:', $(e.target).attr('name'));
         setTimeout(() => {
-          this.state.currentMattressSize = $(e.target).val().toLowerCase();
-          console.log('Mattress size clicked to:', this.state.currentMattressSize);
+          this.updateMattressSize();
           this.updateBedbasePricing();
         }, 100);
       });
@@ -141,6 +139,67 @@
       const $defaultBase = $(`${this.selectors.bedbaseTypeRadios}[value="adjustable"]`);
       $defaultBase.prop('checked', true);
       this.updateBedbaseDisplay($defaultBase);
+      
+      // Initialize mattress size detection
+      this.updateMattressSize();
+    },
+
+    updateMattressSize: function() {
+      // Try to get mattress size from any option that contains size keywords
+      let mattressSize = '';
+      
+      // Look for size option in different positions (option1, option2, option3, etc.)
+      const sizeKeywords = ['size', 'mattress size', 'queen', 'king', 'twin', 'full', 'california'];
+      
+      // Check all select dropdowns for size-related options
+      $('select[name*="option"]').each(function() {
+        const $select = $(this);
+        const currentValue = $select.val();
+        
+        if (currentValue) {
+          // Check if the value looks like a mattress size
+          const valueLower = currentValue.toLowerCase();
+          const isSize = sizeKeywords.some(keyword => 
+            valueLower.includes(keyword) || 
+            /^(twin|full|queen|king|california|split)/i.test(valueLower)
+          );
+          
+          if (isSize) {
+            mattressSize = currentValue;
+            console.log('Mattress size from dropdown:', mattressSize, 'from', $select.attr('name'));
+            return false; // break out of loop
+          }
+        }
+      });
+      
+      // If no dropdown found, check radio buttons
+      if (!mattressSize) {
+        $('input[name*="option"]:checked').each(function() {
+          const $radio = $(this);
+          const currentValue = $radio.val();
+          
+          if (currentValue) {
+            const valueLower = currentValue.toLowerCase();
+            const isSize = sizeKeywords.some(keyword => 
+              valueLower.includes(keyword) || 
+              /^(twin|full|queen|king|california|split)/i.test(valueLower)
+            );
+            
+            if (isSize) {
+              mattressSize = currentValue;
+              console.log('Mattress size from radio:', mattressSize, 'from', $radio.attr('name'));
+              return false; // break out of loop
+            }
+          }
+        });
+      }
+      
+      if (mattressSize) {
+        this.state.currentMattressSize = mattressSize.toLowerCase();
+        console.log('Mattress size updated to:', this.state.currentMattressSize);
+      } else {
+        console.log('No mattress size detected');
+      }
     },
 
 
