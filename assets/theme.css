@@ -15516,54 +15516,41 @@ button#AddToCart .loader-button__text {
 .product-video-section {
   margin: 30px 0;
   padding: 20px;
-  background: white;
+  background: transparent;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   max-width: 500px;
+  box-shadow: none !important;
 }
 
-/* Fix reviews badge overlap for luxuryhybrid and nestwildmattress products */
+/* Clean reviews badge positioning */
 .product__info {
-  padding-bottom: 80px !important;
-}
-
-#stamped-reviews-widget {
-  margin-top: 20px !important;
-  position: relative !important;
-  clear: both !important;
-  z-index: 1 !important;
+  padding-bottom: 20px !important;
 }
 
 .product-meta {
-  margin-bottom: 60px !important;
-  position: relative !important;
-}
-
-/* Additional spacing for the reviews badge container */
-.product-meta__reviews-badge {
-  margin-top: 15px !important;
   margin-bottom: 15px !important;
   position: relative !important;
-  z-index: 2 !important;
 }
 
-/* Force spacing around the reviews badge to prevent overlap */
-.product-meta__reviews-badge + *,
-.product-meta__reviews-badge ~ * {
-  margin-top: 20px !important;
-}
-
-/* Target the specific stamped reviews widget */
-#stamped-reviews-widget[data-widget-type="badge"] {
-  margin-top: 45px !important;
-  margin-bottom: 25px !important;
+/* Simple badge positioning - own row below store info */
+.product-meta__reviews-badge {
   display: block !important;
+  margin-top: 15px !important;
+  margin-bottom: 10px !important;
+  position: relative !important;
   clear: both !important;
+  width: fit-content !important;
 }
 
-/* Ensure product info has enough space */
-.product__info .product-meta {
-  padding-bottom: 100px !important;
+#stamped-reviews-widget {
+  display: block !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Ensure clean separation */
+.product-meta > *:not(.product-meta__reviews-badge) {
+  margin-bottom: 8px !important;
 }
 
 .product-video-title {
