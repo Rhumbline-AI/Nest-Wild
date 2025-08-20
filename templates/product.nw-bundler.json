@@ -1,11 +1,11 @@
 {
   "order": [
     "main",
-    "product-video",
     "bundle-save",
     "165480090792111191",
     "1654802427da9341a8",
     "1654802872b05ec474",
+    "product-video",
     "custom_liquid_RgwWtY",
     "1654802817fd94f76c"
   ],
@@ -77,13 +77,13 @@
       "type": "main-product"
     },
     "product-video": {
-      "type": "custom-liquid",
+      "type": "custom-html",
       "settings": {
-        "subheading": "",
-        "title": "",
-        "liquid": "<!-- Video section moved to product-media.liquid snippet for proper DOM positioning -->",
+        "subheading": "NEST & WILD CEO BRANDON JAMISON BREAKS IT DOWN",
+        "title": "CURB THE CONFUSION",
+        "html": "<div class=\"video-slider-wrap\">\n<div class=\"video-slider\">\n  <div><iframe src=\"https://www.youtube.com/embed/px8Pr1OQ_yk\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope;\" allowfullscreen=\"\" frameborder=\"0\"></iframe></div>\n  </div>\n</div>",
         "add_vertical_spacing": false,
-        "background_type": "full_width",
+        "background_type": "boxed",
         "background": "rgba(0,0,0,0)",
         "text_color": "rgba(0,0,0,0)"
       }
@@ -91,7 +91,7 @@
     "bundle-save": {
       "settings": {
         "enable_bundle": true,
-        "bundle_title": "Bundle & Save",
+        "bundle_title": "Step 2: Bundle & Save",
         "bundle_subtitle": "Add to cart to unlock the best deal",
         "enable_pillow_bundle": true,
         "pillow_product": "dreamchill-quatro-pillow",

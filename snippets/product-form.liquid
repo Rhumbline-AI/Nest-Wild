@@ -23,8 +23,16 @@
         {%- unless product.has_only_default_variant or block.settings.hide_sold_out_variants and product.available == false -%}
           {%- assign size_chart_page = block.settings.size_chart_page -%}
           {%- assign found_size_option = false -%}
-<section class="nw_var-size nw_product-size-ctnr">
-          <product-variants handle="{{ product.handle }}" form-id="{{ product_form_id }}" {% if update_url %}update-url{% endif %} {% if block.settings.hide_sold_out_variants %}hide-sold-out-variants{% endif %} class="product-form__variants" {{ block.shopify_attributes }}>
+          
+          <!-- Step 1: Select Mattress Container -->
+          <div class="mattress-selection-container">
+            <div class="mattress-selection-header">
+              <h3 class="mattress-selection-title">Step 1: Select Mattress</h3>
+            </div>
+            <div class="mattress-selection-content">
+              <div class="mattress-selection-row">
+                <div class="mattress-size-section">
+                  <product-variants handle="{{ product.handle }}" form-id="{{ product_form_id }}" {% if update_url %}update-url{% endif %} {% if block.settings.hide_sold_out_variants %}hide-sold-out-variants{% endif %} class="product-form__variants" {{ block.shopify_attributes }}>
             {%- for option in product.options_with_values -%}
               {%- assign option_downcase = option.name | downcase -%}
               {%- capture option_id -%}option-{{ section.id }}-{{ template.suffix }}-{{ product.id }}-{{ forloop.index }}{%- endcapture -%}
@@ -157,6 +165,31 @@
               </div>
             </noscript>
           </product-variants>
+                </div>
+                
+                <!-- Quantity selector moved inside mattress selection container -->
+                <div class="mattress-quantity-section">
+                  <div class="product-form__quantity" {{ block.shopify_attributes }}>
+                    <span class="product-form__quantity-label">{{ 'product.form.quantity' | t }}:</span>
+
+                    <quantity-selector class="quantity-selector">
+                      <button type="button" class="quantity-selector__button">
+                        <span class="visually-hidden">{{ 'cart.general.decrease_quantity' | t }}</span>
+                        {%- render 'icon' with 'minus-big' -%}
+                      </button>
+
+                      <input type="text" form="{{ product_form_id }}" is="input-number" class="quantity-selector__input" inputmode="numeric" name="quantity" autocomplete="off" min="1" value="1" size="2" aria-label="{{ 'product.form.quantity' | t | escape }}">
+
+                      <button type="button" class="quantity-selector__button">
+                        <span class="visually-hidden">{{ 'cart.general.increase_quantity' | t }}</span>
+                        {%- render 'icon' with 'plus-big' -%}
+                      </button>
+                    </quantity-selector>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         {%- endunless -%}
 
       {%- comment -%}
@@ -261,30 +294,10 @@
       ----------------------------------------------------------------------------------------------------------------
       {%- endcomment -%}
       {%- when 'quantity_selector' -%}
+        {%- comment -%}Quantity selector moved to mattress selection container{%- endcomment -%}
         {%- if request.page_type != 'password' and product.available -%}
-
-</section>
-<section class="nw_var-size nw_product-qty-ctnr">
-
-          <div class="product-form__quantity" {{ block.shopify_attributes }}>
-            <span class="product-form__quantity-label">{{ 'product.form.quantity' | t }}:</span>
-
-            <quantity-selector class="quantity-selector">
-              <button type="button" class="quantity-selector__button">
-                <span class="visually-hidden">{{ 'cart.general.decrease_quantity' | t }}</span>
-                {%- render 'icon' with 'minus-big' -%}
-              </button>
-
-              <input type="text" form="{{ product_form_id }}" is="input-number" class="quantity-selector__input" inputmode="numeric" name="quantity" autocomplete="off" min="1" value="1" size="2" aria-label="{{ 'product.form.quantity' | t | escape }}">
-
-              <button type="button" class="quantity-selector__button">
-                <span class="visually-hidden">{{ 'cart.general.increase_quantity' | t }}</span>
-                {%- render 'icon' with 'plus-big' -%}
-              </button>
-            </quantity-selector>
-          </div>
+          <!-- Quantity selector is now handled within the mattress selection container -->
         {%- endif -%}
-</section>
       {%- comment -%}
       ----------------------------------------------------------------------------------------------------------------
       PRODUCT DESCRIPTION
@@ -372,36 +385,44 @@
       {%- endcomment -%}
       {%- when 'buy_buttons' -%}
         {%- if request.page_type != 'password' -%}
-          <div class="product-form__buy-buttons" {{ block.shopify_attributes }}>
-            {%- form 'product', product, is: 'product-form', id: product_form_id -%}
-              <input type="hidden" disabled name="id" value="{{ product.selected_or_first_available_variant.id }}">
+          <!-- Step 3: Add to Cart Container -->
+          <div class="add-to-cart-container">
+            <div class="add-to-cart-header">
+              <h3 class="add-to-cart-title">Step 3: Add to Cart</h3>
+            </div>
+            <div class="add-to-cart-content">
+              <div class="product-form__buy-buttons" {{ block.shopify_attributes }}>
+                {%- form 'product', product, is: 'product-form', id: product_form_id -%}
+                  <input type="hidden" disabled name="id" value="{{ product.selected_or_first_available_variant.id }}">
 
-              <product-payment-container form-id="{{ product_form_id }}" {% if update_url %}id="MainPaymentContainer"{% endif %} class="product-form__payment-container" {{ block.shopify_attributes }}>
-                <button id="AddToCart" type="submit" is="loader-button" {% unless block.settings.show_payment_button and template.suffix != 'quick-buy-popover' %}data-use-primary{% endunless %} data-product-add-to-cart-button data-button-content="{% if product.template_suffix == 'pre-order' %}{{ 'product.form.pre_order' | t | escape }}{% else %}{{ 'product.form.add_to_cart' | t | escape }}{% endif %}" class="product-form__add-button button {% unless product.selected_or_first_available_variant.available %}button--ternary{% else %}{% if block.settings.show_payment_button and template.suffix != 'quick-buy-popover' %}button--secondary{% else %}button--primary{% endif %}{% endunless %} button--full" {% unless product.selected_or_first_available_variant.available %}disabled{% endunless %}>
-                  {%- if product.selected_or_first_available_variant.available -%}
-                    {%- if product.template_suffix == 'pre-order' -%}
-                      {{- 'product.form.pre_order' | t -}}
-                    {%- else -%}
-                      {{- 'product.form.add_to_cart' | t -}}
+                  <product-payment-container form-id="{{ product_form_id }}" {% if update_url %}id="MainPaymentContainer"{% endif %} class="product-form__payment-container" {{ block.shopify_attributes }}>
+                    <button id="AddToCart" type="submit" is="loader-button" {% unless block.settings.show_payment_button and template.suffix != 'quick-buy-popover' %}data-use-primary{% endunless %} data-product-add-to-cart-button data-button-content="{% if product.template_suffix == 'pre-order' %}{{ 'product.form.pre_order' | t | escape }}{% else %}{{ 'product.form.add_to_cart' | t | escape }}{% endif %}" class="product-form__add-button button {% unless product.selected_or_first_available_variant.available %}button--ternary{% else %}{% if block.settings.show_payment_button and template.suffix != 'quick-buy-popover' %}button--secondary{% else %}button--primary{% endif %}{% endunless %} button--full" {% unless product.selected_or_first_available_variant.available %}disabled{% endunless %}>
+                      {%- if product.selected_or_first_available_variant.available -%}
+                        {%- if product.template_suffix == 'pre-order' -%}
+                          {{- 'product.form.pre_order' | t -}}
+                        {%- else -%}
+                          {{- 'product.form.add_to_cart' | t -}}
+                        {%- endif -%}
+                      {%- else -%}
+                        {{- 'product.form.sold_out' | t -}}
+                      {%- endif -%}
+                    </button>
+
+                    {%- if block.settings.show_payment_button and template.suffix != 'quick-buy-popover' -%}
+                      {{ form | payment_button }}
+
+                      {%- unless product.selected_or_first_available_variant.available -%}
+                        <style>
+                          #shopify-section-{{ section.id }} .shopify-payment-button {
+                            display: none;
+                          }
+                        </style>
+                      {%- endunless -%}
                     {%- endif -%}
-                  {%- else -%}
-                    {{- 'product.form.sold_out' | t -}}
-                  {%- endif -%}
-                </button>
-
-                {%- if block.settings.show_payment_button and template.suffix != 'quick-buy-popover' -%}
-                  {{ form | payment_button }}
-
-                  {%- unless product.selected_or_first_available_variant.available -%}
-                    <style>
-                      #shopify-section-{{ section.id }} .shopify-payment-button {
-                        display: none;
-                      }
-                    </style>
-                  {%- endunless -%}
-                {%- endif -%}
-              </product-payment-container>
-            {%- endform -%}
+                  </product-payment-container>
+                {%- endform -%}
+              </div>
+            </div>
           </div>
         {%- endif -%}
 
