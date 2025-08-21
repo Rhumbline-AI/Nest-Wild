@@ -200,6 +200,7 @@
       }
       
       if (mattressSize) {
+        console.log('Original mattress size detected:', mattressSize);
         this.state.currentMattressSize = mattressSize.toLowerCase();
         console.log('Mattress size updated to:', this.state.currentMattressSize);
       } else {
@@ -263,7 +264,10 @@
         'king': { adjustable: 'split king - 2 txl', platform: 'king', riser: 'king' },
         'split king': { adjustable: 'split king - 2 txl', platform: 'king', riser: 'king' },
         'split king (2 twin xl)': { adjustable: 'king', platform: 'king', riser: 'king' },
-        'Split King (2 Twin XL)': { adjustable: 'king', platform: 'king', riser: 'king' },
+        'split king 2 twin xl': { adjustable: 'king', platform: 'king', riser: 'king' },
+        'split king - 2 twin xl': { adjustable: 'king', platform: 'king', riser: 'king' },
+        'split king 2 txl': { adjustable: 'king', platform: 'king', riser: 'king' },
+        'split king - 2 txl': { adjustable: 'king', platform: 'king', riser: 'king' },
         'california king': { adjustable: 'split king - 2 txl', platform: 'king', riser: 'king' }
       };
       
@@ -408,12 +412,18 @@
       const selectedType = $(this.selectors.bedbaseTypeRadios + ':checked').val();
       const mattressSize = this.state.currentMattressSize;
       
+      console.log('getBedbaseVariantId called with:', {
+        selectedType: selectedType,
+        mattressSize: mattressSize,
+        mattressSizeType: typeof mattressSize
+      });
+      
       // Use the correct variant IDs from the existing codebase
       const variantMap = {
         adjustable: {
           'twin xl': '43518441160880',
           'queen': '43518441193648', 
-          'king': '7599628746928',
+          'king': '43518441226416',
           'split king': '43518441226416',
           'split king - 2 txl': '43518441226416',
           'california king': '43518441226416'
@@ -432,7 +442,18 @@
         }
       };
       
-      return variantMap[selectedType] && variantMap[selectedType][mattressSize];
+      let variantId = variantMap[selectedType] && variantMap[selectedType][mattressSize];
+      console.log('Found variant ID:', variantId);
+      console.log('Available keys for', selectedType, ':', Object.keys(variantMap[selectedType] || {}));
+      
+      // If no variant found and it's a split king variant, fall back to king
+      if (!variantId && mattressSize && mattressSize.includes('split king')) {
+        console.log('Split king variant not found, falling back to king variant');
+        variantId = variantMap[selectedType] && variantMap[selectedType]['king'];
+        console.log('Fallback variant ID:', variantId);
+      }
+      
+      return variantId;
     },
 
     addBundleToCart: function() {
