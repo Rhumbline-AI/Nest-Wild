@@ -209,7 +209,7 @@
     {%- endif -%}
 
     {%- comment -%}Video section positioned right after thumbnails - Only show on bundler template{%- endcomment -%}
-    {%- if template.suffix == 'nw-bundler' -%}
+    {%- if template == 'product.nw-bundler' or template.suffix == 'nw-bundler' or template contains 'nw-bundler' or request.page_type == 'product' and product.template_suffix == 'nw-bundler' -%}
     <div class="product-video-section" id="product-video-section">
       <div class="product-video-content">
         <h3 class="product-video-title">SIMPLIFYING THE DECISION</h3>
@@ -226,7 +226,7 @@
     </div>
     {%- endif -%}
 
-    {%- if template.suffix == 'nw-bundler' -%}
+    {%- if template == 'product.nw-bundler' or template.suffix == 'nw-bundler' -%}
     <script>
     (function() {
       let originalParent = null;

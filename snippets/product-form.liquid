@@ -387,10 +387,10 @@
         {%- if request.page_type != 'password' -%}
           <!-- Step 3: Add to Cart Container -->
           <div class="add-to-cart-container">
-            <div class="add-to-cart-header">
-              <h3 class="add-to-cart-title">Add to Cart & Checkout</h3>
-              <p class="add-to-cart-subtitle">If you've built a bundle, total savings will show up in your cart.</p>
-            </div>
+                    <div class="add-to-cart-header">
+          <h3 class="add-to-cart-title">Add to Cart</h3>
+          <p class="add-to-cart-subtitle" style="display: none;">If you've built a bundle, total savings will show up in your cart.</p>
+        </div>
             <div class="add-to-cart-content">
               <div class="product-form__buy-buttons" {{ block.shopify_attributes }}>
                 {%- form 'product', product, is: 'product-form', id: product_form_id -%}
