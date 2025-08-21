@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "order": [
     "slideshow",
@@ -23,15 +32,15 @@
           "type": "image",
           "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/4th-hero-2.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/mobile4thhero.jpg",
+            "image": "shopify://shop_images/4th-hero-2.jpg",
+            "mobile_image": "shopify://shop_images/mobile4thhero.jpg",
             "text_position": "bottom_left",
             "subheading": "",
             "title": "",
             "button_1_text": "",
-            "button_1_link": "shopify:\/\/collections\/mattresses",
+            "button_1_link": "shopify://collections/mattresses",
             "button_2_text": "",
-            "button_2_link": "shopify:\/\/collections\/mattresses",
+            "button_2_link": "shopify://collections/mattresses",
             "text_color": "#ffffff",
             "button_background": "#f04f23",
             "button_text_color": "#ffffff",
@@ -43,15 +52,15 @@
           "type": "image",
           "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/Prezzz-Hero-Actual.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/Prezzz-Hero-Actual.jpg",
+            "image": "shopify://shop_images/Prezzz-Hero-Actual.jpg",
+            "mobile_image": "shopify://shop_images/Prezzz-Hero-Actual.jpg",
             "text_position": "middle_center",
             "subheading": "Take advantage of 10% off and free shipping this President's day. Use code \"President10\" at checkout",
             "title": "president's day sale",
             "button_1_text": "shop now",
-            "button_1_link": "https:\/\/nestandwild.com\/collections\/mattresses",
+            "button_1_link": "https://nestandwild.com/collections/mattresses",
             "button_2_text": "",
-            "button_2_link": "https:\/\/www.youtube.com\/watch?v=eZ42OxPiPjs&feature=youtu.be",
+            "button_2_link": "https://www.youtube.com/watch?v=eZ42OxPiPjs&feature=youtu.be",
             "text_color": "#ffffff",
             "button_background": "#f04f23",
             "button_text_color": "#ffffff",
@@ -62,34 +71,35 @@
         "slide-2": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/hom-hero-hybrid.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/hom-hero-mobile.jpg",
+            "image": "shopify://shop_images/LaborDayHero-flat_28581830-3da4-4a8f-9992-2153be028310.jpg",
+            "mobile_image": "shopify://shop_images/LaborDayHero-Mobile_eb5cac77-28f4-4507-97f4-0e4dbfdd28a2.jpg",
             "text_position": "top_left",
-            "subheading": "12” Performance Foam\/Coil Hybrid",
-            "title": "LUXURY HYBRID",
+            "subheading": "save 10% off this labor day with code: Dayoff10",
+            "title": "labor less. nest more. wild savings.",
             "button_1_text": "SHOP NOW",
-            "button_1_link": "shopify:\/\/collections\/mattresses",
-            "button_2_text": "COMPARE",
-            "button_2_link": "shopify:\/\/collections\/mattresses",
-            "text_color": "#ffffff",
-            "button_background": "#ffffff",
-            "button_text_color": "#000000",
+            "button_1_link": "shopify://collections/mattresses",
+            "button_2_text": "",
+            "button_2_link": "shopify://collections/mattresses",
+            "text_color": "#073f4e",
+            "button_background": "#073f4e",
+            "button_text_color": "#ffffff",
             "overlay_color": "#000000",
             "overlay_opacity": 0
           }
         },
         "image_cHppi7": {
           "type": "image",
+          "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/hom-hero-original2.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/hom-hero-original-mobile.jpg",
+            "image": "shopify://shop_images/hom-hero-original2.jpg",
+            "mobile_image": "shopify://shop_images/hom-hero-original-mobile.jpg",
             "text_position": "top_left",
             "subheading": "12\" Performance All Foam",
             "title": "THE ORIGINAL",
             "button_1_text": "SHOP NOW",
-            "button_1_link": "shopify:\/\/collections\/mattresses",
+            "button_1_link": "shopify://collections/mattresses",
             "button_2_text": "COMPARE",
-            "button_2_link": "shopify:\/\/collections\/mattresses",
+            "button_2_link": "shopify://collections/mattresses",
             "text_color": "#ffffff",
             "button_background": "#ffffff",
             "button_text_color": "#000000",
@@ -103,6 +113,13 @@
         "slide-1",
         "slide-2",
         "image_cHppi7"
+      ],
+      "custom_css": [
+        ".slideshow__text-wrapper h2 {font-size: 1.3em !important;}",
+        ".slideshow__text-wrapper .heading--large {line-height: 1.1; text-transform: uppercase; white-space: normal; max-width: 18ch; text-wrap: balance;}",
+        ".slideshow__text-wrapper .heading--large span,.slideshow__text-wrapper .heading--large split-lines {display: contents !important;}",
+        "@media (min-width: 1200px) {.slideshow__text-wrapper .heading--large {max-width: 19ch; }}",
+        "@media (max-width: 640px) {.slideshow__text-wrapper .heading--large {max-width: 16ch; }}"
       ],
       "settings": {
         "section_height": "medium",
@@ -119,40 +136,40 @@
           "type": "item",
           "settings": {
             "icon": "picto-box",
-            "custom_icon": "shopify:\/\/shop_images\/NW_icon-americanMade.png",
+            "custom_icon": "shopify://shop_images/NW_icon-americanMade.png",
             "custom_icon_width": 100,
             "title": "American Made",
-            "content": "<p>And proud of it. <\/p>"
+            "content": "<p>And proud of it. </p>"
           }
         },
         "item-2": {
           "type": "item",
           "settings": {
             "icon": "picto-phone",
-            "custom_icon": "shopify:\/\/shop_images\/NW_icon-0-financing.png",
+            "custom_icon": "shopify://shop_images/NW_icon-0-financing.png",
             "custom_icon_width": 100,
             "title": "0% Financing Available",
-            "content": "<p>Pay at your pace.<\/p>"
+            "content": "<p>Pay at your pace.</p>"
           }
         },
         "item-3": {
           "type": "item",
           "settings": {
             "icon": "picto-lock",
-            "custom_icon": "shopify:\/\/shop_images\/NW_icon-free-shipping.png",
+            "custom_icon": "shopify://shop_images/NW_icon-free-shipping.png",
             "custom_icon_width": 100,
             "title": "Free Shipping & Returns",
-            "content": "<p>Delivered to you in 3-5 Days<\/p>"
+            "content": "<p>Delivered to you in 3-5 Days</p>"
           }
         },
         "item-4": {
           "type": "item",
           "settings": {
             "icon": "picto-email",
-            "custom_icon": "shopify:\/\/shop_images\/NW_icon-99nights.png",
+            "custom_icon": "shopify://shop_images/NW_icon-99nights.png",
             "custom_icon_width": 100,
             "title": "99 Nights on Us",
-            "content": "<p>Or your money back.<\/p>"
+            "content": "<p>Or your money back.</p>"
           }
         }
       },
@@ -174,23 +191,23 @@
           "type": "item",
           "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/MADEINUS-Social1-1.jpg",
+            "image": "shopify://shop_images/MADEINUS-Social1-1.jpg",
             "tab_label": "Options",
             "subheading": "our mission",
             "title": "our mission is simple",
-            "content": "<p>Better Sleep for Better Days, all with American-made quality. Get ready to experience unmatched comfort and value.<\/p>",
+            "content": "<p>Better Sleep for Better Days, all with American-made quality. Get ready to experience unmatched comfort and value.</p>",
             "button_text": "LEARN MORE",
-            "button_link": "https:\/\/www.fairwaysforwarriors.org\/"
+            "button_link": "https://www.fairwaysforwarriors.org/"
           }
         },
         "item-1": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/C5A6272_-_Copy_edited.webp",
+            "image": "shopify://shop_images/C5A6272_-_Copy_edited.webp",
             "tab_label": "Quality",
             "subheading": "Better Quality",
             "title": "Get rid of the gimmicks.",
-            "content": "<p>When other companies stuff your mattress with make-believe benefits like gel beads, ice shields and copper pieces — we only include features proven to improve comfort and cooling.<\/p>",
+            "content": "<p>When other companies stuff your mattress with make-believe benefits like gel beads, ice shields and copper pieces — we only include features proven to improve comfort and cooling.</p>",
             "button_text": "",
             "button_link": ""
           }
@@ -199,11 +216,11 @@
           "type": "item",
           "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/nw_matress-closeup.webp",
+            "image": "shopify://shop_images/nw_matress-closeup.webp",
             "tab_label": "Durability",
             "subheading": "Better Durability",
             "title": "Ditch the ditches.",
-            "content": "<p>Nothing interrupts sleep like an indented mattress. We pre-treat our foam to prevent dips and ensure your mattress maintains its quality for years to come.<\/p>",
+            "content": "<p>Nothing interrupts sleep like an indented mattress. We pre-treat our foam to prevent dips and ensure your mattress maintains its quality for years to come.</p>",
             "button_text": "",
             "button_link": ""
           }
@@ -212,11 +229,11 @@
           "type": "item",
           "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/nw_factory.webp",
+            "image": "shopify://shop_images/nw_factory.webp",
             "tab_label": "Materials",
             "subheading": "Better Materials",
             "title": "See the source.",
-            "content": "<p>Building a better mattress starts with better materials. We use the best foams, fabrics and coils in America and assemble them in our very own factory in Mississippi. <\/p>",
+            "content": "<p>Building a better mattress starts with better materials. We use the best foams, fabrics and coils in America and assemble them in our very own factory in Mississippi. </p>",
             "button_text": "",
             "button_link": ""
           }
@@ -299,11 +316,11 @@
         "item_KTXtCa": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/woman-waking-up.jpg",
+            "image": "shopify://shop_images/woman-waking-up.jpg",
             "tab_label": "Options",
             "subheading": "Better Options",
             "title": "Curb the confusion.",
-            "content": "<p>Buying a mattress isn’t as easy as it used to be — too many options cause too much confusion. That’s why we make it simple. <\/p>",
+            "content": "<p>Buying a mattress isn’t as easy as it used to be — too many options cause too much confusion. That’s why we make it simple. </p>",
             "button_text": "",
             "button_link": ""
           }
@@ -311,11 +328,11 @@
         "item_43W9B3": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/C5A6272_-_Copy_edited.webp",
+            "image": "shopify://shop_images/C5A6272_-_Copy_edited.webp",
             "tab_label": "Quality",
             "subheading": "Better Quality",
             "title": "Get rid of the gimmicks.",
-            "content": "<p>When other companies stuff your mattress with make-believe benefits like gel beads, ice shields and copper pieces — we only include features proven to improve comfort and cooling.<\/p>",
+            "content": "<p>When other companies stuff your mattress with make-believe benefits like gel beads, ice shields and copper pieces — we only include features proven to improve comfort and cooling.</p>",
             "button_text": "",
             "button_link": ""
           }
@@ -323,11 +340,11 @@
         "item_6eEDTM": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/nw_matress-closeup.webp",
+            "image": "shopify://shop_images/nw_matress-closeup.webp",
             "tab_label": "Durability",
             "subheading": "Better Durability",
             "title": "Ditch the ditches.",
-            "content": "<p>Nothing interrupts sleep like an indented mattress. We pre-treat our foam to prevent dips and ensure your mattress maintains its quality for years to come.<\/p>",
+            "content": "<p>Nothing interrupts sleep like an indented mattress. We pre-treat our foam to prevent dips and ensure your mattress maintains its quality for years to come.</p>",
             "button_text": "",
             "button_link": ""
           }
@@ -335,11 +352,11 @@
         "item_7gnH9M": {
           "type": "item",
           "settings": {
-            "image": "shopify:\/\/shop_images\/nw_factory.webp",
+            "image": "shopify://shop_images/nw_factory.webp",
             "tab_label": "Materials",
             "subheading": "Better Materials",
             "title": "See the source.",
-            "content": "<p>Building a better mattress starts with better materials. We use the best foams, fabrics and coils in America and assemble them in our very own factory in Mississippi. <\/p>",
+            "content": "<p>Building a better mattress starts with better materials. We use the best foams, fabrics and coils in America and assemble them in our very own factory in Mississippi. </p>",
             "button_text": "",
             "button_link": ""
           }
@@ -371,7 +388,7 @@
           "type": "look",
           "disabled": true,
           "settings": {
-            "image": "shopify:\/\/shop_images\/NW_mattress-layers.png",
+            "image": "shopify://shop_images/NW_mattress-layers.png",
             "dot_type": "normal",
             "product_1": "",
             "product_1_horizontal_position": 48,
@@ -404,7 +421,7 @@
       "settings": {
         "subheading": "NEST & WILD CEO BRANDON JAMISON BREAKS IT DOWN",
         "title": "CURB THE CONFUSION",
-        "html": "<div class=\"video-slider-wrap\">\n<div class=\"video-slider\">\n  <div><iframe src=\"https:\/\/www.youtube.com\/embed\/px8Pr1OQ_yk\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope;\" allowfullscreen=\"\" frameborder=\"0\"><\/iframe><\/div>\n  <\/div>\n<\/div>",
+        "html": "<div class=\"video-slider-wrap\">\n<div class=\"video-slider\">\n  <div><iframe src=\"https://www.youtube.com/embed/px8Pr1OQ_yk\" allow=\"accelerometer; autoplay; encrypted-media; gyroscope;\" allowfullscreen=\"\" frameborder=\"0\"></iframe></div>\n  </div>\n</div>",
         "add_vertical_spacing": false,
         "background_type": "boxed",
         "background": "rgba(0,0,0,0)",
@@ -415,12 +432,12 @@
       "type": "image-with-text-block",
       "settings": {
         "reveal_on_scroll": true,
-        "image": "shopify:\/\/shop_images\/NW_mom-kid-puppy_sleeping.webp",
+        "image": "shopify://shop_images/NW_mom-kid-puppy_sleeping.webp",
         "subheading": "",
         "title": "We believe better days start with better sleep.",
-        "content": "<p>It’s why we built a better mattress with high-quality, American-made materials and innovative features that leave you rested and ready for better days ahead.  <\/p>",
+        "content": "<p>It’s why we built a better mattress with high-quality, American-made materials and innovative features that leave you rested and ready for better days ahead.  </p>",
         "button_text": "SEE OUR STORY",
-        "button_link": "shopify:\/\/pages\/our-story",
+        "button_link": "shopify://pages/our-story",
         "background_type": "full_width",
         "text_position": "overlap_right",
         "text_alignment": "left",
@@ -453,8 +470,8 @@
       "settings": {
         "subheading": "",
         "title": "",
-        "video_url": "https:\/\/www.youtube.com\/watch?v=q00fF4AHCrk",
-        "image": "shopify:\/\/shop_images\/howitsmade.png",
+        "video_url": "https://www.youtube.com/watch?v=q00fF4AHCrk",
+        "image": "shopify://shop_images/howitsmade.png",
         "background_type": "boxed",
         "video_size": "small",
         "autoplay": false,
@@ -499,29 +516,29 @@
         "1654785194813d5ea6-1": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/nw_mattress-logo.webp",
-            "caption": "<p>Our cover doesn’t just look good — it’s made with material that transfers heat away from your body. <\/p>"
+            "image": "shopify://shop_images/nw_mattress-logo.webp",
+            "caption": "<p>Our cover doesn’t just look good — it’s made with material that transfers heat away from your body. </p>"
           }
         },
         "1654785194813d5ea6-0": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/C5A6303_edited.webp",
-            "caption": "<p>Ships free to your doorstep. Enjoy a risk free 99-night trial.  We know you will love if things dont work out we offer free returns.<\/p>"
+            "image": "shopify://shop_images/C5A6303_edited.webp",
+            "caption": "<p>Ships free to your doorstep. Enjoy a risk free 99-night trial.  We know you will love if things dont work out we offer free returns.</p>"
           }
         },
         "1654785194813d5ea6-2": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/nw-matress_overhead.webp",
-            "caption": "<p>High density doesn’t have to mean high prices. Our just-right mattress is affordable and durable.<\/p>"
+            "image": "shopify://shop_images/nw-matress_overhead.webp",
+            "caption": "<p>High density doesn’t have to mean high prices. Our just-right mattress is affordable and durable.</p>"
           }
         },
         "e33850df-8db0-4ba6-8784-f79fa4eee83b": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/NaW_UnboxBloomSleep_VS1_1.webp",
-            "caption": "<p>Everything from box to zipper on our mattress is made and assembled in The USA to ensure quality. <\/p>"
+            "image": "shopify://shop_images/NaW_UnboxBloomSleep_VS1_1.webp",
+            "caption": "<p>Everything from box to zipper on our mattress is made and assembled in The USA to ensure quality. </p>"
           }
         }
       },
@@ -543,9 +560,9 @@
       "type": "newsletter",
       "settings": {
         "reveal_on_scroll": true,
-        "image": "shopify:\/\/shop_images\/NW_newsletter_bg-image-1.webp",
+        "image": "shopify://shop_images/NW_newsletter_bg-image-1.webp",
         "subheading": "Ready for better days?",
-        "content": "<p>Sign up for our newsletter for product updates and company news. <\/p>",
+        "content": "<p>Sign up for our newsletter for product updates and company news. </p>",
         "text_position": "left",
         "text_alignment": "left",
         "text_background": "#ffffff",
@@ -559,7 +576,7 @@
       "settings": {
         "subheading": "",
         "title": "",
-        "html": "<div style=\"display: none;\" id=\"modal\"><p style=\"text-align: center;\"><iframe src=\"https:\/\/www.youtube.com\/embed\/eZ42OxPiPjs\" title=\"YouTube video player\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen=\"\" width=\"640\" height=\"380\" frameborder=\"0\"><\/iframe><\/p><\/div>",
+        "html": "<div style=\"display: none;\" id=\"modal\"><p style=\"text-align: center;\"><iframe src=\"https://www.youtube.com/embed/eZ42OxPiPjs\" title=\"YouTube video player\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen=\"\" width=\"640\" height=\"380\" frameborder=\"0\"></iframe></p></div>",
         "add_vertical_spacing": false,
         "background_type": "full_width",
         "background": "rgba(0,0,0,0)",

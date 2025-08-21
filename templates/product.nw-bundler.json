@@ -91,8 +91,8 @@
     "bundle-save": {
       "settings": {
         "enable_bundle": true,
-        "bundle_title": "Step 2: Bundle & Save",
-        "bundle_subtitle": "Add to cart to unlock the best deal",
+        "bundle_title": "Bundle to Save More",
+        "bundle_subtitle": "Add accessories to build your sleep bundle for the best deal!",
         "enable_pillow_bundle": true,
         "pillow_product": "dreamchill-quatro-pillow",
         "enable_bedbase_bundle": true,
