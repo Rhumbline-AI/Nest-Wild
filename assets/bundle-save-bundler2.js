@@ -153,6 +153,9 @@
       // Try to get mattress size from any option that contains size keywords
       let mattressSize = '';
       
+      console.log('=== updateMattressSize called ===');
+      console.log('Current product handle:', window.location.pathname);
+      
       // Look for size option in different positions (option1, option2, option3, etc.)
       const sizeKeywords = ['size', 'mattress size', 'queen', 'king', 'twin', 'full', 'california'];
       
@@ -160,6 +163,8 @@
       $('select[name*="option"]').each(function() {
         const $select = $(this);
         const currentValue = $select.val();
+        
+        console.log('Checking select:', $select.attr('name'), 'value:', currentValue);
         
         if (currentValue) {
           // Check if the value looks like a mattress size
@@ -283,7 +288,9 @@
         }
       }
       
-      console.log('Updating bed base pricing for mattress size:', this.state.currentMattressSize);
+      console.log('=== updateBedbasePricing called ===');
+      console.log('Current mattress size:', this.state.currentMattressSize);
+      console.log('Current product handle:', window.location.pathname);
       
       if (!this.state.currentMattressSize) return;
       
@@ -295,6 +302,7 @@
         const $container = $radio.closest('.radio-container');
         
         console.log(`Bed base ${type}: variant size = ${variantSize}, price = ${this.state.bedbasePrices[type][variantSize]}`);
+        console.log(`Available sizes for ${type}:`, Object.keys(this.state.bedbasePrices[type] || {}));
         
         if (variantSize && this.state.bedbasePrices[type][variantSize]) {
           // Check if variant is in stock
