@@ -7,8 +7,18 @@
 <div class="bundle-save-container" id="bundle-save-bundler2">
   <!-- Bundle Header -->
   <div class="bundle-save-header">
-    <h3 class="bundle-save-title">{{ section.settings.bundle_title | default: 'Bundle & Save' }}</h3>
-    <p class="bundle-save-subtitle">{{ section.settings.bundle_subtitle | default: 'Add to cart to unlock the best deal' }}</p>
+    <div class="bundle-header-content">
+      <div class="bundle-title-section">
+        <h3 class="bundle-save-title">{{ section.settings.bundle_title | default: 'Bundle & Save' }}</h3>
+        <p class="bundle-save-subtitle">{{ section.settings.bundle_subtitle | default: 'Add to cart to unlock the best deal' }}</p>
+      </div>
+      <div class="bundle-toggle-section">
+        <label class="bundle-toggle-switch">
+          <input type="checkbox" id="bundle-toggle" class="bundle-toggle-input">
+          <span class="bundle-toggle-slider"></span>
+        </label>
+      </div>
+    </div>
   </div>
 
   <!-- Status Messages (hidden by default) -->
@@ -29,10 +39,12 @@
       <span class="bundle-option-title" id="pillow-bundle-title">Add Pillow</span>
     </div>
     
-    <div class="bundle-option-details" id="pillow-options">
-      <div class="bundle-product-image-full">
-        <img src="https://cdn.shopify.com/s/files/1/0152/7916/1444/files/pillow-white.png?v=1754956385" alt="{{ pillow_product.title }}" id="pillow-image" loading="lazy">
-      </div>
+    <!-- Image moved outside of collapsible content -->
+    <div class="bundle-product-image-full bundle-image-container">
+      <img src="https://cdn.shopify.com/s/files/1/0152/7916/1444/files/pillow-white.png?v=1754956385" alt="{{ pillow_product.title }}" id="pillow-image" loading="lazy">
+    </div>
+    
+    <div class="bundle-option-details bundle-details-content" id="pillow-options">
       {%- assign pillow_product = all_products[section.settings.pillow_product] -%}
       <h4 class="bundle-product-title">{{ pillow_product.title }}</h4>
       <div class="bundle-product-price" id="pillow-price">
@@ -111,10 +123,12 @@
       <span class="bundle-option-title">Add Bed Base</span>
     </div>
     
-    <div class="bundle-option-details" id="bedbase-options">
-      <div class="bundle-product-image-full">
-        <img src="https://cdn.shopify.com/s/files/1/0152/7916/1444/files/adjustable-base-tn.png?v=1754993620" alt="Bed Base" id="bedbase-image" loading="lazy">
-      </div>
+    <!-- Image moved outside of collapsible content -->
+    <div class="bundle-product-image-full bundle-image-container">
+      <img src="https://cdn.shopify.com/s/files/1/0152/7916/1444/files/adjustable-base-tn.png?v=1754993620" alt="Bed Base" id="bedbase-image" loading="lazy">
+    </div>
+    
+    <div class="bundle-option-details bundle-details-content" id="bedbase-options">
       <div class="bundle-product-meta">
         <h4 class="bundle-product-title" id="bedbase-title">Adjustable Base</h4>
         <div class="bundle-product-price" id="bedbase-price">$899.00</div>
@@ -248,6 +262,106 @@
   font-size: 14px;
   line-height: 1.4;
   max-width: 100%;
+}
+
+/* Bundle Header with Toggle */
+.bundle-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.bundle-title-section {
+  flex: 1;
+}
+
+.bundle-toggle-section {
+  flex-shrink: 0;
+}
+
+/* Toggle Switch Styles */
+.bundle-toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.bundle-toggle-input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.bundle-toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 24px;
+}
+
+.bundle-toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+.bundle-toggle-input:checked + .bundle-toggle-slider {
+  background-color: #f04f23;
+}
+
+.bundle-toggle-input:checked + .bundle-toggle-slider:before {
+  transform: translateX(26px);
+}
+
+/* Bundle Details Visibility */
+.bundle-details-content {
+  transition: all 0.3s ease;
+}
+
+.bundle-details-content.hidden {
+  display: none;
+}
+
+.bundle-details-content.collapsed {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  padding: 0;
+  margin: 0;
+}
+
+/* Show only images when toggle is off */
+.bundle-option.bundle-collapsed .bundle-image-container {
+  display: block;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.bundle-option.bundle-expanded .bundle-image-container {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.bundle-option.bundle-collapsed .bundle-product-title,
+.bundle-option.bundle-collapsed .bundle-product-price,
+.bundle-option.bundle-collapsed .bundle-controls,
+.bundle-option.bundle-collapsed .bundle-add-button {
+  display: none;
+}
   position: relative;
 }
 
@@ -1737,3 +1851,46 @@ document.addEventListener('DOMContentLoaded', function() {
   padding-bottom: 80px !important;
 }
 </style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const bundleToggle = document.getElementById('bundle-toggle');
+  const bundleOptions = document.querySelectorAll('.bundle-option');
+  const bundleDetails = document.querySelectorAll('.bundle-details-content');
+  
+  if (bundleToggle) {
+    // Initialize toggle state (off by default)
+    bundleToggle.checked = false;
+    updateBundleVisibility(false);
+    
+    // Add event listener for toggle changes
+    bundleToggle.addEventListener('change', function() {
+      updateBundleVisibility(this.checked);
+    });
+  }
+  
+  function updateBundleVisibility(isExpanded) {
+    bundleOptions.forEach(option => {
+      if (isExpanded) {
+        // Show all details when toggle is ON
+        option.classList.remove('bundle-collapsed');
+        option.classList.add('bundle-expanded');
+      } else {
+        // Show only images when toggle is OFF
+        option.classList.add('bundle-collapsed');
+        option.classList.remove('bundle-expanded');
+      }
+    });
+    
+    bundleDetails.forEach(detail => {
+      if (isExpanded) {
+        // Show all content
+        detail.classList.remove('hidden', 'collapsed');
+      } else {
+        // Hide all content except images
+        detail.classList.add('collapsed');
+      }
+    });
+  }
+});
+</script>
