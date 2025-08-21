@@ -34,6 +34,11 @@
         adjustable: {},
         platform: {},
         riser: {}
+      },
+      bedbaseInventory: {
+        adjustable: {},
+        platform: {},
+        riser: {}
       }
     },
 
@@ -225,20 +230,27 @@
     },
 
     loadBedbasePrices: function() {
-      // Load all bed base variant prices
+      // Load all bed base variant prices and inventory
       $('.bedbase-variants .variant-data').each((index, element) => {
         const $variant = $(element);
         const type = $variant.data('type');
         const size = $variant.data('size');
         const price = $variant.data('price');
+        const inventory = parseInt($variant.data('inventory')) || 0;
         
         if (!this.state.bedbasePrices[type]) {
           this.state.bedbasePrices[type] = {};
         }
+        if (!this.state.bedbaseInventory[type]) {
+          this.state.bedbaseInventory[type] = {};
+        }
+        
         this.state.bedbasePrices[type][size] = price;
+        this.state.bedbaseInventory[type][size] = inventory;
       });
       
       console.log('Loaded bed base prices:', this.state.bedbasePrices);
+      console.log('Loaded bed base inventory:', this.state.bedbaseInventory);
     },
 
     getBedbaseVariantForMattressSize: function(baseType, mattressSize) {
@@ -250,6 +262,8 @@
         'queen': { adjustable: 'queen', platform: 'queen', riser: 'queen' },
         'king': { adjustable: 'split king - 2 txl', platform: 'king', riser: 'king' },
         'split king': { adjustable: 'split king - 2 txl', platform: 'king', riser: 'king' },
+        'split king (2 twin xl)': { adjustable: 'king', platform: 'king', riser: 'king' },
+        'Split King (2 Twin XL)': { adjustable: 'king', platform: 'king', riser: 'king' },
         'california king': { adjustable: 'split king - 2 txl', platform: 'king', riser: 'king' }
       };
       
@@ -279,16 +293,33 @@
         console.log(`Bed base ${type}: variant size = ${variantSize}, price = ${this.state.bedbasePrices[type][variantSize]}`);
         
         if (variantSize && this.state.bedbasePrices[type][variantSize]) {
-          // Variant available - enable and update price
+          // Check if variant is in stock
+          const inventory = this.state.bedbaseInventory[type][variantSize] || 0;
           const price = this.state.bedbasePrices[type][variantSize];
-          $container.removeClass('unavailable').removeAttr('style');
-          $radio.prop('disabled', false);
           
-          // Update price display
-          $(this.selectors.bedbasePrice).text(`$${price}`);
-          
-          // Remove any existing unavailable message
-          $container.find('.unavailable-message').remove();
+          if (inventory > 0) {
+            // Variant available and in stock - enable and update price
+            $container.removeClass('unavailable').removeAttr('style');
+            $radio.prop('disabled', false);
+            
+            // Update price display
+            $(this.selectors.bedbasePrice).text(`$${price}`);
+            
+            // Remove any existing unavailable message
+            $container.find('.unavailable-message').remove();
+          } else {
+            // Variant out of stock - disable and style
+            $container.addClass('unavailable').css({
+              'opacity': '0.4',
+              'pointer-events': 'none'
+            });
+            $radio.prop('disabled', true);
+            
+            // Add out of stock message
+            if (!$container.find('.unavailable-message').length) {
+              $container.append('<div class="unavailable-message" style="font-size: 10px; color: #999; margin-top: 2px;">(out of stock)</div>');
+            }
+          }
         } else {
           // Variant not available - disable and style
           $container.addClass('unavailable').css({
@@ -382,14 +413,15 @@
         adjustable: {
           'twin xl': '43518441160880',
           'queen': '43518441193648', 
-          'king': '43518441226416',
+          'king': '7599628746928',
           'split king': '43518441226416',
+          'split king - 2 txl': '43518441226416',
           'california king': '43518441226416'
         },
         platform: {
           'full': '43557194268848',
           'queen': '43454855905456',
-          'king': '43454855938224'
+          'king': '7569218633904'
         },
         riser: {
           'twin': '43932973072560',
