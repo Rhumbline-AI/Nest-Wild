@@ -208,7 +208,8 @@
       </flickity-controls>
     {%- endif -%}
 
-    {%- comment -%}Video section positioned right after thumbnails{%- endcomment -%}
+    {%- comment -%}Video section positioned right after thumbnails - Only show on bundler template{%- endcomment -%}
+    {%- if template.suffix == 'nw-bundler' -%}
     <div class="product-video-section" id="product-video-section">
       <div class="product-video-content">
         <h3 class="product-video-title">SIMPLIFYING THE DECISION</h3>
@@ -223,7 +224,9 @@
         </video>
       </div>
     </div>
+    {%- endif -%}
 
+    {%- if template.suffix == 'nw-bundler' -%}
     <script>
     (function() {
       let originalParent = null;
@@ -277,6 +280,7 @@
       window.addEventListener('resize', repositionVideoOnMobile);
     })();
     </script>
+    {%- endif -%}
 
     {%- if section.settings.enable_image_zoom -%}
       {%- comment -%}This code MUST NOT be changed, and is part of the PhotoSwipe required interface{%- endcomment -%}
