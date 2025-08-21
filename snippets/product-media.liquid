@@ -241,16 +241,15 @@
         }
 
         if (window.innerWidth <= 740) {
-          // Mobile: Move video after add to cart section if not already moved
+          // Mobile: Move video after the entire add to cart container (Step 3) if not already moved
           if (!videoMoved) {
-            const addToCartSection = document.querySelector('.product-form__payment-container') || 
-                                    document.querySelector('.product-form__buttons') ||
-                                    document.querySelector('[data-role="buy-buttons"]');
+            const addToCartContainer = document.querySelector('.add-to-cart-container');
             
-            if (addToCartSection) {
-              addToCartSection.parentNode.insertBefore(videoSection, addToCartSection.nextSibling);
+            if (addToCartContainer) {
+              // Move video after the entire add-to-cart-container, not inside it
+              addToCartContainer.parentNode.insertBefore(videoSection, addToCartContainer.nextSibling);
               videoMoved = true;
-              console.log('Video moved to mobile position');
+              console.log('Video moved to mobile position - outside add to cart container');
             }
           }
         } else {
