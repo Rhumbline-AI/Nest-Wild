@@ -1,7 +1,6 @@
 {
   "order": [
     "main",
-    "bundle-save",
     "product-content",
     "product-recommendations"
   ],
@@ -60,20 +59,6 @@
         "transition_effect": "slide"
       },
       "type": "main-product"
-    },
-    "bundle-save": {
-      "settings": {
-        "enable_bundle": true,
-        "bundle_title": "Bundle & Save",
-        "bundle_subtitle": "Add to cart to unlock the best deal",
-        "enable_pillow_bundle": true,
-        "pillow_product": "dreamchill-quatro-pillow",
-        "enable_bedbase_bundle": true,
-        "adjustable_base_product": "power-base",
-        "platform_base_product": "wooden-platform-base",
-        "riser_base_product": "hd-riser"
-      },
-      "type": "bundle-save-bundler2"
     },
     "product-content": {
       "block_order": [
