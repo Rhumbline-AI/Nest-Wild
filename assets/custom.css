@@ -493,3 +493,43 @@
   #stamped-reviews-widget[data-widget-type="full-page"] .stamped-widget-buttons div{
 	display: none !important;
   }
+
+/* FIX HEADER NAVIGATION LAYOUT - DESKTOP ONLY */
+@media screen and (min-width: 741px) {
+  .header__inline-navigation .header__linklist {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    gap: 32px !important;
+  }
+  
+  .header__inline-navigation .header__linklist-item {
+    display: flex !important;
+    flex-direction: row !important;
+    margin: 0 !important;
+  }
+  
+  .header__inline-navigation .header__linklist-link {
+    white-space: nowrap !important;
+  }
+  
+  /* Fix utility links (Search, Login, Cart) to display horizontally */
+  .header__secondary-links .header__linklist {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    gap: 24px !important;
+  }
+  
+  .header__secondary-links .header__linklist-item {
+    display: flex !important;
+    flex-direction: row !important;
+    margin: 0 !important;
+  }
+  
+  .header__secondary-links .header__linklist-link {
+    white-space: nowrap !important;
+  }
+}
