@@ -14,6 +14,7 @@
     "image-with-text",
     "featured_product_UxRLNt",
     "image_with_text_naQt4P",
+    "image_with_text_wibmCW",
     "shop-the-look",
     "adb05ce5-a641-495c-ab4b-f606fd8693fe",
     "image-with-text-block",
@@ -245,6 +246,7 @@
         "item-2",
         "8fd04268-e11c-4f40-ac2f-5e48536b0f35"
       ],
+      "disabled": true,
       "settings": {
         "reveal_on_scroll": true,
         "background_type": "full_width",
@@ -377,6 +379,40 @@
         "text_alignment": "center",
         "cycle_speed": 8,
         "accent_background": "#f04f23",
+        "text_color": "rgba(0,0,0,0)",
+        "button_background": "rgba(0,0,0,0)",
+        "button_text_color": "rgba(0,0,0,0)"
+      }
+    },
+    "image_with_text_wibmCW": {
+      "type": "image-with-text",
+      "blocks": {
+        "item_CncF3L": {
+          "type": "item",
+          "settings": {
+            "image": "shopify://shop_images/brandon-travis.jpg",
+            "tab_label": "Item",
+            "subheading": "COMINE DISCOUNTS FOR UP TO 15% OFF",
+            "title": "Bundle & Save",
+            "content": "<p>Build your perfect sleep setup by adding a bed base or pillows to your mattress! Enjoy an auto-discount applied at checkout, which can combine with other promotions for even more savings.</p>",
+            "button_text": "SHOP MATTRESS BUNDLES",
+            "button_link": "/products/luxuryhybrid"
+          }
+        }
+      },
+      "block_order": [
+        "item_CncF3L"
+      ],
+      "disabled": true,
+      "name": "Image with text",
+      "settings": {
+        "reveal_on_scroll": true,
+        "background_type": "full_width",
+        "background_overlap": "image",
+        "image_position": "left",
+        "text_alignment": "center",
+        "cycle_speed": 8,
+        "accent_background": "rgba(0,0,0,0)",
         "text_color": "rgba(0,0,0,0)",
         "button_background": "rgba(0,0,0,0)",
         "button_text_color": "rgba(0,0,0,0)"
