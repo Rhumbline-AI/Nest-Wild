@@ -7,18 +7,8 @@
 <div class="bundle-save-container" id="bundle-save-bundler2">
   <!-- Bundle Header -->
   <div class="bundle-save-header">
-    <div class="bundle-header-content">
-      <div class="bundle-title-section">
-        <h3 class="bundle-save-title">{{ section.settings.bundle_title | default: 'Bundle & Save' }}</h3>
-        <p class="bundle-save-subtitle">{{ section.settings.bundle_subtitle | default: 'Add to cart to unlock the best deal' }}</p>
-      </div>
-      <div class="bundle-toggle-section">
-        <label class="bundle-toggle-switch">
-          <input type="checkbox" id="bundle-toggle" class="bundle-toggle-input">
-          <span class="bundle-toggle-slider"></span>
-        </label>
-      </div>
-    </div>
+    <h3 class="bundle-save-title">{{ section.settings.bundle_title | default: 'Bundle & Save' }}</h3>
+    <p class="bundle-save-subtitle">{{ section.settings.bundle_subtitle | default: 'Add to cart to unlock the best deal' }}</p>
   </div>
 
   <!-- Status Messages (hidden by default) -->
@@ -39,12 +29,10 @@
       <span class="bundle-option-title" id="pillow-bundle-title">Add Pillow</span>
     </div>
     
-    <!-- Image moved outside of collapsible content -->
-    <div class="bundle-product-image-full bundle-image-container">
-      <img src="https://cdn.shopify.com/s/files/1/0152/7916/1444/files/pillow-white.png?v=1754956385" alt="{{ pillow_product.title }}" id="pillow-image" loading="lazy">
-    </div>
-    
-    <div class="bundle-option-details bundle-details-content" id="pillow-options">
+    <div class="bundle-option-details" id="pillow-options">
+      <div class="bundle-product-image-full">
+        <img src="https://cdn.shopify.com/s/files/1/0152/7916/1444/files/pillow-white.png?v=1754956385" alt="{{ pillow_product.title }}" id="pillow-image" loading="lazy">
+      </div>
       {%- assign pillow_product = all_products[section.settings.pillow_product] -%}
       <h4 class="bundle-product-title">{{ pillow_product.title }}</h4>
       <div class="bundle-product-price" id="pillow-price">
@@ -123,12 +111,10 @@
       <span class="bundle-option-title">Add Bed Base</span>
     </div>
     
-    <!-- Image moved outside of collapsible content -->
-    <div class="bundle-product-image-full bundle-image-container">
-      <img src="https://cdn.shopify.com/s/files/1/0152/7916/1444/files/adjustable-base-tn.png?v=1754993620" alt="Bed Base" id="bedbase-image" loading="lazy">
-    </div>
-    
-    <div class="bundle-option-details bundle-details-content" id="bedbase-options">
+    <div class="bundle-option-details" id="bedbase-options">
+      <div class="bundle-product-image-full">
+        <img src="https://cdn.shopify.com/s/files/1/0152/7916/1444/files/adjustable-base-tn.png?v=1754993620" alt="Bed Base" id="bedbase-image" loading="lazy">
+      </div>
       <div class="bundle-product-meta">
         <h4 class="bundle-product-title" id="bedbase-title">Adjustable Base</h4>
         <div class="bundle-product-price" id="bedbase-price">$899.00</div>
@@ -140,33 +126,33 @@
             <legend class="bundle-field-label">Base Type:</legend>
             <div class="bundle-bedbase-options" role="radiogroup" aria-labelledby="bedbase-type-legend">
             <!-- Adjustable Base -->
-            {%- assign adjustable_base = all_products[section.settings.adjustable_base_product] -%}
+            {%- assign adjustable_base = all_products['sf500-adjustable-base'] -%}
             <label class="radio-container">
               <input type="radio" name="bedbase-type" value="adjustable" class="bundle-radio bedbase-radio" checked
-                     data-product-id="7599628746928"
-                     data-product-title="Adjustable Base"
+                     data-product-id="{{ adjustable_base.id }}"
+                     data-product-title="{{ adjustable_base.title }}"
                      data-product-image="https://cdn.shopify.com/s/files/1/0152/7916/1444/files/adjustable-base-tn.png?v=1754993620">
               <span class="radio-checkmark" aria-hidden="true"></span>
               <span class="radio-label">Adjustable Base</span>
             </label>
             
             <!-- Wooden Platform -->
-            {%- assign wooden_platform = all_products[section.settings.platform_base_product] -%}
+            {%- assign wooden_platform = all_products['walnut-wooden-platform'] -%}
             <label class="radio-container">
               <input type="radio" name="bedbase-type" value="platform" class="bundle-radio bedbase-radio"
-                     data-product-id="7569218633904"
-                     data-product-title="Wooden Platform"
+                     data-product-id="{{ wooden_platform.id }}"
+                     data-product-title="{{ wooden_platform.title }}"
                      data-product-image="https://cdn.shopify.com/s/files/1/0152/7916/1444/files/wooden-platform.png?v=1754993526">
               <span class="radio-checkmark" aria-hidden="true"></span>
               <span class="radio-label">Wooden Platform</span>
             </label>
             
             <!-- HD Riser Frame -->
-            {%- assign riser_frame = all_products[section.settings.riser_base_product] -%}
+            {%- assign riser_frame = all_products['nest-wild-hd-riser-frame'] -%}
             <label class="radio-container">
               <input type="radio" name="bedbase-type" value="riser" class="bundle-radio bedbase-radio"
-                     data-product-id="7725286883504"
-                     data-product-title="HD Riser Frame"
+                     data-product-id="{{ riser_frame.id }}"
+                     data-product-title="{{ riser_frame.title }}"
                      data-product-image="https://cdn.shopify.com/s/files/1/0152/7916/1444/files/hd-riser.png?v=1754993527">
               <span class="radio-checkmark" aria-hidden="true"></span>
               <span class="radio-label">HD Riser Frame</span>
@@ -176,26 +162,41 @@
             <div class="bedbase-variants" style="display: none;">
               <!-- Adjustable Base Variants -->
               <div class="adjustable-base-variants">
-                <div class="variant-data" data-size="twin xl" data-price="778.99" data-type="adjustable" data-id="43518441160880" data-inventory="2"></div>
-                <div class="variant-data" data-size="queen" data-price="898.99" data-type="adjustable" data-id="43518441193648" data-inventory="6"></div>
-                <div class="variant-data" data-size="split king - 2 txl" data-price="1448.99" data-type="adjustable" data-id="43518441226416" data-inventory="3"></div>
-                <div class="variant-data" data-size="king" data-price="1448.99" data-type="adjustable" data-id="43518441226416" data-inventory="4"></div>
+                {%- for variant in adjustable_base.variants -%}
+                  <div class="variant-data" 
+                       data-size="{{ variant.option1 | downcase }}" 
+                       data-price="{{ variant.price | money_without_trailing_zeros }}" 
+                       data-type="adjustable" 
+                       data-id="{{ variant.id }}" 
+                       data-inventory="{{ variant.inventory_quantity }}">
+                  </div>
+                {%- endfor -%}
               </div>
 
               <!-- Wooden Platform Variants -->
               <div class="platform-base-variants">
-                <div class="variant-data" data-size="full" data-price="328.99" data-type="platform" data-id="43557194268848" data-inventory="7"></div>
-                <div class="variant-data" data-size="queen" data-price="348.99" data-type="platform" data-id="43454855905456" data-inventory="9"></div>
-                <div class="variant-data" data-size="king" data-price="398.99" data-type="platform" data-id="7569218633904" data-inventory="5"></div>
+                {%- for variant in wooden_platform.variants -%}
+                  <div class="variant-data" 
+                       data-size="{{ variant.option1 | downcase }}" 
+                       data-price="{{ variant.price | money_without_trailing_zeros }}" 
+                       data-type="platform" 
+                       data-id="{{ variant.id }}" 
+                       data-inventory="{{ variant.inventory_quantity }}">
+                  </div>
+                {%- endfor -%}
               </div>
 
               <!-- HD Riser Frame Variants -->
               <div class="riser-base-variants">
-                <div class="variant-data" data-size="twin" data-price="228.99" data-type="riser" data-id="43932973072560" data-inventory="0"></div>
-                <div class="variant-data" data-size="twin xl" data-price="248.99" data-type="riser" data-id="43932973007024" data-inventory="5"></div>
-                <div class="variant-data" data-size="full" data-price="278.99" data-type="riser" data-id="43932973138096" data-inventory="3"></div>
-                <div class="variant-data" data-size="queen" data-price="298.99" data-type="riser" data-id="43932973039792" data-inventory="8"></div>
-                <div class="variant-data" data-size="king" data-price="398.99" data-type="riser" data-id="43932973105328" data-inventory="4"></div>
+                {%- for variant in riser_frame.variants -%}
+                  <div class="variant-data" 
+                       data-size="{{ variant.option1 | downcase }}" 
+                       data-price="{{ variant.price | money_without_trailing_zeros }}" 
+                       data-type="riser" 
+                       data-id="{{ variant.id }}" 
+                       data-inventory="{{ variant.inventory_quantity }}">
+                  </div>
+                {%- endfor -%}
               </div>
             </div>
 
@@ -221,11 +222,6 @@
     
   </div> <!-- End bundle-options-grid -->
 
-  <!-- Trust Badges Image -->
-  <div class="bundle-trust-badges">
-    <img src="https://cdn.shopify.com/s/files/1/0152/7916/1444/files/pdp-trust-badges-group.png?v=1756324347" alt="Trust Badges" loading="lazy">
-  </div>
-
   <!-- Hidden Product Data -->
   <div class="bundle-product-data" style="display: none;">
     <!-- Pillow product data -->
@@ -241,15 +237,15 @@
     
     <!-- Bed base product data -->
     <div id="bedbase-adjustable-data" 
-         data-product-id="7599628746928"
-         data-handle="nest-wild-adjustable-base">
+         data-product-id="{{ adjustable_base.id }}"
+         data-handle="sf500-adjustable-base">
     </div>
     <div id="bedbase-platform-data" 
-         data-product-id="7569218633904"
-         data-handle="nest-wild-wooden-platform">
+         data-product-id="{{ wooden_platform.id }}"
+         data-handle="walnut-wooden-platform">
     </div>
     <div id="bedbase-riser-data" 
-         data-product-id="7725286883504"
+         data-product-id="{{ riser_frame.id }}"
          data-handle="nest-wild-hd-riser-frame">
     </div>
   </div>
@@ -268,126 +264,6 @@
   font-size: 14px;
   line-height: 1.4;
   max-width: 100%;
-}
-
-/* Trust Badges Styling */
-.bundle-trust-badges {
-  margin-top: 20px;
-  text-align: center;
-  padding: 0 16px;
-}
-
-.bundle-trust-badges img {
-  max-width: 75%;
-  height: auto;
-  width: 75%;
-}
-
-@media screen and (max-width: 740px) {
-  .bundle-trust-badges {
-    margin-top: 15px;
-    padding: 0 8px;
-  }
-}
-
-/* Bundle Header with Toggle */
-.bundle-header-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 16px;
-}
-
-.bundle-title-section {
-  flex: 1;
-}
-
-.bundle-toggle-section {
-  flex-shrink: 0;
-}
-
-/* Toggle Switch Styles */
-.bundle-toggle-switch {
-  position: relative;
-  display: inline-block;
-  width: 50px;
-  height: 24px;
-  cursor: pointer;
-}
-
-.bundle-toggle-input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.bundle-toggle-slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: .4s;
-  border-radius: 24px;
-}
-
-.bundle-toggle-slider:before {
-  position: absolute;
-  content: "";
-  height: 18px;
-  width: 18px;
-  left: 3px;
-  bottom: 3px;
-  background-color: white;
-  transition: .4s;
-  border-radius: 50%;
-}
-
-.bundle-toggle-input:checked + .bundle-toggle-slider {
-  background-color: #f04f23;
-}
-
-.bundle-toggle-input:checked + .bundle-toggle-slider:before {
-  transform: translateX(26px);
-}
-
-/* Bundle Details Visibility */
-.bundle-details-content {
-  transition: all 0.3s ease;
-}
-
-.bundle-details-content.hidden {
-  display: none;
-}
-
-.bundle-details-content.collapsed {
-  overflow: hidden;
-  max-height: 0;
-  opacity: 0;
-  padding: 0;
-  margin: 0;
-}
-
-/* Show only images when toggle is off */
-.bundle-option.bundle-collapsed .bundle-image-container {
-  display: block;
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
-}
-
-.bundle-option.bundle-expanded .bundle-image-container {
-  opacity: 1;
-  transition: opacity 0.3s ease;
-}
-
-.bundle-option.bundle-collapsed .bundle-product-title,
-.bundle-option.bundle-collapsed .bundle-product-price,
-.bundle-option.bundle-collapsed .bundle-controls,
-.bundle-option.bundle-collapsed .bundle-add-button {
-  display: none;
-}
   position: relative;
 }
 
@@ -497,9 +373,6 @@
   padding: 10px 12px;
   background: transparent;
   border-bottom: none;
-  min-height: 40px; /* Ensure consistent height for alignment */
-  display: flex;
-  align-items: center;
 }
 
 .bundle-option-details {
@@ -589,7 +462,6 @@
   font-weight: 500;
   color: var(--heading-color, #333);
   font-family: inherit;
-  padding-top: 8px; /* Add 8px padding to the top of product titles */
 }
 
 .bundle-product-price {
@@ -1529,17 +1401,10 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .add-to-cart-title {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   margin: 0 0 4px 0;
   color: var(--heading-color, #333);
-  font-family: inherit;
-}
-
-.add-to-cart-subtitle {
-  font-size: 14px;
-  margin: 0;
-  color: #666;
   font-family: inherit;
 }
 
@@ -1560,7 +1425,7 @@ document.addEventListener('DOMContentLoaded', function() {
   /* Step 1: Mattress Selection - Mobile Optimization */
   .mattress-selection-container {
     padding: 12px !important;
-    margin: 0 0 18px 0 !important;
+    margin: 0 0 8px 0 !important;
   }
   
   .mattress-selection-header {
@@ -1582,42 +1447,9 @@ document.addEventListener('DOMContentLoaded', function() {
     width: 66.666% !important;
   }
   
-  .mattress-size-section .product-form__option-selector {
-    font-size: 12px !important;
-    max-width: 100% !important;
-    overflow: hidden !important;
-  }
-  
-  .mattress-size-section .product-form__option-selector select {
-    font-size: 12px !important;
-    text-overflow: ellipsis !important;
-    white-space: nowrap !important;
-    overflow: hidden !important;
-  }
-  
-  .mattress-size-section .select__selected-value {
-    font-size: 14px !important;
-  }
-  
   .mattress-quantity-section {
     flex: 1 !important;
     width: 33.333% !important;
-  }
-  
-  .mattress-quantity-section .quantity-selector {
-    padding: 0 !important;
-  }
-  
-  .mattress-quantity-section .quantity-selector button {
-    width: 28px !important;
-    min-width: 28px !important;
-    padding: 0 !important;
-  }
-  
-  .mattress-quantity-section .quantity-selector input {
-    padding: 0 4px !important;
-    min-width: 30px !important;
-    text-align: center !important;
   }
   
   /* Step 2: Bundle & Save - Mobile Optimization */
@@ -1627,7 +1459,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   .bundle-save-header {
-    padding: 8px 12px !important;
+    padding: 8px 0 !important;
     margin-bottom: 8px !important;
   }
   
@@ -1646,16 +1478,12 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   .bundle-option {
-    padding: 0 !important;
+    padding: 8px !important;
     margin-bottom: 8px !important;
   }
   
-  .bundle-option-details {
-    padding: 0 !important;
-  }
-  
   .bundle-option-header {
-    padding: 6px 6px !important;
+    padding: 6px 0 !important;
     margin-bottom: 6px !important;
   }
   
@@ -1673,21 +1501,12 @@ document.addEventListener('DOMContentLoaded', function() {
     height: 60px !important;
   }
   
-  .bundle-product-image-full {
-    padding-left: 6px !important;
-    padding-right: 6px !important;
-  }
-  
   .bundle-product-title {
     font-size: 13px !important;
-    padding-left: 6px !important;
-    padding-right: 6px !important;
   }
   
   .bundle-product-price {
     font-size: 14px !important;
-    padding-left: 6px !important;
-    padding-right: 6px !important;
   }
   
   .bundle-controls {
@@ -1708,37 +1527,9 @@ document.addEventListener('DOMContentLoaded', function() {
     max-width: 120px !important;
   }
   
-  .bundle-quantity-selector {
-    padding-left: 6px !important;
-    padding-right: 6px !important;
-  }
-  
   .bundle-actions {
     padding: 8px !important;
     margin-top: 8px !important;
-  }
-  
-  /* Premium Features - Mobile Single Column Layout */
-  .shopify-section--multi-column .multi-column__inner {
-    display: flex !important;
-    flex-direction: column !important;
-    width: 100% !important;
-  }
-  
-  .shopify-section--multi-column .multi-column__item {
-    width: 100% !important;
-    flex: none !important;
-    margin-bottom: 20px !important;
-    min-width: 100% !important;
-  }
-  
-  .shopify-section--multi-column .multi-column__item:last-child {
-    margin-bottom: 0 !important;
-  }
-  
-  .shopify-section--multi-column .multi-column__image-wrapper {
-    width: 100% !important;
-    max-width: 100% !important;
   }
   
   .bundle-add-to-cart {
@@ -1761,11 +1552,6 @@ document.addEventListener('DOMContentLoaded', function() {
     margin: 0 0 2px 0 !important;
   }
   
-  .add-to-cart-subtitle {
-    font-size: 12px !important;
-    margin: 0 !important;
-  }
-  
   .add-to-cart-content {
     gap: 6px !important;
   }
@@ -1777,71 +1563,6 @@ document.addEventListener('DOMContentLoaded', function() {
     top: 0;
     right: 0;
     margin: auto;
-  }
-  
-  .store-availability-container {
-    padding-top: 25px !important;
-  }
-  
-  .product-sticky-form {
-    display: none !important;
-  }
-  
-  .product-form__quantity {
-    margin-top: -3px !important;
-  }
-  
-  /* YouTube video in Curb the Confusion section - 100% width on mobile */
-  .shopify-section--custom-html {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-  
-  .shopify-section--custom-html .section__container {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-  
-  .shopify-section--custom-html .custom-html {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-  
-  .video-slider-wrap {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-  
-  .video-slider {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-  
-  .video-slider > div {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-  
-  .shopify-section--custom-html iframe,
-  .video-slider-wrap iframe,
-  .video-slider iframe {
-    width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important;
-    padding: 0 !important;
-    margin: 0 !important;
   }
   
   .product .product-form__store-availability-container svg {
@@ -1874,58 +1595,10 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 }
 
-    /* Video Section Styling */
-    .shopify-section--custom-html {
-      background-color: #dae0d5 !important;
-      padding-top: 45px !important;
-      padding-bottom: 80px !important;
-    }
-    
-    /* Product Video Width */
-    .product-video {
-      width: 80% !important;
-    }
+/* Video Section Styling */
+.shopify-section--custom-html {
+  background-color: #dae0d5 !important;
+  padding-top: 45px !important;
+  padding-bottom: 80px !important;
+}
 </style>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const bundleToggle = document.getElementById('bundle-toggle');
-  const bundleOptions = document.querySelectorAll('.bundle-option');
-  const bundleDetails = document.querySelectorAll('.bundle-details-content');
-  
-  if (bundleToggle) {
-    // Initialize toggle state (off by default)
-    bundleToggle.checked = false;
-    updateBundleVisibility(false);
-    
-    // Add event listener for toggle changes
-    bundleToggle.addEventListener('change', function() {
-      updateBundleVisibility(this.checked);
-    });
-  }
-  
-  function updateBundleVisibility(isExpanded) {
-    bundleOptions.forEach(option => {
-      if (isExpanded) {
-        // Show all details when toggle is ON
-        option.classList.remove('bundle-collapsed');
-        option.classList.add('bundle-expanded');
-      } else {
-        // Show only images when toggle is OFF
-        option.classList.add('bundle-collapsed');
-        option.classList.remove('bundle-expanded');
-      }
-    });
-    
-    bundleDetails.forEach(detail => {
-      if (isExpanded) {
-        // Show all content
-        detail.classList.remove('hidden', 'collapsed');
-      } else {
-        // Hide all content except images
-        detail.classList.add('collapsed');
-      }
-    });
-  }
-});
-</script>

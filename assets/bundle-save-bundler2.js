@@ -99,7 +99,12 @@
 
       // Handle bed base type changes
       $container.on('change', this.selectors.bedbaseTypeRadios, (e) => {
-        this.updateBedbaseDisplay($(e.target));
+        const $radio = $(e.target);
+        this.updateBedbaseDisplay($radio);
+        
+        // Re-detect mattress size when bed base type changes
+        this.updateMattressSize();
+        console.log('Mattress size re-detected after bed base change:', this.state.currentMattressSize);
       });
 
       // Listen for mattress size changes on any option selector
@@ -107,6 +112,12 @@
         console.log('Option change event triggered for:', $(e.target).attr('name'));
         this.updateMattressSize();
         this.updateBedbasePricing();
+        
+        // Update bed base display if a bed base is currently selected
+        const $selectedBedbase = $(this.selectors.bedbaseTypeRadios + ':checked');
+        if ($selectedBedbase.length) {
+          this.updateBedbaseDisplay($selectedBedbase);
+        }
       });
       
       // Also listen for clicks on option radio buttons
@@ -420,48 +431,162 @@
       const selectedType = $(this.selectors.bedbaseTypeRadios + ':checked').val();
       const mattressSize = this.state.currentMattressSize;
       
-      console.log('getBedbaseVariantId called with:', {
-        selectedType: selectedType,
-        mattressSize: mattressSize,
-        mattressSizeType: typeof mattressSize
-      });
+      console.log('=== getBedbaseVariantId Debug ===');
+      console.log('Selected type:', selectedType);
+      console.log('Mattress size:', mattressSize);
+      console.log('Mattress size type:', typeof mattressSize);
       
-      // Use the correct variant IDs from the existing codebase
-      const variantMap = {
-        adjustable: {
-          'twin xl': '43518441160880',
-          'queen': '43518441193648', 
-          'king': '43518441226416',
-          'split king': '43518441226416',
-          'split king - 2 txl': '43518441226416',
-          'california king': '43518441226416'
-        },
-        platform: {
-          'full': '43557194268848',
-          'queen': '43454855905456',
-          'king': '7569218633904'
-        },
-        riser: {
-          'twin': '43932973072560',
-          'twin xl': '43932973007024',
-          'full': '43932973138096',
-          'queen': '43932973039792',
-          'king': '43932973105328'
-        }
-      };
+      // First, try to get variant ID from the HTML variant data
+      let variantId = null;
       
-      let variantId = variantMap[selectedType] && variantMap[selectedType][mattressSize];
-      console.log('Found variant ID:', variantId);
-      console.log('Available keys for', selectedType, ':', Object.keys(variantMap[selectedType] || {}));
-      
-      // If no variant found and it's a split king variant, fall back to king
-      if (!variantId && mattressSize && mattressSize.includes('split king')) {
-        console.log('Split king variant not found, falling back to king variant');
-        variantId = variantMap[selectedType] && variantMap[selectedType]['king'];
-        console.log('Fallback variant ID:', variantId);
+      // Look for the variant data in the HTML
+      const $variantData = $(`.bedbase-variants .variant-data[data-type="${selectedType}"][data-size="${mattressSize}"]`);
+      if ($variantData.length) {
+        variantId = $variantData.data('id');
+        console.log('Found variant ID from HTML data:', variantId);
       }
       
+      // If not found in HTML, try with size variations
+      if (!variantId && mattressSize) {
+        console.log('No direct match in HTML, trying size variations...');
+        
+        const sizeVariations = [
+          mattressSize,
+          mattressSize.replace(/\s+/g, ' ').trim(),
+          mattressSize.toLowerCase(),
+          mattressSize.replace(/[^a-zA-Z0-9\s]/g, '').toLowerCase()
+        ];
+        
+        for (let variation of sizeVariations) {
+          const $variantData = $(`.bedbase-variants .variant-data[data-type="${selectedType}"][data-size="${variation}"]`);
+          if ($variantData.length) {
+            variantId = $variantData.data('id');
+            console.log('Found variant ID with variation:', variation, '->', variantId);
+            break;
+          }
+        }
+      }
+      
+            // If still not found, try to find any variant for this type and size
+      if (!variantId) {
+        console.log('Looking for any variant of type:', selectedType);
+        const $anyVariant = $(`.bedbase-variants .variant-data[data-type="${selectedType}"]`);
+        if ($anyVariant.length) {
+          // Special handling for adjustable base king/split king mapping
+          if (selectedType === 'adjustable' && (mattressSize.includes('king') || mattressSize.includes('split king'))) {
+            console.log('Looking for split king variant for adjustable base...');
+            const $splitKingVariant = $anyVariant.filter(function() {
+              const variantSize = $(this).data('size');
+              return variantSize.includes('split king') || variantSize.includes('split king - 2 txl');
+            });
+            
+            if ($splitKingVariant.length) {
+              variantId = $splitKingVariant.first().data('id');
+              console.log('Found split king variant for adjustable base:', variantId);
+            }
+          }
+          
+          // If still not found, try to find the best match based on mattress size
+          if (!variantId) {
+            let bestMatch = null;
+            let bestScore = 0;
+            
+            const self = this; // Store reference to 'this'
+            $anyVariant.each(function() {
+              const $variant = $(this);
+              const variantSize = $variant.data('size');
+              const score = self.calculateSizeMatchScore(mattressSize, variantSize);
+              
+              if (score > bestScore) {
+                bestScore = score;
+                bestMatch = $variant.data('id');
+              }
+            });
+            
+            if (bestMatch) {
+              variantId = bestMatch;
+              console.log('Found best match variant ID:', variantId, 'with score:', bestScore);
+            } else {
+              // Use the first available variant
+              variantId = $anyVariant.first().data('id');
+              console.log('Using first available variant ID:', variantId);
+            }
+          }
+        }
+      }
+      
+      // Fallback to hardcoded values if HTML data is not available
+      if (!variantId) {
+        console.log('No HTML variant data found, using hardcoded fallback...');
+        const variantMap = {
+          adjustable: {
+            'twin xl': '43518441160880',
+            'queen': '43518441193648', 
+            'king': '43518441226416',
+            'split king': '43518441226416',
+            'split king - 2 txl': '43518441226416',
+            'california king': '43518441226416'
+          },
+          platform: {
+            'full': '43557194268848',
+            'queen': '43454855905456',
+            'king': '' // Will be populated from HTML data
+          },
+          riser: {
+            'twin': '43932973072560',
+            'twin xl': '43932973007024',
+            'full': '43932973138096',
+            'queen': '43932973039792',
+            'king': '43932973105328'
+          }
+        };
+        
+        variantId = variantMap[selectedType] && variantMap[selectedType][mattressSize];
+        
+        // If no direct match and it's a split king variant, fall back to king
+        if (!variantId && mattressSize && mattressSize.includes('split king')) {
+          console.log('Split king variant not found, falling back to king variant');
+          variantId = variantMap[selectedType] && variantMap[selectedType]['king'];
+        }
+        
+        // Final fallback: if still no variant found, use the first available variant for the type
+        if (!variantId && variantMap[selectedType]) {
+          const firstVariant = Object.values(variantMap[selectedType])[0];
+          console.log('No variant found, using first available variant:', firstVariant);
+          variantId = firstVariant;
+        }
+      }
+      
+      console.log('Final variant ID:', variantId);
       return variantId;
+    },
+    
+    calculateSizeMatchScore: function(mattressSize, variantSize) {
+      if (!mattressSize || !variantSize) return 0;
+      
+      const mattress = mattressSize.toLowerCase();
+      const variant = variantSize.toLowerCase();
+      
+      // Exact match gets highest score
+      if (mattress === variant) return 100;
+      
+      // Special handling for adjustable base - both king and split king should match split king variant
+      if (variant.includes('split king') || variant.includes('split king - 2 txl')) {
+        if (mattress.includes('king') || mattress.includes('split king')) {
+          return 95; // High score for king/split king matching split king variant
+        }
+      }
+      
+      // Partial matches
+      if (mattress.includes('king') && variant.includes('king')) return 80;
+      if (mattress.includes('queen') && variant.includes('queen')) return 80;
+      if (mattress.includes('full') && variant.includes('full')) return 80;
+      if (mattress.includes('twin') && variant.includes('twin')) return 80;
+      
+      // Split king variations
+      if (mattress.includes('split') && variant.includes('king')) return 70;
+      
+      return 0;
     },
 
     addBundleToCart: function() {
@@ -639,49 +764,116 @@
       const selectedType = $(this.selectors.bedbaseTypeRadios + ':checked').val();
       const mattressSize = this.state.currentMattressSize;
       
+      console.log('=== addBedbaseToBundle Debug ===');
+      console.log('Selected bed base type:', selectedType);
+      console.log('Current mattress size:', mattressSize);
+      console.log('Available mattress sizes in state:', this.state.currentMattressSize);
+      
       // Get bed base variant ID
       const bedbaseVariantId = this.getBedbaseVariantId();
       
+      console.log('Bed base variant ID:', bedbaseVariantId);
+      
       if (!bedbaseVariantId) {
+        console.error('No bed base variant ID found');
+        console.log('Available variant mappings:', {
+          adjustable: this.state.bedbasePrices.adjustable,
+          platform: this.state.bedbasePrices.platform,
+          riser: this.state.bedbasePrices.riser
+        });
         this.showNotification('Unable to get bed base variant. Please try again.', 'error');
         return;
       }
       
-      // Disable button and show loading
-      $button.prop('disabled', true).text('ADDING...');
-      
-      // Add bed base to cart
-      $.ajax({
-        url: '/cart/add.js',
-        method: 'POST',
-        dataType: 'json',
-        data: {
+      // Validate variant ID before adding to cart
+      this.validateVariantId(bedbaseVariantId, selectedType, (isValid) => {
+        if (!isValid) {
+          console.error('Variant ID validation failed:', bedbaseVariantId);
+          this.showNotification('This bed base variant is not available. Please try a different option.', 'error');
+          $button.prop('disabled', false).text(originalText);
+          return;
+        }
+        
+        // Disable button and show loading
+        $button.prop('disabled', true).text('ADDING...');
+        
+        console.log('Adding to cart with data:', {
           id: bedbaseVariantId,
           quantity: 1
-        },
-        success: (response) => {
-          console.log('Bed base added to cart successfully:', response);
-          
-          // Show success notification
-          const baseTypeText = selectedType === 'adjustable' ? 'Adjustable Base' : 
-                              selectedType === 'platform' ? 'Wooden Platform' : 'HD Riser Frame';
-          this.showNotification(
-            `${baseTypeText} added to bundle - add mattress to cart to see total savings`,
-            'success'
-          );
-          
-          // Update cart count
-          this.updateCartCount();
-          
-          // Reset button
-          $button.prop('disabled', false).text(originalText);
-        },
-        error: (xhr, status, error) => {
-          console.error('Error adding bed base to cart:', error);
-          this.showNotification('Error adding bed base to cart. Please try again.', 'error');
-          $button.prop('disabled', false).text(originalText);
-        }
+        });
+        
+        // Add bed base to cart
+        $.ajax({
+          url: '/cart/add.js',
+          method: 'POST',
+          dataType: 'json',
+          data: {
+            id: bedbaseVariantId,
+            quantity: 1
+          },
+          success: (response) => {
+            console.log('Bed base added to cart successfully:', response);
+            
+            // Show success notification
+            const baseTypeText = selectedType === 'adjustable' ? 'Adjustable Base' : 
+                                selectedType === 'platform' ? 'Wooden Platform' : 'HD Riser Frame';
+            this.showNotification(
+              `${baseTypeText} added to bundle - add mattress to cart to see total savings`,
+              'success'
+            );
+            
+            // Update cart count
+            this.updateCartCount();
+            
+            // Reset button
+            $button.prop('disabled', false).text(originalText);
+          },
+          error: (xhr, status, error) => {
+            console.error('Error adding bed base to cart:', {
+              status: xhr.status,
+              statusText: xhr.statusText,
+              responseText: xhr.responseText,
+              error: error
+            });
+            
+            // More specific error message based on the error
+            let errorMessage = 'Error adding bed base to cart. Please try again.';
+            if (xhr.status === 422) {
+              errorMessage = 'This bed base is not available for your mattress size.';
+            } else if (xhr.status === 404) {
+              errorMessage = 'Bed base product not found. Please contact support.';
+            }
+            
+            this.showNotification(errorMessage, 'error');
+            $button.prop('disabled', false).text(originalText);
+          }
+        });
       });
+    },
+    
+    validateVariantId: function(variantId, selectedType, callback) {
+      // First check if the variant exists in our HTML data
+      const $variantData = $(`.bedbase-variants .variant-data[data-id="${variantId}"]`);
+      if ($variantData.length) {
+        const inventory = parseInt($variantData.data('inventory')) || 0;
+        console.log('Variant found in HTML data, inventory:', inventory);
+        
+        if (inventory > 0) {
+          callback(true);
+          return;
+        } else {
+          console.log('Variant out of stock');
+          callback(false);
+          return;
+        }
+      }
+      
+      // If not found in HTML, try to validate via API
+      console.log('Variant not found in HTML data, checking via API...');
+      
+      // For now, assume it's valid if we can't validate it
+      // In a production environment, you might want to make an API call to validate
+      callback(true);
     },
 
     showNotification: function(message, type = 'info') {
