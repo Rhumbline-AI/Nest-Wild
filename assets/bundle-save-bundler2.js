@@ -442,14 +442,20 @@
       console.log('Mattress size:', mattressSize);
       console.log('Mattress size type:', typeof mattressSize);
       
-      // First, try to get variant ID from the HTML variant data
+      // Use our corrected size mapping function to get the target variant size
+      const targetVariantSize = this.getBedbaseVariantForMattressSize(selectedType, mattressSize);
+      console.log('Target variant size from mapping:', targetVariantSize);
+      
+      // First, try to get variant ID from the HTML variant data using the mapped size
       let variantId = null;
       
-      // Look for the variant data in the HTML
-      const $variantData = $(`.bedbase-variants .variant-data[data-type="${selectedType}"][data-size="${mattressSize}"]`);
-      if ($variantData.length) {
-        variantId = $variantData.data('id');
-        console.log('Found variant ID from HTML data:', variantId);
+      if (targetVariantSize) {
+        // Look for the variant data in the HTML using the mapped size
+        const $variantData = $(`.bedbase-variants .variant-data[data-type="${selectedType}"][data-size="${targetVariantSize}"]`);
+        if ($variantData.length) {
+          variantId = $variantData.data('id');
+          console.log('Found variant ID from HTML data using mapped size:', variantId);
+        }
       }
       
       // If not found in HTML, try with size variations
@@ -638,9 +644,25 @@
         });
         
         if (bedbaseVariantId) {
+          // Determine quantity based on bed base type and mattress size
+          let quantity = 1;
+          
+          // For HD Riser with Split King, add 2 Twin XL risers
+          if (selectedType === 'riser' && mattressSize && mattressSize.includes('split king')) {
+            quantity = 2;
+            console.log('HD Riser with Split King detected - setting quantity to 2');
+          }
+          
+          console.log('Final bed base selection:', {
+            selectedType: selectedType,
+            mattressSize: mattressSize,
+            variantId: bedbaseVariantId,
+            quantity: quantity
+          });
+          
           itemsToAdd.push({
             id: bedbaseVariantId,
-            quantity: 1
+            quantity: quantity
           });
         }
       }
