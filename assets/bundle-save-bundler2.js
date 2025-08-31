@@ -271,6 +271,9 @@
     },
 
     getBedbaseVariantForMattressSize: function(baseType, mattressSize) {
+      console.log(`=== getBedbaseVariantForMattressSize called ===`);
+      console.log(`baseType: ${baseType}, mattressSize: "${mattressSize}"`);
+      
       // Map mattress size to bed base variant
       const sizeMap = {
         'twin': { adjustable: null, platform: null, riser: 'twin' },
@@ -279,15 +282,18 @@
         'queen': { adjustable: 'queen', platform: 'queen', riser: 'queen' },
         'king': { adjustable: 'split king - 2 txl', platform: 'king', riser: 'king' },
         'split king': { adjustable: 'split king - 2 txl', platform: 'king', riser: 'king' },
-        'split king (2 twin xl)': { adjustable: 'king', platform: 'king', riser: 'king' },
-        'split king 2 twin xl': { adjustable: 'king', platform: 'king', riser: 'king' },
-        'split king - 2 twin xl': { adjustable: 'king', platform: 'king', riser: 'king' },
-        'split king 2 txl': { adjustable: 'king', platform: 'king', riser: 'king' },
-        'split king - 2 txl': { adjustable: 'king', platform: 'king', riser: 'king' },
+        'split king (2 twin xl)': { adjustable: 'split king - 2 txl', platform: 'king', riser: 'twin xl' },
+        'split king (2 twinxl)': { adjustable: 'split king - 2 txl', platform: 'king', riser: 'twin xl' },
+        'split king 2 twin xl': { adjustable: 'split king - 2 txl', platform: 'king', riser: 'twin xl' },
+        'split king - 2 twin xl': { adjustable: 'split king - 2 txl', platform: 'king', riser: 'twin xl' },
+        'split king 2 txl': { adjustable: 'split king - 2 txl', platform: 'king', riser: 'twin xl' },
+        'split king - 2 txl': { adjustable: 'split king - 2 txl', platform: 'king', riser: 'twin xl' },
         'california king': { adjustable: 'split king - 2 txl', platform: 'king', riser: 'king' }
       };
       
-      return sizeMap[mattressSize] ? sizeMap[mattressSize][baseType] : null;
+      const result = sizeMap[mattressSize] ? sizeMap[mattressSize][baseType] : null;
+      console.log(`Result for ${baseType}: ${result}`);
+      return result;
     },
 
     updateBedbasePricing: function() {
