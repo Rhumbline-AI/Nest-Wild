@@ -1,0 +1,9 @@
+# Shopify CLI ignore file
+.git/
+.gitignore
+README.md
+deploy.sh
+shopify_dev.log
+BUNDLE_TESTING_CHECKLIST.md
+.DS_Store
+

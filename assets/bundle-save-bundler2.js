@@ -241,7 +241,7 @@
         const variantSize = this.getBedbaseVariantForMattressSize(baseType, this.state.currentMattressSize);
         if (variantSize && this.state.bedbasePrices[baseType][variantSize]) {
           const price = this.state.bedbasePrices[baseType][variantSize];
-          $(this.selectors.bedbasePrice).text(`$${price}`);
+          $(this.selectors.bedbasePrice).text(price);
         }
       }
     },
@@ -332,7 +332,7 @@
             $radio.prop('disabled', false);
             
             // Update price display
-            $(this.selectors.bedbasePrice).text(`$${price}`);
+            $(this.selectors.bedbasePrice).text(price);
             
             // Remove any existing unavailable message
             $container.find('.unavailable-message').remove();
