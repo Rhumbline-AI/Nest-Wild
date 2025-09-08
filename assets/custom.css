@@ -494,26 +494,6 @@
 	display: none !important;
   }
 
-/* PRODUCT VIDEO STYLING FOR NW-BUNDLER TEMPLATE */
-@media screen and (min-width: 741px) {
-  /* Set product video width to 80% on desktop for nw-bundler template */
-  .product-video {
-    width: 80% !important;
-  }
-}
-
-/* FIX COLLECTION PAGE MOBILE HEADER POSITIONING */
-@media screen and (max-width: 740px) {
-  /* Move page header up on collection pages to avoid mobile toolbar overlap */
-  .template-collection .page-header,
-  body[class*="template-collection"] .page-header,
-  .page-header {
-    position: relative !important;
-    text-align: center !important;
-    top: -70px !important;
-  }
-}
-
 /* FIX HEADER NAVIGATION LAYOUT - DESKTOP ONLY */
 @media screen and (min-width: 741px) {
   .header__inline-navigation .header__linklist {

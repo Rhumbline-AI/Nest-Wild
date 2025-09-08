@@ -1,68 +1,96 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "current": {
-    "button_border_radius": 0,
-    "block_border_radius": "none",
-    "heading_color": "#282828",
-    "text_color": "#292929",
+    "accent_color": "#405de6",
     "background": "#ffffff",
-    "secondary_background": "#e7e7e7",
-    "success_color": "#2ad973",
-    "error_color": "#de2a2a",
-    "header_background": "#0e2333",
-    "footer_background": "#0e2333",
-    "footer_text_color": "#ffffff",
-    "primary_button_background": "#f04f23",
-    "secondary_button_background": "#ffffff",
-    "secondary_button_text_color": "#0e2333",
-    "product_rating_color": "#f04f23",
-    "product_on_sale_accent": "#ff8900",
-    "product_sold_out_accent": "#de2a2a",
-    "product_custom_label_background": "#f04f23",
-    "product_custom_label_2_background": "#f04f23",
-    "product_in_stock_text_color": "#2e9e7b",
-    "product_low_stock_text_color": "#de2a2a",
-    "heading_font": "zurich_extended_n8",
-    "heading_font_size": "small",
-    "heading_text_transform": "uppercase",
-    "text_font": "open_sans_n4",
-    "text_font_size": 16,
-    "currency_code_enabled": true,
-    "stagger_products_apparition": true,
-    "round_color_swatches": false,
-    "show_vendor": false,
-    "show_secondary_image": true,
-    "show_product_rating": false,
-    "product_color_display": "count",
-    "product_image_size": "natural",
-    "search_enable_products": true,
-    "search_enable_blog_posts": false,
-    "search_enable_pages": false,
-    "search_enable_collections": true,
-    "cart_type": "drawer",
-    "cart_icon": "shopping_cart",
-    "cart_empty_button_link": "shopify://collections/mattresses",
-    "cart_show_free_shipping_threshold": false,
+    "block_border_radius": "none",
+    "blocks": {
+      "10605408327587305396": {
+        "disabled": false,
+        "settings": {
+          "version": "v3"
+        },
+        "type": "shopify:\/\/apps\/eg-auto-add-to-cart\/blocks\/app-embed\/0f7d4f74-1e89-4820-aec4-6564d7e535d2"
+      },
+      "13768625480086291342": {
+        "disabled": false,
+        "settings": {},
+        "type": "shopify:\/\/apps\/forms\/blocks\/forms\/8744a304-fcb1-4347-b211-bb6b4759a76a"
+      },
+      "15683396631634586217": {
+        "disabled": false,
+        "settings": {
+          "button_color": "#1d416b",
+          "secondary_color": "#FFFFFF",
+          "ternary_color": "#6A6A6A",
+          "button_icon": "chat_bubble",
+          "button_text": "no_text",
+          "button_horizontal_position": "bottom_right",
+          "button_vertical_position": "lowest",
+          "greeting_message": "👋 Hello! Click here get instant answers, chat or email us live."
+        },
+        "type": "shopify:\/\/apps\/inbox\/blocks\/chat\/841fc607-4181-4ad1-842d-e24d7f8bad6b"
+      },
+      "16256948136948485038": {
+        "disabled": false,
+        "settings": {},
+        "type": "shopify:\/\/apps\/upcharge-surcharges\/blocks\/app-embed-block\/3660e544-1847-4d53-9b3b-f0cb50c2d9f7"
+      },
+      "6478312753674380289": {
+        "disabled": false,
+        "settings": {},
+        "type": "shopify:\/\/apps\/gempages-builder\/blocks\/embed-gp-script-head\/20b379d4-1b20-474c-a6ca-665c331919f3"
+      },
+      "7867184527792707249": {
+        "disabled": false,
+        "settings": {},
+        "type": "shopify:\/\/apps\/sc-product-options\/blocks\/app-embed\/873c9b74-306d-4f83-b58b-a2f5043d2187"
+      },
+      "855628211100114053": {
+        "disabled": false,
+        "settings": {},
+        "type": "shopify:\/\/apps\/klaviyo-email-marketing-sms\/blocks\/klaviyo-onsite-embed\/2632fe16-c075-4321-a88b-50b567f42507"
+      }
+    },
+    "button_border_radius": 0,
+    "cart_empty_button_link": "shopify:\/\/collections\/mattresses",
     "cart_free_shipping_threshold": "",
-    "social_facebook": "https://www.facebook.com/nestandwild/",
-    "social_twitter": "https://mobile.twitter.com/nestandwild",
-    "social_instagram": "https://www.instagram.com/nestandwild/",
-    "social_youtube": "https://www.youtube.com/@nestwildmattresses",
-    "favicon": "shopify://shop_images/nw_favicon.jpg",
-    "checkout_logo_image": "shopify://shop_images/checkout-logo-call-ceo3.png",
-    "checkout_sidebar_background_color": "#f5f5f5",
+    "cart_icon": "shopping_cart",
+    "cart_show_free_shipping_threshold": false,
+    "cart_type": "drawer",
     "checkout_accent_color": "#282828",
     "checkout_button_color": "#405de6",
     "checkout_error_color": "#de2a2a",
-    "accent_color": "#405de6",
+    "checkout_logo_image": "shopify:\/\/shop_images\/checkout-logo-call-ceo3.png",
+    "checkout_sidebar_background_color": "#f5f5f5",
+    "content_for_index": [],
+    "currency_code_enabled": true,
+    "error_color": "#de2a2a",
+    "favicon": "shopify:\/\/shop_images\/nw_favicon.jpg",
+    "footer_background": "#0e2333",
+    "footer_text_color": "#ffffff",
+    "header_background": "#0e2333",
+    "heading_color": "#282828",
+    "heading_font": "zurich_extended_n8",
+    "heading_font_size": "small",
+    "heading_text_transform": "uppercase",
+    "primary_button_background": "#f04f23",
+    "product_color_display": "count",
+    "product_custom_label_2_background": "#f04f23",
+    "product_custom_label_background": "#f04f23",
+    "product_image_size": "natural",
+    "product_in_stock_text_color": "#2e9e7b",
+    "product_low_stock_text_color": "#de2a2a",
+    "product_on_sale_accent": "#ff8900",
+    "product_rating_color": "#f04f23",
+    "product_sold_out_accent": "#de2a2a",
+    "round_color_swatches": false,
+    "search_enable_blog_posts": false,
+    "search_enable_collections": true,
+    "search_enable_pages": false,
+    "search_enable_products": true,
+    "secondary_background": "#e7e7e7",
+    "secondary_button_background": "#ffffff",
+    "secondary_button_text_color": "#0e2333",
     "sections": {
       "announcement-bar": {
         "type": "announcement-bar",
@@ -88,7 +116,7 @@
               "title": "Hybrid",
               "content": "",
               "button_text": "Order Now",
-              "button_link": "shopify://products/luxuryhybrid"
+              "button_link": "shopify:\/\/products\/luxuryhybrid"
             }
           },
           "d5e63220-148c-4358-91ef-6d97ded40f24": {
@@ -112,7 +140,7 @@
               "title": "Bases",
               "content": "",
               "button_text": "Bases",
-              "button_link": "shopify://collections/bases"
+              "button_link": "shopify:\/\/collections\/bases"
             }
           }
         },
@@ -137,7 +165,7 @@
         "type": "header",
         "settings": {
           "enable_sticky_header": true,
-          "logo": "shopify://shop_images/nest-wild_logo_2x_1d2b74dd-ee32-4fc2-b9dc-6adf76191de2.png",
+          "logo": "shopify:\/\/shop_images\/nest-wild_logo_2x_1d2b74dd-ee32-4fc2-b9dc-6adf76191de2.png",
           "logo_max_width": 200,
           "mobile_logo_max_width": 145,
           "navigation_menu": "main-menu-1",
@@ -158,7 +186,7 @@
           "f5012117-bd89-4b81-ad17-a27b77862938": {
             "type": "image",
             "settings": {
-              "image": "shopify://shop_images/nw_buffalo-badge-white.png",
+              "image": "shopify:\/\/shop_images\/nw_buffalo-badge-white.png",
               "image_width": 230
             }
           },
@@ -166,21 +194,21 @@
             "type": "text",
             "settings": {
               "title": "Nest & Wild",
-              "content": "<p>118 RD 183<br/>TUPELO, MS 38804</p><p><a href=\"/pages/contact\" title=\"Contact\">Talk with the CEO</a><br/><a href=\"tel:+16626101882\" title=\"(662) 610-1882\"><br/>(662) 610-1882</a><br/></p>"
+              "content": "<p>118 RD 183<br\/>TUPELO, MS 38804<\/p><p><a href=\"\/pages\/contact\" title=\"Contact\">Talk with the CEO<\/a><br\/><a href=\"tel:+16626101882\" title=\"(662) 610-1882\"><br\/>(662) 610-1882<\/a><br\/><\/p>"
             }
           },
           "96541fac-c02b-4ac4-bf58-bbb89334e11c": {
             "type": "text",
             "settings": {
               "title": "",
-              "content": "<p><a href=\"/\" title=\"/\">HOME</a><br/><a href=\"/collections/mattresses\" title=\"Premium Mattresses\">OUR MATTRESSES<br/></a><a href=\"/collections/bases\" title=\"Bases\">OUR BASES</a><br/><a href=\"/pages/our-story\" title=\"Our Story\">OUR STORY</a><br/><a href=\"/pages/contact\" title=\"Contact\">CONTACT US</a><br/><a href=\"/pages/faq\" title=\"FAQ\">FAQS<br/></a><a href=\"/blogs/news\" title=\"News\">BLOGS</a></p>"
+              "content": "<p><a href=\"\/\" title=\"\/\">HOME<\/a><br\/><a href=\"\/collections\/mattresses\" title=\"Premium Mattresses\">OUR MATTRESSES<br\/><\/a><a href=\"\/collections\/bases\" title=\"Bases\">OUR BASES<\/a><br\/><a href=\"\/pages\/our-story\" title=\"Our Story\">OUR STORY<\/a><br\/><a href=\"\/pages\/contact\" title=\"Contact\">CONTACT US<\/a><br\/><a href=\"\/pages\/faq\" title=\"FAQ\">FAQS<br\/><\/a><a href=\"\/blogs\/news\" title=\"News\">BLOGS<\/a><\/p>"
             }
           },
           "b00fb76b-1029-488b-abd1-fef7790af56d": {
             "type": "text",
             "settings": {
               "title": "",
-              "content": "<p><a href=\"/pages/terms-and-conditions\" title=\"Terms and Conditions\">TERMS & CONDITIONS</a><br/><a href=\"/pages/privacy-policy\" title=\"Privacy Policy\">PRIVACY POLICY</a><br/><a href=\"/pages/warranty\" title=\"Warranty\">WARRANTY</a></p><p><a href=\"/pages/return-and-refund\" title=\"Return and Refund\">RETURN & REFUND</a></p><p><a href=\"/pages/affiliate-sign-up\" title=\"Affiliate Sign Up\">AFFILIATE SIGN UP</a></p><p></p>"
+              "content": "<p><a href=\"\/pages\/terms-and-conditions\" title=\"Terms and Conditions\">TERMS & CONDITIONS<\/a><br\/><a href=\"\/pages\/privacy-policy\" title=\"Privacy Policy\">PRIVACY POLICY<\/a><br\/><a href=\"\/pages\/warranty\" title=\"Warranty\">WARRANTY<\/a><\/p><p><a href=\"\/pages\/return-and-refund\" title=\"Return and Refund\">RETURN & REFUND<\/a><\/p><p><a href=\"\/pages\/affiliate-sign-up\" title=\"Affiliate Sign Up\">AFFILIATE SIGN UP<\/a><\/p><p><\/p>"
             }
           },
           "social_media": {
@@ -204,7 +232,7 @@
           "show_locale_selector": false,
           "show_cookie_bar": false,
           "cookie_bar_title": "Cookie policy",
-          "cookie_bar_content": "<p>I agree to the processing of my data in accordance with the conditions set out in the policy of Privacy.</p>"
+          "cookie_bar_content": "<p>I agree to the processing of my data in accordance with the conditions set out in the policy of Privacy.<\/p>"
         }
       },
       "popup": {
@@ -215,10 +243,10 @@
           "show_only_on_index": true,
           "show_only_for_visitors": true,
           "show_only_once": false,
-          "image": "shopify://shop_images/stretching-small.png",
+          "image": "shopify:\/\/shop_images\/stretching-small.png",
           "image_position": "left",
           "title": "RECEIVE 15% OFF TODAY",
-          "content": "<p>Join our email list and get your 15% off code today. Don’t worry, we don’t email often.</p>"
+          "content": "<p>Join our email list and get your 15% off code today. Don’t worry, we don’t email often.<\/p>"
         }
       },
       "mini-cart": {
@@ -226,7 +254,7 @@
         "settings": {
           "show_order_note": true,
           "show_checkout_button": true,
-          "empty_button_link": "shopify://collections/all",
+          "empty_button_link": "shopify:\/\/collections\/all",
           "show_recommendations": false,
           "recommendations_title": "You may also like"
         }
@@ -240,7 +268,7 @@
               "icon": "picto-box",
               "custom_icon_width": 50,
               "title": "Free shipping",
-              "content": "<p>Free worldwide shipping and returns - customs and duties taxes included</p>"
+              "content": "<p>Free worldwide shipping and returns - customs and duties taxes included<\/p>"
             }
           },
           "static-text-with-icons-1": {
@@ -249,7 +277,7 @@
               "icon": "picto-phone",
               "custom_icon_width": 50,
               "title": "Customer service",
-              "content": "<p>We are available from monday to friday to answer your questions.</p>"
+              "content": "<p>We are available from monday to friday to answer your questions.<\/p>"
             }
           },
           "static-text-with-icons-2": {
@@ -258,17 +286,17 @@
               "icon": "picto-lock",
               "custom_icon_width": 50,
               "title": "Secure payment",
-              "content": "<p>Your payment information is processed securely.</p>"
+              "content": "<p>Your payment information is processed securely.<\/p>"
             }
           },
           "490e2c72-95c2-455c-8b35-e79ad19fccac": {
             "type": "item",
             "settings": {
               "icon": "picto-customer-support",
-              "custom_icon": "shopify://shop_images/NW_icon-99nights.png",
+              "custom_icon": "shopify:\/\/shop_images\/NW_icon-99nights.png",
               "custom_icon_width": 80,
               "title": "99 Nights on Us.",
-              "content": "<p>Or your money back.</p>"
+              "content": "<p>Or your money back.<\/p>"
             }
           }
         },
@@ -290,7 +318,7 @@
           "show_section": false,
           "reveal_on_scroll": true,
           "subheading": "Subscribe to our newsletter",
-          "content": "<p>Promotions, new products and sales. Directly to your inbox.</p>",
+          "content": "<p>Promotions, new products and sales. Directly to your inbox.<\/p>",
           "text_position": "right",
           "text_alignment": "left",
           "text_background": "rgba(0,0,0,0)",
@@ -300,55 +328,18 @@
         }
       }
     },
-    "content_for_index": [],
-    "blocks": {
-      "13768625480086291342": {
-        "type": "shopify://apps/forms/blocks/forms/8744a304-fcb1-4347-b211-bb6b4759a76a",
-        "disabled": false,
-        "settings": {}
-      },
-      "855628211100114053": {
-        "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
-        "disabled": false,
-        "settings": {}
-      },
-      "15683396631634586217": {
-        "type": "shopify://apps/inbox/blocks/chat/841fc607-4181-4ad1-842d-e24d7f8bad6b",
-        "disabled": false,
-        "settings": {
-          "button_color": "#1d416b",
-          "secondary_color": "#FFFFFF",
-          "ternary_color": "#6A6A6A",
-          "button_icon": "chat_bubble",
-          "button_text": "no_text",
-          "button_horizontal_position": "bottom_right",
-          "button_vertical_position": "lowest",
-          "greeting_message": "👋 Hello! Click here get instant answers, chat or email us live."
-        }
-      },
-      "10605408327587305396": {
-        "type": "shopify://apps/eg-auto-add-to-cart/blocks/app-embed/0f7d4f74-1e89-4820-aec4-6564d7e535d2",
-        "disabled": false,
-        "settings": {
-          "version": "v3"
-        }
-      },
-      "6478312753674380289": {
-        "type": "shopify://apps/gempages-builder/blocks/embed-gp-script-head/20b379d4-1b20-474c-a6ca-665c331919f3",
-        "disabled": false,
-        "settings": {}
-      },
-      "7867184527792707249": {
-        "type": "shopify://apps/sc-product-options/blocks/app-embed/873c9b74-306d-4f83-b58b-a2f5043d2187",
-        "disabled": false,
-        "settings": {}
-      },
-      "16256948136948485038": {
-        "type": "shopify://apps/upcharge-surcharges/blocks/app-embed-block/3660e544-1847-4d53-9b3b-f0cb50c2d9f7",
-        "disabled": false,
-        "settings": {}
-      }
-    }
+    "show_product_rating": false,
+    "show_secondary_image": true,
+    "show_vendor": false,
+    "social_facebook": "https:\/\/www.facebook.com\/nestandwild\/",
+    "social_instagram": "https:\/\/www.instagram.com\/nestandwild\/",
+    "social_twitter": "https:\/\/mobile.twitter.com\/nestandwild",
+    "social_youtube": "https:\/\/www.youtube.com\/@nestwildmattresses",
+    "stagger_products_apparition": true,
+    "success_color": "#2ad973",
+    "text_color": "#292929",
+    "text_font": "open_sans_n4",
+    "text_font_size": 16
   },
   "presets": {
     "Carbon": {

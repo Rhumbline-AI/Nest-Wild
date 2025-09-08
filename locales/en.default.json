@@ -267,7 +267,7 @@
     },
     "Newsletter": {
       "err_msg_default": "Can’t send email. Please try again later.",
-      "success_msg_default": "Thanks for contacting us. We'll get back to you as soon as possible."
+      "success_msg_default": "Thanks for subscribing"
     },
     "IconListV2": {
       "icons_not_found": "Icons not found"
